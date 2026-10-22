@@ -1,0 +1,50 @@
+% Native vector artwork; requires tikz with arrows.meta, positioning, calc.
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,font=\footnotesize,
+  glhbox/.style={draw,rounded corners=1pt,align=center,inner sep=4pt,minimum height=.90cm},
+  glhdata/.style={->,thick},glhctrl/.style={->,dashed}]
+  \node[glhbox,text width=2.20cm] (imu) at (1.25,0)
+    {I$^2$C pose/control\\atomic receiver + CDC};
+  \node[glhbox,text width=2.45cm] (hist) at (4.25,0)
+    {EO / IR epoch histories\\16 full tags per family};
+  \node[glhbox,text width=2.55cm] (pose) at (7.40,0)
+    {Lease lookup + projection\\one frozen angle set};
+  \node[glhbox,text width=2.35cm] (table) at (10.55,0)
+    {Segment transform + sort\\tables rebuilt on change};
+  \node[glhbox,text width=2.35cm] (rom) at (13.60,0)
+    {Static map segments\\trig and seam ROMs};
+  \draw[glhctrl] (imu)--(hist);
+  \draw[glhctrl] (hist)--(pose);
+  \draw[glhctrl] (pose)--(table);
+  \draw[glhctrl] (rom)--(table);
+  \node[align=center] (cal) at (7.40,1.0) {Mount yaw + UI trims / revision};
+  \draw[glhctrl] (cal)--(pose);
+  \node[glhbox,text width=2.20cm] (camera) at (1.25,-2.05)
+    {Six cameras, one family\\capture writers};
+  \node[glhbox,text width=2.45cm] (ddr) at (4.25,-2.05)
+    {DDR source banks\\four banks per camera};
+  \node[glhbox,text width=2.55cm] (replay) at (7.40,-2.05)
+    {Frameset lease + replay\\global row/column bounds};
+  \node[glhbox,text width=2.35cm] (ring) at (10.55,-2.05)
+    {Input line ring\\three rows per camera};
+  \node[glhbox,text width=2.35cm] (walk) at (13.60,-2.05)
+    {Walker + sampler\\source-row scheduling};
+  \foreach \a/\b in {camera/ddr,ddr/replay,replay/ring,ring/walk}
+    \draw[glhdata] (\a)--(\b);
+  \draw[glhctrl] (camera.north)--++(0,.45)-|(hist.south);
+  \node[fill=white,inner sep=1pt] at (2.75,-1.19) {trigger epoch};
+  \draw[glhctrl] (replay)--(pose);
+  \draw[glhctrl] (table.south)--++(0,-.35)-|(walk.north);
+  \node[glhbox,text width=2.35cm] (window) at (13.60,-4.05)
+    {Output RowWindow\\256 EO / 512 IR rows};
+  \node[glhbox,text width=2.35cm] (emit) at (10.55,-4.05)
+    {Row-ready emitter\\seam blend + fold};
+  \node[glhbox,text width=2.55cm] (out) at (7.40,-4.05)
+    {DDR output banks\\build / pending / scanout};
+  \node[glhbox,text width=2.45cm] (scan) at (4.25,-4.05)
+    {Raster output\\may repeat completed image};
+  \foreach \a/\b in {walk/window,window/emit,emit/out,out/scan}
+    \draw[glhdata] (\a)--(\b);
+  \draw[glhctrl] (table.west)--++(-.35,0)--++(0,-3.30)-|(emit.north);
+  \node[align=center] at (7.40,-5.05)
+    {Solid: pixels / image storage\quad Dashed: pose / scheduling\quad EO and IR share the renderer};
+\end{tikzpicture}

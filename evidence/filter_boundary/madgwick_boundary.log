@@ -1,0 +1,7 @@
+madgwick_boundary.c
+imu_madgwick.c
+Generating Code...
+identity_stationary: finite=0 q=(-nan(ind),-nan(ind),-nan(ind),-nan(ind))
+small_tilt_control: finite=1
+zero_acceleration_control: finite=1
+Scope: exact copied C host boundary reproduction; no physical IMU or timing test.

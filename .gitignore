@@ -24,6 +24,15 @@
 *.pdf
 !figures/*.pdf
 
+# Local baseline, scratch builds, and rendered page images.
+output/
+tmp/
+__pycache__/
+
+# Small, explicitly archived verification logs are research evidence.
+!evidence/**/*.log
+!evidence/*.log
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db

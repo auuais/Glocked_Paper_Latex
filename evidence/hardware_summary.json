@@ -1,0 +1,1533 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-23",
+  "scope": "Read-only audit; no hardware access. Original files unchanged. Historical source dates retained.",
+  "qualitative_live_status": {
+    "classification": "author_report",
+    "statement": "User reports testing live operation successfully; no exact bitstream/configuration or numeric motion/latency trace accompanies that statement."
+  },
+  "routed_candidate": {
+    "classification": "placed_and_routed_implementation",
+    "build_directory": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605",
+    "completed_at_local": "2026-10-16T02:54:19+09:00",
+    "source_commit": "cbb95ad6da9cd048eb3aedfa03b7244fb5970eeb",
+    "tools_commit": "c01baebe07bbb98d10227b55e67d192c6769e4a7",
+    "part": "xcku15p-ffve1517-2-i",
+    "tool": "Vivado2025.2",
+    "resources": {
+      "Block RAM Tile": 495.0,
+      "CLB LUTs": 54289.0,
+      "CLB Registers": 58469.0,
+      "DSPs": 30.0,
+      "Register as Latch": 0.0,
+      "URAM": 92.0
+    },
+    "flip_flops": 58468,
+    "register_as_and_or": 1,
+    "ramb36": 492,
+    "ramb18": 6,
+    "nominal_bram_uram_capacity_bytes_including_parity": 5672448,
+    "capacity_caveat": "Primitive capacity, not payload/working memory; includes infrastructure/debug; excludes DDR and distributed memory.",
+    "timing": {
+      "THS": 0.0,
+      "TNS": 0.0,
+      "TPWS": 0.0,
+      "WHS": 0.01,
+      "WNS": 0.075,
+      "WPWS": 0.064,
+      "hold_failing_endpoints": 0,
+      "hold_total_endpoints": 203196,
+      "pulse_failing_endpoints": 0,
+      "pulse_total_endpoints": 68636,
+      "setup_failing_endpoints": 0,
+      "setup_total_endpoints": 203874
+    },
+    "clock_mhz": {
+      "ui": 233.38,
+      "hd_video": 74.25,
+      "reference": 27.0
+    },
+    "no_input_delay": 159,
+    "no_output_delay": 37,
+    "full_cdc_severity_counts": {
+      "Critical": 128,
+      "Info": 710,
+      "Warning": 265
+    },
+    "full_design_cdc_or_board_io_signoff": false,
+    "report_hash_checks": [
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/bus_skew_routed.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/cdc_routed.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/cdc_synth.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/drc_routed.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/route_status.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/timing_routed.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/utilization_routed.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/utilization_synth.rpt",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/KintexTop_EO_IR_HD_SDI_panorama_base.bit",
+        "matches_recorded_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/KintexTop_EO_IR_HD_SDI_panorama_base.ltx",
+        "matches_recorded_hash": true
+      }
+    ]
+  },
+  "historical_static_output": {
+    "classification": "recorded_live_hardware",
+    "date": "2026-09-04",
+    "build": "c83e29d",
+    "archive": "E:/Xylinx/EO_Panorama_V19_M1_IR_DDR/builds/bit_archive/20260904_133759_wrwindow_c83e29d",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/HANDOFF_EO_PANORAMA_30FPS_20260903.md",
+    "section": "19",
+    "method": "60fps SDI/USB grabs; exact frame hashes; EO frame_done counter agreement",
+    "modes": [
+      {
+        "mode": "EO panorama",
+        "distinct_fps": 29.97,
+        "black_frames": 0,
+        "grabs": 598
+      },
+      {
+        "mode": "IR panorama",
+        "distinct_fps": 29.7,
+        "black_frames": 0,
+        "grabs": 474
+      },
+      {
+        "mode": "IR single",
+        "distinct_fps": 29.95,
+        "black_frames": 0,
+        "grabs": 477
+      },
+      {
+        "mode": "EO single",
+        "distinct_fps": 29.95,
+        "black_frames": 0,
+        "grabs": 477
+      }
+    ],
+    "limits": [
+      "Not rerun in this audit",
+      "Static narrow capture window, not gravity worst-case envelope",
+      "22.3Mbeats/s historical aggregate writes, not capture-only budget or maximum bandwidth"
+    ]
+  },
+  "latency": {
+    "classification": "archived_live_register_snapshots",
+    "build": "67955bc",
+    "date": "2026-08-19",
+    "nominal_ui_clock_hz": 233400000,
+    "timestamp_tick_us": 0.27420736932305056,
+    "snapshots": [
+      {
+        "mode": "eo_single",
+        "source": "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/eo_single.csv",
+        "timing_word_b": "0xb03b56e00e81d009",
+        "samples_with_modal_word": 2048,
+        "distinct_word_values": 1,
+        "event_to_commit_ms": 16.293676092544988,
+        "event_to_copy_done_lower_quantization_ms": 10.108380462724936,
+        "copy_done_bin_width_ms": 1.123153384747215,
+        "start_event": "selected EO camera descriptor-valid"
+      },
+      {
+        "mode": "eo_panorama",
+        "source": "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/eo_panorama.csv",
+        "timing_word_b": "0xb03b56f0388ac023",
+        "samples_with_modal_word": 2048,
+        "distinct_word_values": 1,
+        "event_to_commit_ms": 63.50532990574121,
+        "event_to_copy_done_lower_quantization_ms": 39.310368466152525,
+        "copy_done_bin_width_ms": 1.123153384747215,
+        "start_event": "newest camera0 descriptor-valid, NOT leased-epoch timestamp"
+      },
+      {
+        "mode": "ir_single",
+        "source": "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/ir_single.csv",
+        "timing_word_b": "0xb01dab703474c01f",
+        "samples_with_modal_word": 1536,
+        "distinct_word_values": 2,
+        "event_to_commit_ms": 58.91619537275064,
+        "event_to_copy_done_lower_quantization_ms": 34.81775492716367,
+        "copy_done_bin_width_ms": 1.123153384747215,
+        "start_event": "selected IR camera frame pulse, NOT completion descriptor",
+        "observed_timing_words": [
+          {
+            "word": "0xb01dab703474c01f",
+            "samples": 1536,
+            "event_to_commit_ms": 58.91619537275064
+          },
+          {
+            "word": "0xb01dab703474d01f",
+            "samples": 512,
+            "event_to_commit_ms": 58.91646958011997
+          }
+        ]
+      }
+    ],
+    "source_blobs": [
+      {
+        "repo": "E:/Xylinx/EO_Panorama_V19_M1",
+        "commit": "67955bc",
+        "path": "src/V19TimingProbe.v",
+        "sha256": "e11e503948786db03c8de0dec02fbd97f636244fef6983776f515674f40387ec",
+        "bytes": 6021
+      },
+      {
+        "repo": "E:/Xylinx/EO_Panorama_V19_M1",
+        "commit": "67955bc",
+        "path": "src/PanoramaBase_DdrBlackFrame.v",
+        "sha256": "8e0110148ee601b9af542e5d680d7c3cb4c6407dcddf20e05aeb2b9e95165388",
+        "bytes": 219535
+      }
+    ],
+    "narrative_event_to_commit_ms": {
+      "EOsingle": 16.4,
+      "EOpanorama": 41.1,
+      "IRsingle": 50.1,
+      "IRpanorama": 45.0
+    },
+    "narrative_limit": "Other session observations; not an aggregate or the exact snapshot set. IR starts are frame pulses, not completion descriptors.",
+    "estimated_typical_ms_from_narrative": {
+      "EOsingle": 49.8,
+      "EOpanorama": 74.5,
+      "IRsingle": 83.5,
+      "IRpanorama": 78.3
+    },
+    "estimated_total_limit": "Assumed mean16.7ms row age plus16.7ms scanout; not measured sensor-display. Sensor/ISP excluded. Panorama source association unproved.",
+    "new_gravity_latency_measured": false
+  },
+  "camera_sync": {
+    "classification": "recorded_live_input_hardware",
+    "date": "2026-10-09",
+    "format": "1080p60",
+    "cameras": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shutter_setting": "1/60s; not independently measured integration duration",
+    "gain_db": 0,
+    "trigger_hz": 30,
+    "trigger_high_ms": 2,
+    "exttrig_delay_ms": 0,
+    "timestamp_hz": 27000000,
+    "sampling_taps": [
+      336,
+      280,
+      308,
+      280,
+      322
+    ],
+    "conditions": [
+      {
+        "condition": "on_a",
+        "dnr": "2D+3D",
+        "observed_s": 58.61739862962963,
+        "raster_spread_ms": {
+          "n": 3515,
+          "min": 10.825962962962963,
+          "median": 10.854518518518518,
+          "p95": 10.873862962962964,
+          "max": 10.876037037037037
+        },
+        "camera_rates": [
+          {
+            "camera": 2,
+            "records": 3519,
+            "valid": 3519,
+            "timing_valid": 3519,
+            "sequence_gaps": 0,
+            "duration_s": 58.61739862962963,
+            "full_changes": 1759,
+            "roi_changes": 1759,
+            "raster_hz": 59.99925077231667,
+            "full_change_hz": 30.008155276799837,
+            "roi_change_hz": 30.008155276799837
+          },
+          {
+            "camera": 3,
+            "records": 3519,
+            "valid": 3519,
+            "timing_valid": 3519,
+            "sequence_gaps": 0,
+            "duration_s": 58.617672666666664,
+            "full_changes": 1758,
+            "roi_changes": 1758,
+            "raster_hz": 59.99897027641573,
+            "full_change_hz": 29.99095528744352,
+            "roi_change_hz": 29.99095528744352
+          },
+          {
+            "camera": 4,
+            "records": 3519,
+            "valid": 3519,
+            "timing_valid": 3519,
+            "sequence_gaps": 0,
+            "duration_s": 58.617570925925925,
+            "full_changes": 1758,
+            "roi_changes": 1758,
+            "raster_hz": 59.99907441480944,
+            "full_change_hz": 29.99100734183537,
+            "roi_change_hz": 29.99100734183537
+          },
+          {
+            "camera": 5,
+            "records": 3519,
+            "valid": 3519,
+            "timing_valid": 3519,
+            "sequence_gaps": 0,
+            "duration_s": 58.61749666666667,
+            "full_changes": 2098,
+            "roi_changes": 1765,
+            "raster_hz": 59.999150424313015,
+            "full_change_hz": 35.79136127102892,
+            "roi_change_hz": 30.110463605036244
+          },
+          {
+            "camera": 6,
+            "records": 3519,
+            "valid": 3519,
+            "timing_valid": 3519,
+            "sequence_gaps": 0,
+            "duration_s": 58.61744288888889,
+            "full_changes": 2798,
+            "roi_changes": 1760,
+            "raster_hz": 59.99920546971963,
+            "full_change_hz": 47.73323198870501,
+            "roi_change_hz": 30.025192387462763
+          }
+        ],
+        "roi_spread_us": {
+          "n": 1755,
+          "min": 11152.148148148148,
+          "median": 11262.518518518518,
+          "p95": 11339.651851851851,
+          "max": 19119.814814814814,
+          "mean": 11281.542239105202
+        }
+      },
+      {
+        "condition": "off_b",
+        "dnr": "OFF",
+        "observed_s": 58.750729925925924,
+        "raster_spread_ms": {
+          "n": 3523,
+          "min": 10.642962962962963,
+          "median": 10.669592592592593,
+          "p95": 10.68962962962963,
+          "max": 10.692037037037036
+        },
+        "camera_rates": [
+          {
+            "camera": 2,
+            "records": 3527,
+            "valid": 3527,
+            "timing_valid": 3527,
+            "sequence_gaps": 0,
+            "duration_s": 58.750729925925924,
+            "full_changes": 1763,
+            "roi_changes": 1763,
+            "raster_hz": 59.99925455299686,
+            "full_change_hz": 30.00813780905914,
+            "roi_change_hz": 30.00813780905914
+          },
+          {
+            "camera": 3,
+            "records": 3529,
+            "valid": 3529,
+            "timing_valid": 3529,
+            "sequence_gaps": 0,
+            "duration_s": 58.784339296296295,
+            "full_changes": 1763,
+            "roi_changes": 1763,
+            "raster_hz": 59.99897323371326,
+            "full_change_hz": 29.990980950109577,
+            "roi_change_hz": 29.990980950109577
+          },
+          {
+            "camera": 4,
+            "records": 3528,
+            "valid": 3528,
+            "timing_valid": 3528,
+            "sequence_gaps": 0,
+            "duration_s": 58.76756922222222,
+            "full_changes": 1763,
+            "roi_changes": 1763,
+            "raster_hz": 59.99907851670488,
+            "full_change_hz": 29.99953925835244,
+            "roi_change_hz": 29.99953925835244
+          },
+          {
+            "camera": 5,
+            "records": 3529,
+            "valid": 3529,
+            "timing_valid": 3529,
+            "sequence_gaps": 0,
+            "duration_s": 58.7841617037037,
+            "full_changes": 2651,
+            "roi_changes": 1771,
+            "raster_hz": 59.99915449636804,
+            "full_change_hz": 45.09718133537615,
+            "roi_change_hz": 30.12716263483635
+          },
+          {
+            "camera": 6,
+            "records": 3529,
+            "valid": 3529,
+            "timing_valid": 3529,
+            "sequence_gaps": 0,
+            "duration_s": 58.78410707407407,
+            "full_changes": 3527,
+            "roi_changes": 1773,
+            "raster_hz": 59.999210255173466,
+            "full_change_hz": 59.999210255173466,
+            "roi_change_hz": 30.16121343419976
+          }
+        ],
+        "roi_spread_us": {
+          "n": 1759,
+          "min": 13459.888888888889,
+          "median": 15502.925925925925,
+          "p95": 15607.344444444445,
+          "max": 15616.185185185184,
+          "mean": 15507.468405870339
+        }
+      },
+      {
+        "condition": "on_return",
+        "dnr": "2D+3D",
+        "observed_s": 58.00072337037037,
+        "raster_spread_ms": {
+          "n": 3478,
+          "min": 10.454407407407407,
+          "median": 10.477703703703705,
+          "p95": 10.504561111111112,
+          "max": 10.50662962962963
+        },
+        "camera_rates": [
+          {
+            "camera": 2,
+            "records": 3482,
+            "valid": 3482,
+            "timing_valid": 3482,
+            "sequence_gaps": 0,
+            "duration_s": 58.00072337037037,
+            "full_changes": 1740,
+            "roi_changes": 1740,
+            "raster_hz": 59.99925169515654,
+            "full_change_hz": 29.99962584757827,
+            "roi_change_hz": 29.99962584757827
+          },
+          {
+            "camera": 3,
+            "records": 3481,
+            "valid": 3481,
+            "timing_valid": 3481,
+            "sequence_gaps": 0,
+            "duration_s": 57.98432748148148,
+            "full_changes": 1739,
+            "roi_changes": 1739,
+            "raster_hz": 59.99897129290828,
+            "full_change_hz": 29.99086262672248,
+            "roi_change_hz": 29.99086262672248
+          },
+          {
+            "camera": 4,
+            "records": 3482,
+            "valid": 3482,
+            "timing_valid": 3482,
+            "sequence_gaps": 0,
+            "duration_s": 58.000892962962965,
+            "full_changes": 1740,
+            "roi_changes": 1740,
+            "raster_hz": 59.999076259432556,
+            "full_change_hz": 29.999538129716278,
+            "roi_change_hz": 29.999538129716278
+          },
+          {
+            "camera": 5,
+            "records": 3482,
+            "valid": 3482,
+            "timing_valid": 3482,
+            "sequence_gaps": 0,
+            "duration_s": 58.000818851851854,
+            "full_changes": 2090,
+            "roi_changes": 1751,
+            "raster_hz": 59.999152923836526,
+            "full_change_hz": 36.033974026097226,
+            "roi_change_hz": 30.18922895679246
+          },
+          {
+            "camera": 6,
+            "records": 3482,
+            "valid": 3482,
+            "timing_valid": 3482,
+            "sequence_gaps": 0,
+            "duration_s": 58.00076903703704,
+            "full_changes": 2825,
+            "roi_changes": 1741,
+            "raster_hz": 59.99920445499278,
+            "full_change_hz": 48.70625074291799,
+            "roi_change_hz": 30.01684337820185
+          }
+        ],
+        "roi_spread_us": {
+          "n": 1736,
+          "min": 10454.407407407407,
+          "median": 13241.462962962964,
+          "p95": 13270.416666666666,
+          "max": 13273.111111111111,
+          "mean": 12738.65136968766
+        }
+      },
+      {
+        "condition": "off_repeat",
+        "dnr": "OFF",
+        "observed_s": 58.95073074074074,
+        "raster_spread_ms": {
+          "n": 3535,
+          "min": 10.221592592592593,
+          "median": 10.252,
+          "p95": 10.271677777777779,
+          "max": 10.273777777777777
+        },
+        "camera_rates": [
+          {
+            "camera": 2,
+            "records": 3539,
+            "valid": 3539,
+            "timing_valid": 3539,
+            "sequence_gaps": 0,
+            "duration_s": 58.95073074074074,
+            "full_changes": 1768,
+            "roi_changes": 1768,
+            "raster_hz": 59.999256252740324,
+            "full_change_hz": 29.991146467301355,
+            "roi_change_hz": 29.991146467301355
+          },
+          {
+            "camera": 3,
+            "records": 3540,
+            "valid": 3540,
+            "timing_valid": 3540,
+            "sequence_gaps": 0,
+            "duration_s": 58.96767470370371,
+            "full_changes": 1769,
+            "roi_changes": 1769,
+            "raster_hz": 59.99897431563095,
+            "full_change_hz": 29.999487157815476,
+            "roi_change_hz": 29.999487157815476
+          },
+          {
+            "camera": 4,
+            "records": 3539,
+            "valid": 3539,
+            "timing_valid": 3539,
+            "sequence_gaps": 0,
+            "duration_s": 58.950902925925924,
+            "full_changes": 1768,
+            "roi_changes": 1768,
+            "raster_hz": 59.99908100550006,
+            "full_change_hz": 29.99105886845465,
+            "roi_change_hz": 29.99105886845465
+          },
+          {
+            "camera": 5,
+            "records": 3540,
+            "valid": 3540,
+            "timing_valid": 3540,
+            "sequence_gaps": 0,
+            "duration_s": 58.96749481481481,
+            "full_changes": 2658,
+            "roi_changes": 1775,
+            "raster_hz": 59.99915735119755,
+            "full_change_hz": 45.07568124349438,
+            "roi_change_hz": 30.10132964906039
+          },
+          {
+            "camera": 6,
+            "records": 3540,
+            "valid": 3540,
+            "timing_valid": 3540,
+            "sequence_gaps": 0,
+            "duration_s": 58.967443777777774,
+            "full_changes": 3538,
+            "roi_changes": 1776,
+            "raster_hz": 59.99920928119519,
+            "full_change_hz": 59.99920928119519,
+            "roi_change_hz": 30.11831421238063
+          }
+        ],
+        "roi_spread_us": {
+          "n": 1764,
+          "min": 10221.592592592593,
+          "median": 10252.092592592593,
+          "p95": 10271.80925925926,
+          "max": 13000.407407407407,
+          "mean": 10259.214873603762
+        }
+      }
+    ],
+    "freeze_qualification": {
+      "control_on": {
+        "full_crc": {
+          "all_five_pass": false,
+          "cameras": {
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": false,
+            "6": false
+          }
+        },
+        "roi_crc": {
+          "all_five_pass": true,
+          "cameras": {
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": true,
+            "6": true
+          }
+        }
+      },
+      "control_off": {
+        "full_crc": {
+          "all_five_pass": false,
+          "cameras": {
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": false,
+            "6": false
+          }
+        },
+        "roi_crc": {
+          "all_five_pass": true,
+          "cameras": {
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": true,
+            "6": true
+          }
+        }
+      }
+    },
+    "drift": {
+      "3": {
+        "reference_camera": 2,
+        "slope_us_per_s": 4.678534639150015,
+        "residual_us": {
+          "on_a": {
+            "n": 3515,
+            "min": -0.1445464668048544,
+            "median": -0.0039450590008982545,
+            "p95": 0.060273111563378716,
+            "max": 0.0910158851199867,
+            "mean": -0.006504011000247128
+          },
+          "off_b": {
+            "n": 3523,
+            "min": -0.5252300863175776,
+            "median": -0.2626131984718967,
+            "p95": -0.038976405340768905,
+            "max": 0.028712202270710918,
+            "mean": -0.25767602349294827
+          },
+          "on_return": {
+            "n": 3478,
+            "min": -0.26502212932950897,
+            "median": 0.013468675656326923,
+            "p95": 0.17055585965936185,
+            "max": 0.1980082428769947,
+            "mean": 0.006573202607629833
+          },
+          "off_repeat": {
+            "n": 3535,
+            "min": 0.44274492759222994,
+            "median": 1.153586994415491,
+            "p95": 1.7828109329991093,
+            "max": 1.8330114551454244,
+            "mean": 1.181182446793247
+          }
+        }
+      },
+      "4": {
+        "reference_camera": 2,
+        "slope_us_per_s": 2.9231700790433703,
+        "residual_us": {
+          "on_a": {
+            "n": 3515,
+            "min": -0.7278093329387048,
+            "median": 0.06347557052879438,
+            "p95": 0.3737167733636965,
+            "max": 0.40915451271746406,
+            "mean": 0.010386285059190054
+          },
+          "off_b": {
+            "n": 3523,
+            "min": 2.0108800073909805,
+            "median": 2.4287858821914448,
+            "p95": 2.6119466568043954,
+            "max": 2.6758256662224085,
+            "mean": 2.393474447919292
+          },
+          "on_return": {
+            "n": 3478,
+            "min": -0.2252421057819447,
+            "median": -0.0035072458574632037,
+            "p95": 0.15806615358946485,
+            "max": 0.19091507973996613,
+            "mean": -0.010496777453484088
+          },
+          "off_repeat": {
+            "n": 3535,
+            "min": 2.865863436722748,
+            "median": 3.01281723508896,
+            "p95": 3.2002056889980395,
+            "max": 3.2705114170078105,
+            "mean": 3.020775261631341
+          }
+        }
+      },
+      "5": {
+        "reference_camera": 2,
+        "slope_us_per_s": 1.6525885261415918,
+        "residual_us": {
+          "on_a": {
+            "n": 3515,
+            "min": -0.910947740533345,
+            "median": 0.10923700298070571,
+            "p95": 0.3975422646436584,
+            "max": 0.42583924176187793,
+            "mean": 0.006979400811391199
+          },
+          "off_b": {
+            "n": 3523,
+            "min": 3.394894604826348,
+            "median": 3.7817503642639574,
+            "p95": 4.253783298163767,
+            "max": 4.337813155435832,
+            "mean": 3.8206434636424724
+          },
+          "on_return": {
+            "n": 3478,
+            "min": -0.30149100344357294,
+            "median": -0.13079975939353972,
+            "p95": 0.3617474753055205,
+            "max": 0.40019091664237294,
+            "mean": -0.007053649756523098
+          },
+          "off_repeat": {
+            "n": 3535,
+            "min": 3.8147863853489525,
+            "median": 4.129196395016834,
+            "p95": 4.355680581505874,
+            "max": 4.390441494642687,
+            "mean": 4.097625360192645
+          }
+        }
+      },
+      "6": {
+        "reference_camera": 2,
+        "slope_us_per_s": 0.7445821324851575,
+        "residual_us": {
+          "on_a": {
+            "n": 3515,
+            "min": -0.29747716463970164,
+            "median": 0.05824187413881532,
+            "p95": 0.5224372104764341,
+            "max": 0.7469997351835218,
+            "mean": 0.05025147924154245
+          },
+          "off_b": {
+            "n": 3523,
+            "min": 6.521834705176683,
+            "median": 7.369812792059179,
+            "p95": 7.822756749320204,
+            "max": 7.85624921367787,
+            "mean": 7.344535725208989
+          },
+          "on_return": {
+            "n": 3478,
+            "min": -1.4890898687668823,
+            "median": 0.06600347112703275,
+            "p95": 1.730608754594793,
+            "max": 1.8085923466761074,
+            "mean": -0.05078606944613977
+          },
+          "off_repeat": {
+            "n": 3535,
+            "min": 6.175691577441796,
+            "median": 6.699161693392227,
+            "p95": 9.233252831333322,
+            "max": 9.394418579825071,
+            "mean": 7.283357164416441
+          }
+        }
+      }
+    },
+    "limitations": "Periodic event matching does not identify same physical exposures. Raster spread and CRC-update phase do not measure sensor exposure timing. CRC interpretation requires the corresponding frozen control; extra live transitions are retained.",
+    "raw_source_hash_checks": [
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/control_on/events_000.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_a/events_000.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_a/events_001.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/control_off/events_000.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_b/events_000.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_b/events_001.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_return/events_000.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_return/events_001.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_repeat/events_000.csv",
+        "matches_study_hash": true
+      },
+      {
+        "path": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_repeat/events_001.csv",
+        "matches_study_hash": true
+      }
+    ],
+    "independent_processed_cohort_check": {
+      "cohorts": 14051,
+      "max_shortest_arc_difference_us": 0,
+      "pass": true
+    },
+    "workbook": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/EO_Camera_Synchronization_Comparison_20261009_Exposure60.xlsx",
+    "sheet": "Comparison",
+    "workbook_cells_checked": [
+      {
+        "cell": "D179",
+        "cached": 3515,
+        "formula": "=COUNT('Matched rasters'!L24644:L28158)",
+        "recomputed": 3515,
+        "pass": true
+      },
+      {
+        "cell": "E179",
+        "cached": 10.825962962962963,
+        "formula": "=MIN('Matched rasters'!L24644:L28158)",
+        "recomputed": 10.825962962962963,
+        "pass": true
+      },
+      {
+        "cell": "F179",
+        "cached": 10.854518518518518,
+        "formula": "=MEDIAN('Matched rasters'!L24644:L28158)",
+        "recomputed": 10.854518518518518,
+        "pass": true
+      },
+      {
+        "cell": "G179",
+        "cached": 10.87386296296296,
+        "formula": "=PERCENTILE('Matched rasters'!L24644:L28158,0.95)",
+        "recomputed": 10.873862962962964,
+        "pass": true
+      },
+      {
+        "cell": "H179",
+        "cached": 10.876037037037037,
+        "formula": "=MAX('Matched rasters'!L24644:L28158)",
+        "recomputed": 10.876037037037037,
+        "pass": true
+      },
+      {
+        "cell": "D180",
+        "cached": 3523,
+        "formula": "=COUNT('Matched rasters'!L28159:L31681)",
+        "recomputed": 3523,
+        "pass": true
+      },
+      {
+        "cell": "E180",
+        "cached": 10.642962962962963,
+        "formula": "=MIN('Matched rasters'!L28159:L31681)",
+        "recomputed": 10.642962962962963,
+        "pass": true
+      },
+      {
+        "cell": "F180",
+        "cached": 10.669592592592593,
+        "formula": "=MEDIAN('Matched rasters'!L28159:L31681)",
+        "recomputed": 10.669592592592593,
+        "pass": true
+      },
+      {
+        "cell": "G180",
+        "cached": 10.68962962962963,
+        "formula": "=PERCENTILE('Matched rasters'!L28159:L31681,0.95)",
+        "recomputed": 10.68962962962963,
+        "pass": true
+      },
+      {
+        "cell": "H180",
+        "cached": 10.692037037037036,
+        "formula": "=MAX('Matched rasters'!L28159:L31681)",
+        "recomputed": 10.692037037037036,
+        "pass": true
+      },
+      {
+        "cell": "D181",
+        "cached": 3478,
+        "formula": "=COUNT('Matched rasters'!L31682:L35159)",
+        "recomputed": 3478,
+        "pass": true
+      },
+      {
+        "cell": "E181",
+        "cached": 10.454407407407407,
+        "formula": "=MIN('Matched rasters'!L31682:L35159)",
+        "recomputed": 10.454407407407407,
+        "pass": true
+      },
+      {
+        "cell": "F181",
+        "cached": 10.477703703703705,
+        "formula": "=MEDIAN('Matched rasters'!L31682:L35159)",
+        "recomputed": 10.477703703703705,
+        "pass": true
+      },
+      {
+        "cell": "G181",
+        "cached": 10.50456111111111,
+        "formula": "=PERCENTILE('Matched rasters'!L31682:L35159,0.95)",
+        "recomputed": 10.504561111111112,
+        "pass": true
+      },
+      {
+        "cell": "H181",
+        "cached": 10.50662962962963,
+        "formula": "=MAX('Matched rasters'!L31682:L35159)",
+        "recomputed": 10.50662962962963,
+        "pass": true
+      },
+      {
+        "cell": "D182",
+        "cached": 3535,
+        "formula": "=COUNT('Matched rasters'!L35160:L38694)",
+        "recomputed": 3535,
+        "pass": true
+      },
+      {
+        "cell": "E182",
+        "cached": 10.221592592592593,
+        "formula": "=MIN('Matched rasters'!L35160:L38694)",
+        "recomputed": 10.221592592592593,
+        "pass": true
+      },
+      {
+        "cell": "F182",
+        "cached": 10.252,
+        "formula": "=MEDIAN('Matched rasters'!L35160:L38694)",
+        "recomputed": 10.252,
+        "pass": true
+      },
+      {
+        "cell": "G182",
+        "cached": 10.27167777777778,
+        "formula": "=PERCENTILE('Matched rasters'!L35160:L38694,0.95)",
+        "recomputed": 10.271677777777779,
+        "pass": true
+      },
+      {
+        "cell": "H182",
+        "cached": 10.273777777777777,
+        "formula": "=MAX('Matched rasters'!L35160:L38694)",
+        "recomputed": 10.273777777777777,
+        "pass": true
+      }
+    ],
+    "cached_errors": [],
+    "native_excel_execution": false,
+    "no_edit_or_export": true
+  },
+  "fps_diagnostic": {
+    "classification": "recorded_live_input_hardware",
+    "source": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_fps_evidence/verification_results.json",
+    "primary_verdict": "Withdraw 60 fresh input FPS at 1/30 s. Direct 60-mode OSD shows 1/60 s after a 30-mode 1/30 s preselection; original CRC diagnostic fails a frozen-camera control.",
+    "entries": [
+      {
+        "tag": "crc30_shutter30",
+        "label": "30-mode 1/30 s",
+        "format_hz": 30,
+        "shutter_osd": "1/30 s",
+        "dnr": "2D+3D",
+        "freeze": "OFF",
+        "build_label": "Snapshot",
+        "raster_hz": 29.99963599762547,
+        "reports": 128,
+        "valid_reports": 128,
+        "pairs": 120,
+        "full_changed": 63,
+        "roi_changed": 63,
+        "full_spacing": {
+          "2": 55
+        },
+        "roi_spacing": {
+          "2": 55
+        },
+        "fresh_input_fps": 14.999817998812736,
+        "raw_decoder_accepted": true,
+        "raw_decoder_input_updates_hz": 14.999817998812736,
+        "osd_evidence": "osd30_shutter30_reopened/frame_04757.png",
+        "trigger_hz_observations": {
+          "60": 10
+        },
+        "pclk_hz_observations": {
+          "74248960": 8,
+          "74249216": 2
+        },
+        "freeze_control_pass": null,
+        "roi_spacing_rasters": 2
+      },
+      {
+        "tag": "crc60_2x",
+        "label": "60-mode 2x",
+        "format_hz": 60,
+        "shutter_osd": "2x",
+        "dnr": "2D+3D",
+        "freeze": "OFF",
+        "build_label": "Snapshot",
+        "raster_hz": 59.999316674448984,
+        "reports": 128,
+        "valid_reports": 128,
+        "pairs": 120,
+        "full_changed": 105,
+        "roi_changed": 60,
+        "full_spacing": {
+          "1": 84,
+          "2": 13
+        },
+        "roi_spacing": {
+          "2": 52
+        },
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": false,
+        "raw_decoder_input_updates_hz": null,
+        "osd_evidence": "osd60_slower_attempt/frame_20084.png",
+        "trigger_hz_observations": {
+          "60": 12
+        },
+        "pclk_hz_observations": {
+          "148497920": 2,
+          "148498176": 10
+        },
+        "freeze_control_pass": null,
+        "roi_spacing_rasters": 2
+      },
+      {
+        "tag": "crc60_freeze_on",
+        "label": "Freeze: snapshot RTL",
+        "format_hz": 60,
+        "shutter_osd": "2x",
+        "dnr": "2D+3D",
+        "freeze": "ON",
+        "build_label": "Snapshot",
+        "raster_hz": 59.9992490143749,
+        "reports": 128,
+        "valid_reports": 128,
+        "pairs": 120,
+        "full_changed": 117,
+        "roi_changed": 0,
+        "full_spacing": {
+          "1": 106,
+          "2": 3
+        },
+        "roi_spacing": {},
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": false,
+        "raw_decoder_input_updates_hz": null,
+        "osd_evidence": "osd60_freeze_on/frame_07205.png",
+        "trigger_hz_observations": {
+          "60": 11
+        },
+        "pclk_hz_observations": {
+          "148498176": 9,
+          "148497920": 2
+        },
+        "freeze_control_pass": false,
+        "roi_spacing_rasters": null
+      },
+      {
+        "tag": "crc60_freeze_original",
+        "label": "Freeze: original RTL",
+        "format_hz": 60,
+        "shutter_osd": "2x",
+        "dnr": "2D+3D",
+        "freeze": "ON",
+        "build_label": "Original r2",
+        "raster_hz": 59.999246070079685,
+        "reports": 256,
+        "valid_reports": 256,
+        "pairs": 248,
+        "full_changed": 248,
+        "roi_changed": 248,
+        "full_spacing": {
+          "1": 240
+        },
+        "roi_spacing": {
+          "1": 240
+        },
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": true,
+        "raw_decoder_input_updates_hz": 59.999246070079685,
+        "osd_evidence": "osd60_freeze_on/frame_07205.png",
+        "trigger_hz_observations": {
+          "60": 13
+        },
+        "pclk_hz_observations": {
+          "148498176": 12,
+          "148497920": 1
+        },
+        "freeze_control_pass": false,
+        "roi_spacing_rasters": 1
+      },
+      {
+        "tag": "crc60_frozen_dnr_off",
+        "label": "Freeze: DNR OFF",
+        "format_hz": 60,
+        "shutter_osd": "2x",
+        "dnr": "OFF",
+        "freeze": "ON",
+        "build_label": "Snapshot",
+        "raster_hz": 59.999307724326165,
+        "reports": 128,
+        "valid_reports": 128,
+        "pairs": 120,
+        "full_changed": 118,
+        "roi_changed": 0,
+        "full_spacing": {
+          "1": 108,
+          "2": 2
+        },
+        "roi_spacing": {},
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": false,
+        "raw_decoder_input_updates_hz": null,
+        "osd_evidence": "osd60_frozen_dnr_off/frame_06681.png",
+        "trigger_hz_observations": {
+          "60": 9
+        },
+        "pclk_hz_observations": {
+          "148498176": 9
+        },
+        "freeze_control_pass": false,
+        "roi_spacing_rasters": null
+      },
+      {
+        "tag": "crc60_2x_dnr_off",
+        "label": "2x, DNR OFF",
+        "format_hz": 60,
+        "shutter_osd": "2x",
+        "dnr": "OFF",
+        "freeze": "OFF",
+        "build_label": "Snapshot",
+        "raster_hz": 59.999252696477754,
+        "reports": 128,
+        "valid_reports": 128,
+        "pairs": 120,
+        "full_changed": 119,
+        "roi_changed": 60,
+        "full_spacing": {
+          "1": 110,
+          "2": 1
+        },
+        "roi_spacing": {
+          "2": 52
+        },
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": false,
+        "raw_decoder_input_updates_hz": null,
+        "osd_evidence": "osd60_unfrozen_dnr_off/frame_24369.png",
+        "trigger_hz_observations": {
+          "60": 10
+        },
+        "pclk_hz_observations": {
+          "148498176": 10
+        },
+        "freeze_control_pass": null,
+        "roi_spacing_rasters": 2
+      },
+      {
+        "tag": "crc60_shutter60_dnr_off",
+        "label": "1/60 s, DNR OFF",
+        "format_hz": 60,
+        "shutter_osd": "1/60 s",
+        "dnr": "OFF",
+        "freeze": "OFF",
+        "build_label": "Snapshot",
+        "raster_hz": 59.999254645850804,
+        "reports": 128,
+        "valid_reports": 128,
+        "pairs": 120,
+        "full_changed": 117,
+        "roi_changed": 60,
+        "full_spacing": {
+          "1": 106,
+          "2": 3
+        },
+        "roi_spacing": {
+          "2": 52
+        },
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": false,
+        "raw_decoder_input_updates_hz": null,
+        "osd_evidence": "osd60_shutter60_dnr_off/frame_00950.png",
+        "trigger_hz_observations": {
+          "60": 8
+        },
+        "pclk_hz_observations": {
+          "148498176": 7,
+          "148497920": 1
+        },
+        "freeze_control_pass": null,
+        "roi_spacing_rasters": 2
+      },
+      {
+        "tag": "crc30_freeze_control",
+        "label": "30-mode Freeze control",
+        "format_hz": 30,
+        "shutter_osd": "1/60 s",
+        "dnr": "OFF",
+        "freeze": "ON",
+        "build_label": "Snapshot",
+        "raster_hz": 29.99960745014504,
+        "reports": 127,
+        "valid_reports": 127,
+        "pairs": 119,
+        "full_changed": 0,
+        "roi_changed": 0,
+        "full_spacing": {},
+        "roi_spacing": {},
+        "fresh_input_fps": null,
+        "raw_decoder_accepted": false,
+        "raw_decoder_input_updates_hz": null,
+        "osd_evidence": "osd30_freeze_control/frame_11517.png",
+        "trigger_hz_observations": {
+          "60": 12
+        },
+        "pclk_hz_observations": {
+          "74248960": 8,
+          "74249216": 4
+        },
+        "freeze_control_pass": true,
+        "roi_spacing_rasters": null,
+        "shutter_readback_evidence": "post30_control_shutter.png",
+        "shutter_readback_context": "After capture at unchanged 1080p30, before any restoration shutter writes; 1/60 s was visually reviewed."
+      }
+    ],
+    "workbook": "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_fps_evidence/EO_Camera_FPS_Consolidated_Report_20261007.xlsx",
+    "cached_errors": [],
+    "limitation": "Raster cadence, qualified CRC changes and physical exposures differ. Original60 fresh-full-frame claim withdrawn after Freeze failure."
+  },
+  "architecture_corrections": [
+    "1.93MB is a historical planned storage budget, not current measured on-chip use.",
+    "Current renderer: three-row six-camera source ring and256-row,3925-wide destination storage.",
+    "DDR source capture rings and output banks are essential; small line caches do not remove frame storage.",
+    "C camera-angle matching does not imply pixel equivalence to newest C+INI: stable optical maps/pitch scale retained.",
+    "7.468GB/s useful DDR ceiling is analytical, not measured sustained throughput."
+  ],
+  "bandwidth": {
+    "classification": "analytical_demand_with_separate_historical_measurement",
+    "payload_bytes_per_write_beat": 32,
+    "physical_ui_bits": 384,
+    "used_payload_bits": 256,
+    "useful_peak_ceiling_GBps": 7.46816,
+    "historical_aggregate_writes_Mbeats_s": 22.3,
+    "gravity_EO_panorama_30fps_write_beats_s": 23673600,
+    "gravity_EO_panorama_30fps_write_MBps": 757.5552,
+    "gravity_IR_panorama_30fps_write_beats_s": 5299200,
+    "scope": "Write demand excludes replay reads, refresh, burst arbitration; no measured current30fps guarantee."
+  },
+  "sources": {
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/validation/full_build_20261016_020605.json": {
+      "bytes": 43282,
+      "sha256": "7797258d8b60167bbc3982bfa3600a8ce8558099c0f5b7df2fbde362bedd7223"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/source_manifest.json": {
+      "bytes": 18731,
+      "sha256": "f058086fe4b82645cfef761c6f00633925016e7f7cdac76591fb97a71a8e69b1"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/gravity_timing_routed.rpt": {
+      "bytes": 2511,
+      "sha256": "42416c66e8a099384583588c547b9ee182932969c5b5e537ef2da30845ee9bf8"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/GRAVITY_IMPLEMENTATION.md": {
+      "bytes": 17237,
+      "sha256": "b09706b97578a20469727f17d05c4105f03ea74372639bed0e9fcc57a3fd4c77"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/validation/gravity_bandwidth_review_20261016.md": {
+      "bytes": 9444,
+      "sha256": "8bd6b0685018b0ea8c6609980410f8f8b9b0fa7e2b42295a4eb84e6099f01bff"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/validation/gravity_full_cdc_review_20261016.md": {
+      "bytes": 16653,
+      "sha256": "1a367751508599edb5c3b3e65e6a2f6e86e67de96790860b706a570b31b51f05"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/EO_PANORAMA_V19_TCSVT_HARDWARE_EVIDENCE_REPORT_20260716.md": {
+      "bytes": 36945,
+      "sha256": "7ccc2e8d647dac7fee03d447b3330d2d21a9f52444dd8ba80d08b7f66a4e03d0"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/HANDOFF_EO_PANORAMA_30FPS_20260903.md": {
+      "bytes": 41621,
+      "sha256": "ab86f989ab52e5facaa8c2e8a98570bb0d318da1f1b38eaca447d96c146cdaba"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/ROLLPITCH_SOURCE_DRIVEN_RENDERER.md": {
+      "bytes": 11510,
+      "sha256": "d32c8f7d231b1c670157d4988fb0c4e7faf3d88932862c714c9acb60826a7e4d"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/README.md": {
+      "bytes": 14430,
+      "sha256": "b6148a6a1fd6c555c046c0e87821164d0c0514db5d0727cc82ed74e5fb1dc75b"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/study_config.json": {
+      "bytes": 5578,
+      "sha256": "dc55c6bf73ff8f9664148e4ad9ab51f2c964edb9b4c8256fda1ad386a4951fbd"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/study.json.gz": {
+      "bytes": 919859,
+      "sha256": "12e3b0157a04b64e22a8b1b157dbbfa95b7bf8da641b4e6f06ee5d097295f70f"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/README.md": {
+      "bytes": 6694,
+      "sha256": "eee6248b2441bade1d916eafb3210d795bba3070821c5d013d71565a0e171bc4"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/study.json": {
+      "bytes": 10173600,
+      "sha256": "603b425baf3d3f9bd9aefe18c7d77f3a935b16da2b4f5c7737ffbb9f2dbe3f28"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/raster_cohorts.csv": {
+      "bytes": 3489983,
+      "sha256": "fcdd223575b3e8409cace83a3c8b6dbb5894053c030c8d9c9a35a7eae0464200"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/build_sha256.json": {
+      "bytes": 961,
+      "sha256": "3e1e112a7d039b71776e3ff85cf66685d00aff542d958497c80160fa6e92f34e"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/manifest.json": {
+      "bytes": 130391,
+      "sha256": "8b3e4a085de0a436141a1c7850b1b4aad4ff96227dddb0bcd2db7e1a96fb0f96"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_cam2_20261009/README.md": {
+      "bytes": 9401,
+      "sha256": "dc15313fcf8b8dad7fd821d9000f82cd0fd50a6fa8b728b38ec7d7397196ec87"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_cam2_20261009/comparison.json": {
+      "bytes": 129552,
+      "sha256": "36cba9ff726fbc380bf563182e07864a919678ae7eceacacd15f2a0a0c2080ee"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_fps_evidence/README.md": {
+      "bytes": 4003,
+      "sha256": "cd32f86c6ee96415ec74059cb2dfe315f3b34a6229ed1a70712b6e995c21abfc"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_fps_evidence/verification_results.json": {
+      "bytes": 12123,
+      "sha256": "726879661a01c1edacfc6e126a02e194262b297dbcaf671e949a6f804c6c7cad"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/docs/latency/MEASURED_20260819.md": {
+      "bytes": 11924,
+      "sha256": "5e23a142efdc596e9d835067773ff23d1984bcbd8a49f260989b36979863d9b5"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/docs/latency/MEASURED_20260820_3BANK.md": {
+      "bytes": 13636,
+      "sha256": "63d1d40e4bc85c2b0d15437be3867628878e2450060aca0f239381e5d7d11cd2"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/bus_skew_routed.rpt": {
+      "bytes": 1546357,
+      "sha256": "9d3277efeae09ca2f47ad71fca795df603d0c2630bf73133ac6555a5bf577b9b"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/cdc_routed.rpt": {
+      "bytes": 394379,
+      "sha256": "118cf2bd3c5fc186ee8001d022682179da99d89ddb40bf157f60868da6b5c046"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/cdc_synth.rpt": {
+      "bytes": 339587,
+      "sha256": "25c84c0e8cedc04aea60a5dfbf82e5cfe165ce19c6491687bbe5021ac6653cfc"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/drc_routed.rpt": {
+      "bytes": 31244,
+      "sha256": "0afe91b91c0a59e648ddb5b3879a6c080dcfd669c4afee1fa357ee56e37daf2d"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/route_status.rpt": {
+      "bytes": 651,
+      "sha256": "6b6a36481816d0c28581758e9493da42d66a61af59df00aa26bbb4d2f0448244"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/timing_routed.rpt": {
+      "bytes": 20290607,
+      "sha256": "7504a68019b9523a41a5c3c26545ea0ade0e41a91cd42ec48256cdbfee451ea3"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/utilization_routed.rpt": {
+      "bytes": 15267,
+      "sha256": "b6f0a1517cfae3c5f7cad2f391861620854caba4b1b79e33fe8ee3e141c72170"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/utilization_synth.rpt": {
+      "bytes": 12982,
+      "sha256": "dd0c546107d7b14227a23f1bb8b8cd8b94cca2ec8910c014d184a4b19a57c6a4"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/KintexTop_EO_IR_HD_SDI_panorama_base.bit": {
+      "bytes": 22458803,
+      "sha256": "432946f610e8d358f65aeff0bcd01edef85d6a99bf948ace99b255d1c4663a36"
+    },
+    "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/KintexTop_EO_IR_HD_SDI_panorama_base.ltx": {
+      "bytes": 250824,
+      "sha256": "3a1bddde08e72a4072166bab42c06d8ef993c6d483aed1793879f955d9062b90"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/control_on/events_000.csv": {
+      "bytes": 4336702,
+      "sha256": "f852c8ff5d0c83241b8aa7bf6ebf9f5e04bbd02970076cc70bb1d180a1ee80d3"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_a/events_000.csv": {
+      "bytes": 4336702,
+      "sha256": "1583f0b93ab42db9751aa9736735c8efced9534e27a1f9faf2cb6696698b0727"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_a/events_001.csv": {
+      "bytes": 4336702,
+      "sha256": "c0d869f3d284bc7998a1a171ba39997b7bfa97399ed01b70d3af2e76c6a65809"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/control_off/events_000.csv": {
+      "bytes": 4336702,
+      "sha256": "7a45d7a139661e0d3d4f1eda0f8d44d9b73f450a919314776a2eb5b8de691720"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_b/events_000.csv": {
+      "bytes": 4336702,
+      "sha256": "1294a1ec608ba0b2b5bd27fa05364f0bfe61e3989d26cae6e70003b23c645ddb"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_b/events_001.csv": {
+      "bytes": 4336702,
+      "sha256": "c5b568fafb1b916f63b786213180f6467190dc7f1a4544b17ca8b97030e1f858"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_return/events_000.csv": {
+      "bytes": 4336702,
+      "sha256": "6c0c97f32b3b6bd54eea4b0f2cb09d7c84f47c5e44ac9ee4351b40de8f705167"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/on_return/events_001.csv": {
+      "bytes": 4336702,
+      "sha256": "2781022c763f0e9530feaacafda15a26a02f9741044fdafa66cb37dd30bc9837"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_repeat/events_000.csv": {
+      "bytes": 4336702,
+      "sha256": "bab81004164f65d58035f4ba81ae0a72bd988670c78dba4359eac3ca2ae061ee"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/dnr_all5_20261009/off_repeat/events_001.csv": {
+      "bytes": 4336702,
+      "sha256": "4aff991163843a53667a6b690cd329c2018c9712420ced45809cbcca94f6d6a8"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_sync_evidence/EO_Camera_Synchronization_Comparison_20261009_Exposure60.xlsx": {
+      "bytes": 3847834,
+      "sha256": "0deead01a8332fce0377078939ff2c0d6fb5240265acf7974c9556d4a31f6ea5"
+    },
+    "E:/Xylinx/EO_Panorama_V19_RollPitch/docs/eo_fps_evidence/EO_Camera_FPS_Consolidated_Report_20261007.xlsx": {
+      "bytes": 602950,
+      "sha256": "aafa13264e0c47329f207344ec898d8eee40275efda250c028416b29509ea906"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/eo_single.csv": {
+      "bytes": 565871,
+      "sha256": "53c2be574a436861d768a3a13baab2b6ad806e5f6793eff88fe8d7e0d7b0e075"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/eo_single.txt": {
+      "bytes": 598,
+      "sha256": "13b9a4dd132ab7d2e3236e85451bfc799b1d3c8ea7e658af665e182d81bea716"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/eo_panorama.csv": {
+      "bytes": 565871,
+      "sha256": "e384e16df77ac14fae26829e0cbda0ea716571f8ac8084d4c2a41fabb46b9b43"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/eo_panorama.txt": {
+      "bytes": 601,
+      "sha256": "8674e0897f47036bd3275b83f0a81244299e4866aaa14f1a455d1f2138fdb8f1"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/ir_single.csv": {
+      "bytes": 565871,
+      "sha256": "d055fb2d5fdab1a82bbfca4ab829ef23b77f191fc4a1d0ade0843703e7e77bcb"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1/captures/timing_20260819_185558/ir_single.txt": {
+      "bytes": 599,
+      "sha256": "18a1cb583d0b1a89838f9061a600d598008cc61e9ea12d482f243861cbc3ead2"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1_IR_DDR/builds/bit_archive/20260904_133759_wrwindow_c83e29d/KintexTop_EO_IR_HD_SDI_panorama_base.bit": {
+      "bytes": 26285231,
+      "sha256": "b6bfaeb898f16270195a092b94372aa0ec3bc24697d9c2b4ec2c3c95fa9d96e4"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1_IR_DDR/builds/bit_archive/20260904_133759_wrwindow_c83e29d/KintexTop_EO_IR_HD_SDI_panorama_base.ltx": {
+      "bytes": 232755,
+      "sha256": "8edb2d9b3556428edcb34cfc0f10e7328c1766e2c59f58fb06eb8b9f7158e1ae"
+    },
+    "E:/Xylinx/EO_Panorama_V19_M1_IR_DDR/builds/bit_archive/20260904_133759_wrwindow_c83e29d/manifest.json": {
+      "bytes": 1722,
+      "sha256": "d8d589b68c010a1b2ca385cbf97c008ebf7a8ed7617d2f7e51163f306e70c212"
+    }
+  },
+  "current_build_pending_at_audit": {
+    "source": "5126c37",
+    "directory": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934",
+    "classification": "build_in_progress",
+    "note": "Do not replace routed candidate figures until this build has final reports and its own recorded provenance."
+  },
+  "analytical_gravity_eo_panorama_write_demand": {
+    "classification": "analytical_not_measured",
+    "update_hz": 30,
+    "cameras": 6,
+    "capture_beats_per_row": 104,
+    "capture_rows": 1080,
+    "capture_beats_per_second": 20217600,
+    "output_beats_per_row": 120,
+    "output_rows": 960,
+    "output_beats_per_second": 3456000,
+    "aggregate_write_beats_per_second": 23673600,
+    "useful_bytes_per_beat": 32,
+    "aggregate_payload_bytes_per_second": 757555200,
+    "limits": "Writes only; reads, refresh, command overhead and arbitration additional; historical 22.3Mbeats/s is an observation, not a proven ceiling."
+  }
+}

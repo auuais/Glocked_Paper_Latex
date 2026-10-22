@@ -1,0 +1,1925 @@
+{
+  "schema_version": 1,
+  "evaluated_at_utc": "2026-10-22T15:04:12.185306+00:00",
+  "source_root": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison",
+  "script_sha256": "f5e34d8ada835fcc0c07c45ce6090ca39adf0e51f3b9b5bffd78091b78af9b0e",
+  "software": {
+    "python": "3.9.6",
+    "numpy": "1.25.2",
+    "opencv": "4.8.0",
+    "skimage": "0.21.0"
+  },
+  "protocol": "Legacy pre-blend warped-view consistency; Gaussian sigma2; grayscale; eroded5x5 method-specific mask; unweighted arithmetic seam means.",
+  "limits": [
+    "Matching identities does not equalize output scale, validity masks, field of view, JPEG compression or calibration access.",
+    "Top third is an image-coordinate region, not verified distant geometry.",
+    "StabStitch++ used 16 repeated static frames of cameras0..2; this is not video-stability evaluation.",
+    "SIFT failures remain explicit in all-target results; common-success statistics are conditional on its success.",
+    "The captures are six named calibration cases, not necessarily independent scenes or acquisitions.",
+    "No neural network/renderer was rerun. G/UDIS/Stab metrics recomputed from archived outputs; SIFT metrics copied from saved JSON using original in-memory masks."
+  ],
+  "targets": [
+    {
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_12"
+    }
+  ],
+  "all_target_summary": {
+    "G-locked": {
+      "target_count": 12,
+      "success_count": 12,
+      "failures": [],
+      "overlap": {
+        "count": 12,
+        "mean": {
+          "rawP": 15.054484100223853,
+          "strP": 22.587950782471708,
+          "rawS": 0.310705159261991,
+          "strS": 0.752326318668847
+        }
+      },
+      "distant": {
+        "count": 12,
+        "mean": {
+          "rawP": 26.194234960366177,
+          "strP": 33.67179951887747,
+          "rawS": 0.5408514602249644,
+          "strS": 0.7011436800311603
+        }
+      }
+    },
+    "SIFT+homography": {
+      "target_count": 12,
+      "success_count": 9,
+      "failures": [
+        {
+          "case": "EO_Test2_R_2.15_P_0",
+          "pair": "pair_01",
+          "status": "fail"
+        },
+        {
+          "case": "EO_Test5_R_4.75_P_-4.5",
+          "pair": "pair_12",
+          "status": "fail"
+        },
+        {
+          "case": "EO_Test6_R_1.25_P_6.5",
+          "pair": "pair_01",
+          "status": "fail"
+        }
+      ],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 13.243254690052801,
+          "strP": 16.161399051227324,
+          "rawS": 0.3043967456284786,
+          "strS": 0.5338049985017013
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 16.79930935878503,
+          "strP": 19.119221246893233,
+          "rawS": 0.5281968962407925,
+          "strS": 0.6613036167475976
+        }
+      }
+    },
+    "StabStitch++": {
+      "target_count": 12,
+      "success_count": 12,
+      "failures": [],
+      "overlap": {
+        "count": 12,
+        "mean": {
+          "rawP": 12.824859907189778,
+          "strP": 15.560959393469268,
+          "rawS": 0.21308213753043737,
+          "strS": 0.45037329692355826
+        }
+      },
+      "distant": {
+        "count": 12,
+        "mean": {
+          "rawP": 13.543362521880908,
+          "strP": 15.309215848377349,
+          "rawS": 0.418462075947122,
+          "strS": 0.5368471843710312
+        }
+      }
+    },
+    "UDIS++": {
+      "target_count": 12,
+      "success_count": 12,
+      "failures": [],
+      "overlap": {
+        "count": 12,
+        "mean": {
+          "rawP": 13.467502328154488,
+          "strP": 16.875986435641504,
+          "rawS": 0.20458941664743813,
+          "strS": 0.4243344234978362
+        }
+      },
+      "distant": {
+        "count": 12,
+        "mean": {
+          "rawP": 13.926410490676792,
+          "strP": 16.27784454384879,
+          "rawS": 0.3677074579537983,
+          "strS": 0.5022983798149295
+        }
+      }
+    }
+  },
+  "common_success_targets": [
+    {
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_12"
+    },
+    {
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_01"
+    },
+    {
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_12"
+    }
+  ],
+  "common_success_summary": {
+    "G-locked": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 15.157127563066647,
+          "strP": 22.56218188896633,
+          "rawS": 0.334914844222323,
+          "strS": 0.7565004925003469
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 29.234205033293694,
+          "strP": 37.27487511091887,
+          "rawS": 0.5996721921880527,
+          "strS": 0.7428828510181478
+        }
+      }
+    },
+    "SIFT+homography": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 13.243254690052801,
+          "strP": 16.161399051227324,
+          "rawS": 0.3043967456284786,
+          "strS": 0.5338049985017013
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 16.79930935878503,
+          "strP": 19.119221246893233,
+          "rawS": 0.5281968962407925,
+          "strS": 0.6613036167475976
+        }
+      }
+    },
+    "StabStitch++": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 12.95244344480275,
+          "strP": 15.604061829901607,
+          "rawS": 0.2342481256236281,
+          "strS": 0.4661661461320929
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 14.503714163039994,
+          "strP": 16.21036508220839,
+          "rawS": 0.47092756121593055,
+          "strS": 0.5932983679584876
+        }
+      }
+    },
+    "UDIS++": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 13.629265496174357,
+          "strP": 17.09057937860156,
+          "rawS": 0.22918195897216562,
+          "strS": 0.442320325501756
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 14.940506667756596,
+          "strP": 17.343420372908124,
+          "rawS": 0.4254056977378944,
+          "strS": 0.5623324063122604
+        }
+      }
+    }
+  },
+  "identical_cam0_cam1_cam2_capture_groups": [],
+  "inputs": [
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test2_R_2.15_P_0_stab/20260616_151854_strip_cam0_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "760b03e2efab0399b573be0df561dbcbde201e54b2855a45016d1b59439dc39a"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test2_R_2.15_P_0_stab/20260616_151854_strip_cam1_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "182116cae01c2b119cf2852322b3f55b8646561d1cb0e6b042c3c4e88f4d922b"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test2_R_2.15_P_0_stab/20260616_151854_strip_cam2_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "7c6be18ab1303e11eee4d8beae9c9e4706b0c6fbefd3422b952310287f57f0d6"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test3_R_0.75_P_-5_stab/20260616_151857_strip_cam0_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "f274428f2f729ec1a6302ab3e413d3a33eb0eee395faa7217e350ef53e4a94a1"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test3_R_0.75_P_-5_stab/20260616_151857_strip_cam1_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "b5cc9d754d3531a32fbc6a8e4e6635355aa870cf9e5b6032946472f64b551971"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test3_R_0.75_P_-5_stab/20260616_151857_strip_cam2_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "cef8b7d7bcbfcb8a9485718461a06598aa3c6dca6537ae517f22268258e2cdd8"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test4_R_0.75_P_-5_stab/20260616_151902_strip_cam0_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "0b345345987ad8cc93e57a45f2484ad52e9c8cb903b09872042585c21a4838a2"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test4_R_0.75_P_-5_stab/20260616_151902_strip_cam1_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "acc080067039d0f56732d704a092f16651b9ae479bf8850ab8f778bdab5bdf05"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test4_R_0.75_P_-5_stab/20260616_151902_strip_cam2_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "162da61f26f074c2aa637ade2b8d76e331fb7f62e7b8116ca4f7597cc1474571"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test4C_R_0.75_P_-5_stab/20260616_151859_strip_cam0_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "abf710e40203644434c5ac9ea7d8475a6cf15a6f947933ec4502beb343a2a02e"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test4C_R_0.75_P_-5_stab/20260616_151859_strip_cam1_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "acc080067039d0f56732d704a092f16651b9ae479bf8850ab8f778bdab5bdf05"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test4C_R_0.75_P_-5_stab/20260616_151859_strip_cam2_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "162da61f26f074c2aa637ade2b8d76e331fb7f62e7b8116ca4f7597cc1474571"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test5_R_4.75_P_-4.5_stab/20260616_151907_strip_cam0_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "0209970ed6c180830d8c7a484646b3d9ccb8252ef7aefdb4c0f1c76fa9f37a73"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test5_R_4.75_P_-4.5_stab/20260616_151907_strip_cam1_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "24e31523ff147dcee414e93487a9a34610c0bbc0adf70d4bbb92838b0cc583ae"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test5_R_4.75_P_-4.5_stab/20260616_151907_strip_cam2_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "8a3f2bab26b174b7294742a41ed93b7585954cd0484da3378e307630cd1d51c7"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test6_R_1.25_P_6.5_stab/20260616_151911_strip_cam0_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "490db8c368bdf4d691b4af238e4cd6cd382e011441516f789782b9438203352f"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test6_R_1.25_P_6.5_stab/20260616_151911_strip_cam1_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "65bbb08ab42e4e9639f861d9dffa34d2ecc0dba85f8b2ed21baf5c00f2bf27ef"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/glock_runs/strips_EO_Test6_R_1.25_P_6.5_stab/20260616_151911_strip_cam2_f0000.bmp",
+      "bytes": 5529654,
+      "sha256": "28b1c4bff3807dc75b6efbf1d2f279d393e9ca0abbe87fabde527e60d223f3ce"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_01/mask1.jpg",
+      "bytes": 230086,
+      "sha256": "955d54d5373fd5a47c8362c09da6dadc13a0a52bd1ffeecf34bd2fae682b2b56"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_01/mask2.jpg",
+      "bytes": 293807,
+      "sha256": "535c62f63c8b438e02af16e4098bc693844cfe0a48fef9bbe28b30b9536fb2a5"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_01/warp1.jpg",
+      "bytes": 1384682,
+      "sha256": "674296cee159c11ad5cf0520cefd796acde0d53553aaa8431b71be68d1658037"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_01/warp2.jpg",
+      "bytes": 3442349,
+      "sha256": "0187f772856e7d8a9e5c62c9c8dfa0703ea4a05174fb54f24a8f8617f8e43d3a"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_12/mask1.jpg",
+      "bytes": 84377,
+      "sha256": "87de0621cd4d8c4fbb559ab34c860fd3993c517c81cae2f345e614b5269c9f9a"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_12/mask2.jpg",
+      "bytes": 113353,
+      "sha256": "047fe14f74855c45be595d7254b3f79e1f1dee48979f138d28bef40417a6e333"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_12/warp1.jpg",
+      "bytes": 1146990,
+      "sha256": "7e187192f7c91bfc5630483f4692ae3d6521848f6b4604f2c0de48ce4d317913"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test2_R_2.15_P_0/pair_12/warp2.jpg",
+      "bytes": 1241389,
+      "sha256": "9527e3b5d5ddd8d404378bcb871eedf7f867c21a9876005409067b3d5a979ba1"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_01/mask1.jpg",
+      "bytes": 106435,
+      "sha256": "2fdcc0d1eec8355fd3d97ad2c488f40bdf05bbc70c5c6ba144e512105addeab5"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_01/mask2.jpg",
+      "bytes": 138908,
+      "sha256": "feac80fba809b9f3cabd313327a5d507d4664b3fc728823f8eb56e761d713012"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_01/warp1.jpg",
+      "bytes": 1087682,
+      "sha256": "16844259fad52b896ac667a6831fabd77c42525b839961055188506cc4bfc601"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_01/warp2.jpg",
+      "bytes": 1312482,
+      "sha256": "804097bd03e3a989e38b1fdcb99d81da18d072f1f71a7b13149f47d1483442d9"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_12/mask1.jpg",
+      "bytes": 106908,
+      "sha256": "44c2d93a3a556764f51149a7cd597bd5aab7a0df8e700fbff834900455c1890d"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_12/mask2.jpg",
+      "bytes": 146663,
+      "sha256": "864b529e21e2cb746f85993c1cb5110daee988681c92d36245070e0f5e4f2af5"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_12/warp1.jpg",
+      "bytes": 832690,
+      "sha256": "c1dd062ea1737db8448df1cefddb3e3c9bc02c96fc13d1051873a73cc4fb7c48"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test3_R_0.75_P_-5/pair_12/warp2.jpg",
+      "bytes": 955911,
+      "sha256": "3f6074e99bc3f4b8105decb9637ab7bc4475d8ba4ecdbcdbcaa736451e6c7c67"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_01/mask1.jpg",
+      "bytes": 111549,
+      "sha256": "0d00d9ea1836ab0b01b2043e1ef946ecf258026dcc9af215b595c89a2837b7b3"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_01/mask2.jpg",
+      "bytes": 145953,
+      "sha256": "bbba22aed7c576c719a2f2736f4e82cd4f436dc3b1097a6e35aa44f047b0e806"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_01/warp1.jpg",
+      "bytes": 1269685,
+      "sha256": "e974f8fb4ef789662d0ff85a25183b8910ee980230b72ad5250a2825781ac22c"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_01/warp2.jpg",
+      "bytes": 2058307,
+      "sha256": "f00a8190412b9af4dd4e4a772e5108118cb1c3f90775631a22d62620a1b04a7e"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_12/mask1.jpg",
+      "bytes": 103917,
+      "sha256": "d2ad3b3d6aba6d618aec972ddff5bb3de15a9161d2aa46e87080b5a6551f7eb0"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_12/mask2.jpg",
+      "bytes": 147880,
+      "sha256": "068fd9da4f1210a8bdaaf188366bb25d46e472bbe4a5b295500e42a057a43490"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_12/warp1.jpg",
+      "bytes": 1204596,
+      "sha256": "34e9783573989c983a1bbbb6adb8900ad5b1d3488302df9316f4ba62ddf3a088"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4_R_0.75_P_-5/pair_12/warp2.jpg",
+      "bytes": 1367536,
+      "sha256": "7f8d58808075b56a1dec625ad2ded0c56535633d7b7f9d108b34e6e6b830155b"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_01/mask1.jpg",
+      "bytes": 110982,
+      "sha256": "67458bd8ad8ae7f34c98971d4eec5686e03d8e5bf162b57bffed68a3b2d4ed98"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_01/mask2.jpg",
+      "bytes": 139340,
+      "sha256": "f64bb6ce239df9fcf2b57212178134784d970d0a616f0182585a639ba081fc1f"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_01/warp1.jpg",
+      "bytes": 1265939,
+      "sha256": "0d2cf60b73fe31934bd74c0e4a5ea38d93d73bfaf9363ae494adb1e6b8588d3e"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_01/warp2.jpg",
+      "bytes": 2062987,
+      "sha256": "3513f772a87b6b732292631ccd5697abc9fc6eb19a6b8324b4b97bc81dabc943"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_12/mask1.jpg",
+      "bytes": 95279,
+      "sha256": "e0196f45218d18fd908480806d9bb781e9a7a5ab9b22f1e87b3be5c8df4436e9"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_12/mask2.jpg",
+      "bytes": 131683,
+      "sha256": "f5d4cce3fecb1dbaabbfa6df6bb0d7a936c18871a27fd2b8ed8d5b61e3e72b30"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_12/warp1.jpg",
+      "bytes": 1192812,
+      "sha256": "a6a760cae972eb907deace1aed61af19644a87b788c496b0424af98e759d7fb3"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test4C_R_0.75_P_-5/pair_12/warp2.jpg",
+      "bytes": 1225342,
+      "sha256": "8bfdf0d6303426b7e20726183e92487193f5f1450b4d110851ba21d453e20f65"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_01/mask1.jpg",
+      "bytes": 98850,
+      "sha256": "9126baa026eaa8b924cc2c52c671b05b7d0f339e1841013d034d442af1605def"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_01/mask2.jpg",
+      "bytes": 134744,
+      "sha256": "395cae20b50981630f1fa46ed3589cf7f8e4a377054dac9639add9e80988d716"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_01/warp1.jpg",
+      "bytes": 1110450,
+      "sha256": "88e84c1edc3a1d590647b9d0a9384cbd8d3985e7785d7c6c827fa4389dc5baf6"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_01/warp2.jpg",
+      "bytes": 1630526,
+      "sha256": "3548410e69b0d7a5f8f0d45ffb085baa23093be77f23de81db1dcd81432bfb89"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_12/mask1.jpg",
+      "bytes": 94188,
+      "sha256": "f8215f9a1ec260db7f700f7ff18f57037902c2fe334e5318c1ca9dc31db35665"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_12/mask2.jpg",
+      "bytes": 121684,
+      "sha256": "4e1e8d8a3d4acc7afa244a1de12f5ef9e8dd28b7c730915a701ede67900e88dd"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_12/warp1.jpg",
+      "bytes": 1199176,
+      "sha256": "7a79dd8ee26e8110b501b7fb99e2eb6570b97c561dc65692b5b99d618c5d0735"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test5_R_4.75_P_-4.5/pair_12/warp2.jpg",
+      "bytes": 1245951,
+      "sha256": "3511133f0fed9b57ffc304ed05f28f854ef74a0ce064ec558a7d251c1f2d86a8"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_01/mask1.jpg",
+      "bytes": 107075,
+      "sha256": "52b34a6684a0726229d6302f5c36e9c30dec7d87c943b5d7889ff0753050e029"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_01/mask2.jpg",
+      "bytes": 152388,
+      "sha256": "60deac8985d4d4089b0c59f9f7001a1539f6db5c227b49c8c5f1b976dd7a61a5"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_01/warp1.jpg",
+      "bytes": 1074595,
+      "sha256": "1b00a308c6d4353be3b63dde4eb9fd80cd0e2b24f156d9b3a112e489583f2344"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_01/warp2.jpg",
+      "bytes": 1490590,
+      "sha256": "1d3f0081bacdaad5b67eec6dfb703b19ad5da4e1d13c5001eef43c6c1559fbd6"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_12/mask1.jpg",
+      "bytes": 95865,
+      "sha256": "ff19330f09d51b315de19928e6e0a7e69ef232c866cbe6d8112d51c8044890a7"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_12/mask2.jpg",
+      "bytes": 131953,
+      "sha256": "cf50aa5f1fa1b107e61a76e976ffa1cbc815abaaf0023caeb29eb726999cf3cc"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_12/warp1.jpg",
+      "bytes": 1008747,
+      "sha256": "fe656ad3844b62562323524c4b76ed545a29680f98608306d5abb3bd6eadb224"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/data/udis_pairs/EO_Test6_R_1.25_P_6.5/pair_12/warp2.jpg",
+      "bytes": 1089982,
+      "sha256": "c7f4f97debc4cc9c5d80ba7671c581f11f3618d320d7eef25baf5f53c2a7d812"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/eo_manifest.json",
+      "bytes": 11755,
+      "sha256": "caef93425c80923e3905215076c8ec27007d47e91220d9e8a8d689f7b92e2bf6"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/homo_metrics.json",
+      "bytes": 18051,
+      "sha256": "f2a1caea24e3308dad693d02c7080010c23006beb2e9e86be3b04c5bf3c95e23"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test2_R_2.15_P_0/mask0.png",
+      "bytes": 62808,
+      "sha256": "16f5483f59ed1fbb356faf47bac08a9c8d47db99a7691385e378afef53c635eb"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test2_R_2.15_P_0/mask1.png",
+      "bytes": 50586,
+      "sha256": "93ebf9ccb198f00c496452ab3c33c91cab6bd46ef8d9e0543c02ed0be7dc6552"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test2_R_2.15_P_0/mask2.png",
+      "bytes": 45607,
+      "sha256": "2dd9faea170e2ef6ef9e68dfbecee7a09930888a895b2a235b95f82e8177cc05"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test2_R_2.15_P_0/warp0.png",
+      "bytes": 5999756,
+      "sha256": "c4b9ed8ab886dadcf2af6c25c7a9b876d8920d1d96fcd515158c102499ba285f"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test2_R_2.15_P_0/warp1.png",
+      "bytes": 4482951,
+      "sha256": "5933e84ddcbb1ee496e78c9e78514d6dfb0a28d7a2e2ba28991caac02af07b10"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test2_R_2.15_P_0/warp2.png",
+      "bytes": 2944889,
+      "sha256": "301ed4f32f685ec35985792d48d28a0b7de8c94e4c1490475aef1875e9d97eb4"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test3_R_0.75_P_-5/mask0.png",
+      "bytes": 56913,
+      "sha256": "81dab0818da47d5894cbbf54f950c4af71756c82c06067be9d1d6632462056b4"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test3_R_0.75_P_-5/mask1.png",
+      "bytes": 49079,
+      "sha256": "5d17ac6a40d0898e0138d70626f2f6f8e01b790a252fd657740d0eaabeb5dcbb"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test3_R_0.75_P_-5/mask2.png",
+      "bytes": 44785,
+      "sha256": "2d3292a8dc7f6a95100a212df7be8780352d77fcd095098265b9aa0428c8e6ad"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test3_R_0.75_P_-5/warp0.png",
+      "bytes": 4907584,
+      "sha256": "695e4ba7592e1aeed4a4f9926665d6259a5e3494ba31f6497edfbd1c7af7ec22"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test3_R_0.75_P_-5/warp1.png",
+      "bytes": 3215892,
+      "sha256": "de8ddde885f92b5e8d961392f927027dcade16431cf3b20a72b599c051d48ad6"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test3_R_0.75_P_-5/warp2.png",
+      "bytes": 2301594,
+      "sha256": "a9dc7d24517def74038298f57de416a7eded3ff0d0fbe51df93f3d9dd9b0d46b"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4_R_0.75_P_-5/mask0.png",
+      "bytes": 59749,
+      "sha256": "b6af0ae0394ae42b8c5f45e8d5c7ae7cff341c648a7fab8eb69f8f4763d42fac"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4_R_0.75_P_-5/mask1.png",
+      "bytes": 51064,
+      "sha256": "5089a80e7553be936063daae76eceb12973e82beb89835778cd38a89d192c847"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4_R_0.75_P_-5/mask2.png",
+      "bytes": 46219,
+      "sha256": "511c5c28b3dd0e6737fb03c741e60a3e77508e9237a9b5337a9cdbe5aa2dac53"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4_R_0.75_P_-5/warp0.png",
+      "bytes": 5731015,
+      "sha256": "322de4423aeec15b55929273961add5b73e1275287c4981cf182b25b02076f60"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4_R_0.75_P_-5/warp1.png",
+      "bytes": 4559227,
+      "sha256": "91b6f6f3c076daec93416d6c79b8187436491d8db6f1fb7f897a9deb0c699b40"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4_R_0.75_P_-5/warp2.png",
+      "bytes": 2942883,
+      "sha256": "eeb874f4f795e6c310c534e8fee77cc0e3b98138e4280f2e1d0d7faae448ac27"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4C_R_0.75_P_-5/mask0.png",
+      "bytes": 59276,
+      "sha256": "2b1590e984b1a02ab630e5dbcb9c6823a741af60f00d00fc9f89a00ea6cde463"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4C_R_0.75_P_-5/mask1.png",
+      "bytes": 51243,
+      "sha256": "a5d6fb08d021b9f392eeb27ffe30ad1d76ff8ace97b3f6c21af8c3ab4d289c8c"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4C_R_0.75_P_-5/mask2.png",
+      "bytes": 45489,
+      "sha256": "2d6f322451cee5f27187a3401d948dee47b39936b6aa3f9a2537b7af6242b819"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4C_R_0.75_P_-5/warp0.png",
+      "bytes": 5707493,
+      "sha256": "8244848b0a74041f435bde3394b73fdf290fa2e4b08188779d0cfc17e0d84b92"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4C_R_0.75_P_-5/warp1.png",
+      "bytes": 4560111,
+      "sha256": "bfcf3bf7536a8f8c79e752f7cfdfe1ab9943d12205f17f7df86318a6aa7b59d7"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test4C_R_0.75_P_-5/warp2.png",
+      "bytes": 2939349,
+      "sha256": "d4709ae07954402a2e5f6dc450c9eddb7e93a9a45eabc139be458d8263831a65"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test5_R_4.75_P_-4.5/mask0.png",
+      "bytes": 62053,
+      "sha256": "cd9b1d2401f9e8b8bf8d5895fe1443078daf83127a9f6beca580dc7661eb230b"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test5_R_4.75_P_-4.5/mask1.png",
+      "bytes": 49043,
+      "sha256": "78510ed70cc804240724911b7e74422878c78161e6d733a66fc4e7ad19ae6401"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test5_R_4.75_P_-4.5/mask2.png",
+      "bytes": 49028,
+      "sha256": "4c128398d677a01248b941edf3b902f1815bfca927734ccdc49d78d6a3a7e01d"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test5_R_4.75_P_-4.5/warp0.png",
+      "bytes": 5524931,
+      "sha256": "7fa2fa535e190ec35b809031838a5097d2411e6ae3c9206e9d0c0eeb4d8709f7"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test5_R_4.75_P_-4.5/warp1.png",
+      "bytes": 4481287,
+      "sha256": "408efd42a5dc0caa9f9f111b8c736202a1b4b6c48fd5a5b7566012bad0e0e053"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test5_R_4.75_P_-4.5/warp2.png",
+      "bytes": 3333517,
+      "sha256": "ce5464e3c4c45e48a8588111a870343d2a4a8199e173b73d5f205555d9bca063"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test6_R_1.25_P_6.5/mask0.png",
+      "bytes": 60674,
+      "sha256": "844c546b4a641427063ad187647b8aa01345b70a96681340f8625af48dcceefb"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test6_R_1.25_P_6.5/mask1.png",
+      "bytes": 49968,
+      "sha256": "ee0a89ad93a353b9e4c8f970834484e8d33251d34182468ee25b37f98b4d9d6e"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test6_R_1.25_P_6.5/mask2.png",
+      "bytes": 45130,
+      "sha256": "e409d7dfb74861e0a75c6682832ac8b3e83cff95f3ab0dbdf4566dd29563e4cb"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test6_R_1.25_P_6.5/warp0.png",
+      "bytes": 4953190,
+      "sha256": "c3a1e918cd1cca735baeedbb5ee92928c9ddd1b715bb1cc644ee10a3bfeedbf7"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test6_R_1.25_P_6.5/warp1.png",
+      "bytes": 4111517,
+      "sha256": "732e36cdeee03974acc67bde19a6ac7925994b0af9b332fe5ad0925df453b55e"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stab_warps/EO_Test6_R_1.25_P_6.5/warp2.png",
+      "bytes": 2819972,
+      "sha256": "336d48cff76594e53212c193b37bfee0d887f391e4fe96cea680c1a336ecf863"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stitching_comparison.xlsx",
+      "bytes": 17326,
+      "sha256": "08f5c5eac16afac64a150bcd7bcd3a83945a28da841c0020f2ffaf767a3462ea"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/results/stitching_comparison_v2.xlsx",
+      "bytes": 17663,
+      "sha256": "d9de69312930110833f9b4c5623a37236561b3299bcd91709835e73c49b8edb6"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/scripts/compile_excel.py",
+      "bytes": 23672,
+      "sha256": "41351bae9f79fcd21719de90c3ea1614a6f48048f78549c27a89bdec80e7a865"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/scripts/prep_inputs.py",
+      "bytes": 2513,
+      "sha256": "6239155cde4267b55eecc899d55b55f5f551278bd7b9f0b1a09e66b34b414a28"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/scripts/run_glock.py",
+      "bytes": 1953,
+      "sha256": "b8575c9d6f3cefd279d98beb09e1d7937f34e459d4965367d9fb57cdceaf18de"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/scripts/run_homo.py",
+      "bytes": 7044,
+      "sha256": "682a6b0b06968424c2dc683ea8905b87ebfe7b52399ab06f09a73fd5bf84a837"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/scripts/run_stab_dump.py",
+      "bytes": 3495,
+      "sha256": "f60b1e62bc7032168ab4fd0fbaa5c3153f132366be3bf297cc8742d15c24d01c"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/DL_Comparison/scripts/run_udis.py",
+      "bytes": 1392,
+      "sha256": "fdd890e813bb09724d48ef5093b4c42cbd579e9056adf19188f1b35eae93b4e0"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test2_R_2.15_P_0/cam0.bmp",
+      "bytes": 6220854,
+      "sha256": "ed8e44f56fa2033189212909583b311e870c1996576344b81e50d4f7e094bf13"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test2_R_2.15_P_0/cam1.bmp",
+      "bytes": 6220854,
+      "sha256": "84b23ff7986afaa600b1bb388c0ad47770dd0cff6d2bd843d954057520427464"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test2_R_2.15_P_0/cam2.bmp",
+      "bytes": 6220854,
+      "sha256": "4cf9c3ed2588524464ddb54b0b5b6fb28ebdcb1e7809e80669b66e16e5429c6a"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test3_R_0.75_P_-5/cam0.bmp",
+      "bytes": 6220854,
+      "sha256": "81b942ade632565f6b268e2e3c6a0ad617c16f76b04195eab5dbedcfe845d104"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test3_R_0.75_P_-5/cam1.bmp",
+      "bytes": 6220854,
+      "sha256": "f1b207a22a72daa8f915cf4cd6f1797996ffaa4e65abf9b3bae174d37ecc45d1"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test3_R_0.75_P_-5/cam2.bmp",
+      "bytes": 6220854,
+      "sha256": "d6e135e4b0e96f2102c4d6f65cb475bf08e00c110bd24876be531aad2e75bad4"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test4_R_0.75_P_-5/cam0.bmp",
+      "bytes": 6220854,
+      "sha256": "b46ccc7efa1e33de967026f4344765d4d0489d465abb0f2f6e22ddada51f574e"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test4_R_0.75_P_-5/cam1.bmp",
+      "bytes": 6220854,
+      "sha256": "41b9d4c8957f894504c29f10aa5467f4bbc5f79f98b76fa7a930e6ec802a4113"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test4_R_0.75_P_-5/cam2.bmp",
+      "bytes": 6220854,
+      "sha256": "6a49b4831ebd6dabea88310a5237e492eb06b9fb171dc3b90d0d0a0316ac9291"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test4C_R_0.75_P_-5/cam0.bmp",
+      "bytes": 6220854,
+      "sha256": "c97c50b2831aac1b32953bb2562289212c38ff601fece7e6f330ae974da12f6d"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test4C_R_0.75_P_-5/cam1.bmp",
+      "bytes": 6220854,
+      "sha256": "41b9d4c8957f894504c29f10aa5467f4bbc5f79f98b76fa7a930e6ec802a4113"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test4C_R_0.75_P_-5/cam2.bmp",
+      "bytes": 6220854,
+      "sha256": "6a49b4831ebd6dabea88310a5237e492eb06b9fb171dc3b90d0d0a0316ac9291"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test5_R_4.75_P_-4.5/cam0.bmp",
+      "bytes": 6220854,
+      "sha256": "a875dad5b4e7b69b9d52ecebde4cfb8dd5247ef5ee5a46985a4daaab2f521eae"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test5_R_4.75_P_-4.5/cam1.bmp",
+      "bytes": 6220854,
+      "sha256": "b7e0d3b4d8fa5225df35ecacd6a3816cddbc5778707664742121e9ffd69c29ee"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test5_R_4.75_P_-4.5/cam2.bmp",
+      "bytes": 6220854,
+      "sha256": "5bf56d81c10edd5798172c78bb8973bdd7c4851360e13520a313302207f2a0e9"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test6_R_1.25_P_6.5/cam0.bmp",
+      "bytes": 6220854,
+      "sha256": "2656ff097b98955b3c9656d7c318113cbf1e2cf13f47d477881abb5aa2b2ffe2"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test6_R_1.25_P_6.5/cam1.bmp",
+      "bytes": 6220854,
+      "sha256": "d60ef78c8e6199ca413809926debb788b3e5698b780d23a26bd7334886ee9205"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/EO_IR_TestCases/EO_Test6_R_1.25_P_6.5/cam2.bmp",
+      "bytes": 6220854,
+      "sha256": "77650c6b9fabbe5f6f3a5683cb73754c4485e9e453ba67a576416c6a50881947"
+    }
+  ],
+  "rows": [
+    {
+      "method": "G-locked",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16886,
+      "overlap": {
+        "rawP": 15.031815864855108,
+        "strP": 20.92565343935917,
+        "rawS": 0.07467589873181242,
+        "strS": 0.6720925441084998
+      },
+      "distant": {
+        "rawP": 14.01240070367485,
+        "strP": 19.11349324845621,
+        "rawS": 0.06068976304247472,
+        "strS": 0.45325400324066917
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16838,
+      "overlap": {
+        "rawP": 12.375252787291656,
+        "strP": 19.232251126706466,
+        "rawS": 0.3485575970096164,
+        "strS": 0.5947972127978078
+      },
+      "distant": {
+        "rawP": 50.66256508810301,
+        "strP": 65.37319922658183,
+        "rawS": 0.9946275945035797,
+        "strS": 0.9998735624287478
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16618,
+      "overlap": {
+        "rawP": 16.78061182164702,
+        "strP": 21.72834950341597,
+        "rawS": 0.4192471840139244,
+        "strS": 0.7562259510611745
+      },
+      "distant": {
+        "rawP": 13.02168693897075,
+        "strP": 17.549837965610692,
+        "rawS": 0.07975530487298339,
+        "strS": 0.3684670877392115
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16811,
+      "overlap": {
+        "rawP": 14.21673977019994,
+        "strP": 20.933340226911273,
+        "rawS": 0.4459337763669714,
+        "strS": 0.7382185119350703
+      },
+      "distant": {
+        "rawP": 54.01352067710239,
+        "strP": 69.48118052862216,
+        "rawS": 0.9976212851215859,
+        "strS": 0.9999499192607368
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16661,
+      "overlap": {
+        "rawP": 15.599747618603335,
+        "strP": 21.413847791090397,
+        "rawS": 0.15229060681699963,
+        "strS": 0.7212358600728925
+      },
+      "distant": {
+        "rawP": 12.910159851462408,
+        "strP": 17.30205511391488,
+        "rawS": 0.08829808274313825,
+        "strS": 0.4133454250538337
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16241,
+      "overlap": {
+        "rawP": 13.976980328344421,
+        "strP": 25.241538285076533,
+        "rawS": 0.4181583106343935,
+        "strS": 0.8108164836650981
+      },
+      "distant": {
+        "rawP": 36.60748170499768,
+        "strP": 46.99844524467516,
+        "rawS": 0.9787352147714808,
+        "strS": 0.9940081842682842
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16661,
+      "overlap": {
+        "rawP": 15.599747618603335,
+        "strP": 21.413847791090397,
+        "rawS": 0.15229060681699963,
+        "strS": 0.7212358600728925
+      },
+      "distant": {
+        "rawP": 12.910159851462408,
+        "strP": 17.30205511391488,
+        "rawS": 0.08829808274313825,
+        "strS": 0.4133454250538337
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16241,
+      "overlap": {
+        "rawP": 13.976980328344421,
+        "strP": 25.241538285076533,
+        "rawS": 0.4181583106343935,
+        "strS": 0.8108164836650981
+      },
+      "distant": {
+        "rawP": 36.60748170499768,
+        "strP": 46.99844524467516,
+        "rawS": 0.9787352147714808,
+        "strS": 0.9940081842682842
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16522,
+      "overlap": {
+        "rawP": 15.815559500478372,
+        "strP": 20.65055944751959,
+        "rawS": 0.21780022236616675,
+        "strS": 0.7767998923363425
+      },
+      "distant": {
+        "rawP": 12.934389565325775,
+        "strP": 16.341653708060672,
+        "rawS": 0.21385674244180883,
+        "strS": 0.5147609155374014
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16055,
+      "overlap": {
+        "rawP": 15.469243269521817,
+        "strP": 28.367790865749893,
+        "rawS": 0.4199323524350831,
+        "strS": 0.8602628283810848
+      },
+      "distant": {
+        "rawP": 27.580968426854678,
+        "strP": 35.43555871770026,
+        "rawS": 0.9270701952735334,
+        "strS": 0.9836664025766761
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16764,
+      "overlap": {
+        "rawP": 13.738602000709474,
+        "strP": 18.702328083854496,
+        "rawS": 0.21962006197608888,
+        "strS": 0.6870560190334563
+      },
+      "distant": {
+        "rawP": 9.629605094221349,
+        "strP": 14.038666262103312,
+        "rawS": 0.10540783469108998,
+        "strS": 0.29085809539324803
+      }
+    },
+    {
+      "method": "G-locked",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 480,
+      "canvas_width": 3840,
+      "overlap_px": 16501,
+      "overlap": {
+        "rawP": 18.072528294087324,
+        "strP": 27.204364543809774,
+        "rawS": 0.4417969833414418,
+        "strS": 0.878358176896746
+      },
+      "distant": {
+        "rawP": 33.44039991722114,
+        "strP": 38.12700385221437,
+        "rawS": 0.9771222077232778,
+        "strS": 0.9881869555529966
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 2759,
+      "canvas_width": 4917,
+      "overlap_px": 1989603,
+      "overlap": {
+        "rawP": 13.750585775328865,
+        "strP": 17.14522327859557,
+        "rawS": 0.08053325111610835,
+        "strS": 0.29963709530654287
+      },
+      "distant": {
+        "rawP": 12.492904612455114,
+        "strP": 14.818796840717168,
+        "rawS": 0.11459848137892238,
+        "strS": 0.28524858897217803
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1438,
+      "canvas_width": 3010,
+      "overlap_px": 1985289,
+      "overlap": {
+        "rawP": 12.432632339364943,
+        "strP": 16.049908832420506,
+        "rawS": 0.23042938534394233,
+        "strS": 0.41205390026573396
+      },
+      "distant": {
+        "rawP": 15.549109017085671,
+        "strP": 18.29340959172659,
+        "rawS": 0.6282372540691266,
+        "strS": 0.7048853566155642
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1434,
+      "canvas_width": 4220,
+      "overlap_px": 1608945,
+      "overlap": {
+        "rawP": 15.61326379647533,
+        "strP": 18.382148064644376,
+        "rawS": 0.36651241669126844,
+        "strS": 0.5756653385179474
+      },
+      "distant": {
+        "rawP": 12.757438237371515,
+        "strP": 14.808499522424288,
+        "rawS": 0.09846546633293082,
+        "strS": 0.3220324049489173
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1402,
+      "canvas_width": 4333,
+      "overlap_px": 1020017,
+      "overlap": {
+        "rawP": 14.586488536065719,
+        "strP": 17.830109139995635,
+        "rawS": 0.4637233056319903,
+        "strS": 0.5957795711314051
+      },
+      "distant": {
+        "rawP": 21.100019913962193,
+        "strP": 24.099132465058844,
+        "rawS": 0.7959210819104785,
+        "strS": 0.8576721245607148
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1496,
+      "canvas_width": 3953,
+      "overlap_px": 1917317,
+      "overlap": {
+        "rawP": 13.232111877161001,
+        "strP": 16.291908870082054,
+        "rawS": 0.07755989228879048,
+        "strS": 0.32852657396235674
+      },
+      "distant": {
+        "rawP": 12.379769051327301,
+        "strP": 13.96897844987803,
+        "rawS": 0.12209369531685212,
+        "strS": 0.3228214873287108
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1430,
+      "canvas_width": 3606,
+      "overlap_px": 1854168,
+      "overlap": {
+        "rawP": 12.76502914262595,
+        "strP": 16.938604151826308,
+        "rawS": 0.21862293011715758,
+        "strS": 0.4151396835037295
+      },
+      "distant": {
+        "rawP": 16.135243482787182,
+        "strP": 19.52418071838819,
+        "rawS": 0.5680594245000401,
+        "strS": 0.6737581151825796
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1567,
+      "canvas_width": 3873,
+      "overlap_px": 1810119,
+      "overlap": {
+        "rawP": 13.640948095801772,
+        "strP": 17.00831494153508,
+        "rawS": 0.07966603736001555,
+        "strS": 0.32903867633184847
+      },
+      "distant": {
+        "rawP": 12.815772383287225,
+        "strP": 14.524358651779533,
+        "rawS": 0.1176031826378299,
+        "strS": 0.31724902877147054
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1536,
+      "canvas_width": 3867,
+      "overlap_px": 2005356,
+      "overlap": {
+        "rawP": 12.626309805415,
+        "strP": 16.471573678121015,
+        "rawS": 0.20741054143824528,
+        "strS": 0.40121160393328514
+      },
+      "distant": {
+        "rawP": 15.854369980873159,
+        "strP": 18.960562651254335,
+        "rawS": 0.5377145691291555,
+        "strS": 0.6482827298041846
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1344,
+      "canvas_width": 3860,
+      "overlap_px": 1854709,
+      "overlap": {
+        "rawP": 13.919332610311187,
+        "strP": 17.65954342671866,
+        "rawS": 0.10745642283949437,
+        "strS": 0.3782170548290994
+      },
+      "distant": {
+        "rawP": 12.49008312230031,
+        "strP": 14.12418849257547,
+        "rawS": 0.20491705052845058,
+        "strS": 0.4055444828270296
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1388,
+      "canvas_width": 3517,
+      "overlap_px": 2011460,
+      "overlap": {
+        "rawP": 12.747892711483466,
+        "strP": 16.849593000634613,
+        "rawS": 0.15918189952552736,
+        "strS": 0.3770735113518256
+      },
+      "distant": {
+        "rawP": 12.087283790068309,
+        "strP": 14.387276694793902,
+        "rawS": 0.3617298044003214,
+        "strS": 0.5034997194096384
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1461,
+      "canvas_width": 4150,
+      "overlap_px": 1197433,
+      "overlap": {
+        "rawP": 12.448159985472294,
+        "strP": 14.701806541053825,
+        "rawS": 0.15272021837813116,
+        "strS": 0.4344195457998625
+      },
+      "distant": {
+        "rawP": 8.072177475788717,
+        "strP": 10.037277634501315,
+        "rawS": 0.10750993002528578,
+        "strS": 0.17784059258699264
+      }
+    },
+    {
+      "method": "UDIS++",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1308,
+      "canvas_width": 3974,
+      "overlap_px": 1806042,
+      "overlap": {
+        "rawP": 13.847273262348311,
+        "strP": 17.183103302070396,
+        "rawS": 0.3112566990385862,
+        "strS": 0.5452505270403979
+      },
+      "distant": {
+        "rawP": 15.382754820814801,
+        "strP": 17.78747281308786,
+        "rawS": 0.7556395552161858,
+        "strS": 0.8087459267711734
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1408,
+      "canvas_width": 3512,
+      "overlap_px": 1414359,
+      "overlap": {
+        "rawP": 12.386765266346636,
+        "strP": 15.102845381231244,
+        "rawS": 0.08959576576325465,
+        "strS": 0.33619432189865756
+      },
+      "distant": {
+        "rawP": 10.826211652108299,
+        "strP": 12.317103412557216,
+        "rawS": 0.18134105252072968,
+        "strS": 0.32366001101190217
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1408,
+      "canvas_width": 3512,
+      "overlap_px": 1210074,
+      "overlap": {
+        "rawP": 12.276203894295685,
+        "strP": 15.312413759140426,
+        "rawS": 0.27803397621701553,
+        "strS": 0.46916806377865133
+      },
+      "distant": {
+        "rawP": 16.72665583588359,
+        "strP": 19.345270313264923,
+        "rawS": 0.7255901365217787,
+        "strS": 0.7748057118413305
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1496,
+      "canvas_width": 3214,
+      "overlap_px": 1708488,
+      "overlap": {
+        "rawP": 13.889738341819823,
+        "strP": 15.710881345200951,
+        "rawS": 0.26259863516206794,
+        "strS": 0.501334519471436
+      },
+      "distant": {
+        "rawP": 12.062393646431458,
+        "strP": 13.318349946518195,
+        "rawS": 0.14482767782189532,
+        "strS": 0.3724667900425581
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1496,
+      "canvas_width": 3214,
+      "overlap_px": 918790,
+      "overlap": {
+        "rawP": 12.274420219232702,
+        "strP": 13.472586045585192,
+        "rawS": 0.4038478289942394,
+        "strS": 0.5789782159336934
+      },
+      "distant": {
+        "rawP": 20.679494060723545,
+        "strP": 22.34483005804378,
+        "rawS": 0.809833093500343,
+        "strS": 0.8744359979346568
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1361,
+      "canvas_width": 3696,
+      "overlap_px": 1386256,
+      "overlap": {
+        "rawP": 12.995744388816409,
+        "strP": 15.881289684092398,
+        "rawS": 0.07532073084039584,
+        "strS": 0.3495702355845588
+      },
+      "distant": {
+        "rawP": 10.778719988349367,
+        "strP": 12.057311259600132,
+        "rawS": 0.11013096029946393,
+        "strS": 0.30438722391639855
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1361,
+      "canvas_width": 3696,
+      "overlap_px": 1037229,
+      "overlap": {
+        "rawP": 13.100466276635645,
+        "strP": 16.66485774395836,
+        "rawS": 0.302827071351103,
+        "strS": 0.5134831811224677
+      },
+      "distant": {
+        "rawP": 17.628489967250538,
+        "strP": 19.931580968810188,
+        "rawS": 0.7327377549611936,
+        "strS": 0.8009979449711441
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1363,
+      "canvas_width": 3700,
+      "overlap_px": 1387090,
+      "overlap": {
+        "rawP": 12.980382289885448,
+        "strP": 15.867676276993718,
+        "rawS": 0.07272692159750983,
+        "strS": 0.3495548480440105
+      },
+      "distant": {
+        "rawP": 10.770818216355941,
+        "strP": 12.047062407863613,
+        "rawS": 0.1097794845475051,
+        "strS": 0.30051916928533606
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1363,
+      "canvas_width": 3700,
+      "overlap_px": 1038429,
+      "overlap": {
+        "rawP": 13.099582851286888,
+        "strP": 16.665103424224203,
+        "rawS": 0.3028202512408869,
+        "strS": 0.513207733219917
+      },
+      "distant": {
+        "rawP": 17.645962406733254,
+        "strP": 19.9477876464979,
+        "rawS": 0.7336055197980925,
+        "strS": 0.8016976159339781
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1301,
+      "canvas_width": 3911,
+      "overlap_px": 1225420,
+      "overlap": {
+        "rawP": 12.446500986980201,
+        "strP": 14.842248393815971,
+        "rawS": 0.08466405473873811,
+        "strS": 0.360988255216236
+      },
+      "distant": {
+        "rawP": 9.831430599626763,
+        "strP": 11.056515644954235,
+        "rawS": 0.12596390477374772,
+        "strS": 0.31657883491708605
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1301,
+      "canvas_width": 3911,
+      "overlap_px": 1101536,
+      "overlap": {
+        "rawP": 12.860865510133781,
+        "strP": 16.85558346792745,
+        "rawS": 0.19940110879058748,
+        "strS": 0.45199023855220044
+      },
+      "distant": {
+        "rawP": 12.276102436544393,
+        "strP": 14.471080277662999,
+        "rawS": 0.4667299832046041,
+        "strS": 0.5644857390890827
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "canvas_height": 1293,
+      "canvas_width": 3915,
+      "overlap_px": 916952,
+      "overlap": {
+        "rawP": 12.07869710657218,
+        "strP": 14.336527403358055,
+        "rawS": 0.1597556451987537,
+        "strS": 0.42079968744300533
+      },
+      "distant": {
+        "rawP": 8.884608706558252,
+        "strP": 11.029120750432469,
+        "rawS": 0.13512582469675455,
+        "strS": 0.21433515072500078
+      }
+    },
+    {
+      "method": "StabStitch++",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "canvas_height": 1293,
+      "canvas_width": 3915,
+      "overlap_px": 1244331,
+      "overlap": {
+        "rawP": 13.508951754271955,
+        "strP": 16.01949979610324,
+        "rawS": 0.3253936604706964,
+        "strS": 0.559210262817865
+      },
+      "distant": {
+        "rawP": 14.409462746005497,
+        "strP": 15.844577494322547,
+        "rawS": 0.7458795187193553,
+        "strS": 0.7937960227838996
+      }
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_01",
+      "status": "fail",
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test2_R_2.15_P_0",
+      "pair": "pair_12",
+      "status": "ok",
+      "overlap_px": 497639,
+      "overlap": {
+        "rawP": 15.493701662993422,
+        "strP": 21.021795130008666,
+        "rawS": 0.5095335107408858,
+        "strS": 0.6878923464074408
+      },
+      "distant": {
+        "rawP": 18.740448961006145,
+        "strP": 22.380295974254544,
+        "rawS": 0.8405275157305665,
+        "strS": 0.872733445418231
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "overlap_px": 1932544,
+      "overlap": {
+        "rawP": 12.34799865539058,
+        "strP": 13.937736910014218,
+        "rawS": 0.15803858458394554,
+        "strS": 0.372504925894596
+      },
+      "distant": {
+        "rawP": 11.469586366590349,
+        "strP": 12.688119088583257,
+        "rawS": 0.09037059701737081,
+        "strS": 0.3050136267602438
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test3_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "overlap_px": 543561,
+      "overlap": {
+        "rawP": 15.239589566920264,
+        "strP": 19.65709892008696,
+        "rawS": 0.5394920382301247,
+        "strS": 0.6834544697960483
+      },
+      "distant": {
+        "rawP": 28.740141270542395,
+        "strP": 33.62968782406091,
+        "rawS": 0.9506478481689689,
+        "strS": 0.9751036736075976
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "overlap_px": 2004150,
+      "overlap": {
+        "rawP": 10.252808726163618,
+        "strP": 11.47350748510383,
+        "rawS": 0.1285968193809512,
+        "strS": 0.3906796841614053
+      },
+      "distant": {
+        "rawP": 9.419587656834342,
+        "strP": 9.781522346996496,
+        "rawS": 0.22090790439495003,
+        "strS": 0.48001923262214397
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test4C_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "overlap_px": 1063990,
+      "overlap": {
+        "rawP": 11.097808194807882,
+        "strP": 12.756387875322826,
+        "rawS": 0.21050127945742558,
+        "strS": 0.46761052311947116
+      },
+      "distant": {
+        "rawP": 15.976334768803506,
+        "strP": 18.541583659231087,
+        "rawS": 0.6196077794662422,
+        "strS": 0.7176551842207374
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_01",
+      "status": "ok",
+      "overlap_px": 2004150,
+      "overlap": {
+        "rawP": 10.249135635752754,
+        "strP": 11.468311536896616,
+        "rawS": 0.12869104498719441,
+        "strS": 0.3908501829613128
+      },
+      "distant": {
+        "rawP": 9.417542904437145,
+        "strP": 9.779298533103873,
+        "rawS": 0.22088895043115356,
+        "strS": 0.4798958703313236
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test4_R_0.75_P_-5",
+      "pair": "pair_12",
+      "status": "ok",
+      "overlap_px": 1063990,
+      "overlap": {
+        "rawP": 11.097808194807882,
+        "strP": 12.756387875322826,
+        "rawS": 0.21050127945742558,
+        "strS": 0.46761052311947116
+      },
+      "distant": {
+        "rawP": 15.976334768803506,
+        "strP": 18.541583659231087,
+        "rawS": 0.6196077794662422,
+        "strS": 0.7176551842207374
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_01",
+      "status": "ok",
+      "overlap_px": 536259,
+      "overlap": {
+        "rawP": 15.647392629438237,
+        "strP": 18.414691198492662,
+        "rawS": 0.30954999003907685,
+        "strS": 0.5757037282212131
+      },
+      "distant": {
+        "rawP": 13.562461557161319,
+        "strP": 15.805697234976243,
+        "rawS": 0.22847141986811684,
+        "strS": 0.43412059761719196
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test5_R_4.75_P_-4.5",
+      "pair": "pair_12",
+      "status": "fail",
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_01",
+      "status": "fail",
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    },
+    {
+      "method": "SIFT+homography",
+      "case": "EO_Test6_R_1.25_P_6.5",
+      "pair": "pair_12",
+      "status": "ok",
+      "overlap_px": 534271,
+      "overlap": {
+        "rawP": 17.763048944200566,
+        "strP": 23.966674529797313,
+        "rawS": 0.5446661637792773,
+        "strS": 0.7679386028343522
+      },
+      "distant": {
+        "rawP": 27.891345974886576,
+        "strP": 30.925202901601597,
+        "rawS": 0.9627422716235207,
+        "strS": 0.9695357359301725
+      },
+      "metric_source": "saved in-memory-mask JSON; JPEG masks were not reconstructed"
+    }
+  ]
+}
