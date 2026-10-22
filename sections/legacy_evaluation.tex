@@ -34,8 +34,8 @@ in-memory masks.
 
 This protocol has material limitations. The calibrated renderer infers validity
 from image intensity, whereas the baselines use saved masks. Output scales,
-canvases, compression, and visible regions differ, so a two-pixel smoothing
-kernel does not represent a shared angular scale. Exposure, texture, parallax,
+canvases, compression, and visible regions differ, so Gaussian smoothing with
+$\sigma=2$ pixels does not represent a shared angular scale. Exposure, texture, parallax,
 and smoothing affect both metrics. Consequently these scores describe the saved
 outputs under their original evaluation conventions; they are neither
 ground-truth registration errors nor a controlled ranking of the methods.

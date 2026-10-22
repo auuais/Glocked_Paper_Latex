@@ -1,0 +1,4 @@
+PASS GlPoseCdc src_half=5 dst_half=7 phase=3 last_epoch_sent=96 delivered=24
+PASS GlPoseCdc src_half=11 dst_half=3 phase=1 last_epoch_sent=96 delivered=42
+PASS GlPoseCdc src_half=7 dst_half=13 phase=8 last_epoch_sent=96 delivered=22
+All GlPoseCdc functional simulations passed. Physical CDC constraints/review remain required.

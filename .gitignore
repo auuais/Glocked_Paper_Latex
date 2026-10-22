@@ -33,6 +33,12 @@ __pycache__/
 !evidence/**/*.log
 !evidence/*.log
 
+# Local compiler products from the optional MCU boundary reproduction.
+evidence/filter_boundary/*.exe
+evidence/filter_boundary/*.obj
+evidence/filter_boundary/*.pdb
+evidence/filter_boundary/*.ilk
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db

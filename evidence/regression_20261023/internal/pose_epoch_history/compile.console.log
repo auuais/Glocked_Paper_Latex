@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlPoseEpochHistory.v" into library work
+INFO: [VRFC 10-311] analyzing module GlPoseEpochHistory
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlPoseEpochHistory.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_GlPoseEpochHistory

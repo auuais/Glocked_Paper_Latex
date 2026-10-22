@@ -1,0 +1,20 @@
+PASS gravity_math
+START test_gl_pose_receiver
+PASS test_gl_pose_receiver
+START test_gl_pose_cdc
+PASS test_gl_pose_cdc
+START test_gl_camera_projection
+PASS test_gl_camera_projection
+START test_gl_pose_epoch_history
+PASS test_gl_pose_epoch_history
+START test_gl_frame_pose
+PASS test_gl_frame_pose
+START test_gl_lease_pose
+PASS test_gl_lease_pose
+START test_gl_i2c_input
+PASS test_gl_i2c_input
+START test_eo_capture_coverage
+PASS test_eo_capture_coverage
+START test_rp_renderer
+PASS test_rp_renderer
+COMPLETE all requested regression suites

@@ -34,6 +34,8 @@ revision. `origin` remains the existing GitHub paper repository.
 - `figures/gl_*.tex`: native vector geometry, runtime flow, and hardware diagrams.
 - `figures/legacy_matched_comparison.pdf`: plot derived from the archived-output
   reanalysis. Rebuild with `python scripts/render_evidence_figures.py`.
+  The recorded plotting environment is Python 3.9.6, NumPy 1.25.2 and
+  Matplotlib 3.4.2. The saved figure permits compiling without Python.
 - Older raster illustrations are retained for provenance but are not used to
   support unverified quantitative video claims in the revised manuscript.
 
@@ -52,6 +54,10 @@ revision. `origin` remains the existing GitHub paper repository.
 - `evidence/filter_boundary/`: a reproduced zero-gradient numerical defect in
   the copied MCU filter, distinguished from physical sensor behavior. The
   original firmware is not changed by this paper task.
+- `evidence/regression_20261023/`: fresh ten-suite regression on source
+  `5126c37`, with all suites passing, 28,224,000 exact pixel comparisons across
+  two renderer interfaces, source hashes and byte-preserved logs. Finite
+  functional tests are distinguished from geometric proofs and physical tests.
 
 Exact C/RTL and pixel agreement establish consistency with their respective
 references. Routing establishes implementation timing under its constraints.

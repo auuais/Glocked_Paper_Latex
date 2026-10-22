@@ -1,0 +1,78 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlCameraProjection.v" into library work
+INFO: [VRFC 10-311] analyzing module GlCameraProjection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlFramePose.v" into library work
+INFO: [VRFC 10-311] analyzing module GlFramePose
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlPoseEpochHistory.v" into library work
+INFO: [VRFC 10-311] analyzing module GlPoseEpochHistory
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlLeasePose.v" into library work
+INFO: [VRFC 10-311] analyzing module GlLeasePose
+INFO: [VRFC 10-311] analyzing module GlTriggerEpoch
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlLeasePose.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_GlLeasePose
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlTriggerEpoch.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_GlTriggerEpoch
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_GlLeasePose -s GlLeasePose --log GlLeasePose_xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.GlPoseEpochHistory_default
+Compiling module work.GlCameraProjection(ANGLE_ROM_FIL...
+Compiling module work.GlFramePose(ANGLE_ROM_FILE="../....
+Compiling module work.GlLeasePose(MAX_POSE_AGE_CYCLES=...
+Compiling module work.tb_GlLeasePose
+Built simulation snapshot GlLeasePose
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:05:06 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/GlLeasePose/xsim_script.tcl
+# xsim {GlLeasePose} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS GlLeasePose: 21 leases; frame association, freeze, fallback, overwrite, cancellation, dual-family isolation and reset
+$finish called at time : 436436 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlLeasePose.sv" Line 206
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:05:08 2026...
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_GlTriggerEpoch -s GlTriggerEpoch --log GlTriggerEpoch_xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.GlTriggerEpoch
+Compiling module work.tb_GlTriggerEpoch
+Built simulation snapshot GlTriggerEpoch
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:05:12 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/GlTriggerEpoch/xsim_script.tcl
+# xsim {GlTriggerEpoch} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS GlTriggerEpoch: independent phases, simultaneous edges, long pulses, 65536-tag wrap, reset and history/writer alignment
+$finish called at time : 4063924 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlTriggerEpoch.sv" Line 57
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:05:14 2026...
