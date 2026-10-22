@@ -4,21 +4,19 @@
 \subsection{Evidence and Implementation Configuration}
 We separate four forms of evidence: fixed-point and protocol regression, placed-and-routed implementation, archived live pipeline measurements, and camera-input measurements. The authors additionally report successful qualitative operation of the integrated gravity path. Because that report is not accompanied by an identified image and a numerical motion trace, it does not supply a dynamic leveling-error, throughput, or latency statistic. Historical observations below retain their original build and measurement boundary. The accompanying evidence manifest records source paths, SHA-256 hashes, decoded timing words, and workbook checks.
 
-% OCT16 ROUTED REFERENCE: replace only after the new build has completed and
-% its source, reports, and artifact hashes have been independently recorded.
-The routed reference is source revision \code{cbb95ad}, completed on October 16, 2026 using Vivado 2025.2 for an XCKU15P-FFVE1517-2-I. Table~\ref{tab:hw_resources} gives the complete top-level allocation, including DDR infrastructure, video interfaces, maps, and debug logic. These counts are not an incremental gravity-transform cost. The 58,469 register resources comprise 58,468 flip-flops and one register used as an AND/OR; no latches are reported. The 495 BRAM tiles comprise 492 RAMB36 and six RAMB18 primitives.
+A fresh full synthesis, placement, and routing run of source revision \code{5126c37} completed on October 23, 2026 using Vivado 2025.2 for an XCKU15P-FFVE1517-2-I. Table~\ref{tab:hw_resources} gives the complete top-level allocation, including DDR infrastructure, video interfaces, maps, and debug logic. These counts are not an incremental gravity-transform cost. The 58,523 register resources comprise 58,522 flip-flops and one register used as an AND/OR; no latches are reported. The 495 BRAM tiles comprise 492 RAMB36 and six RAMB18 primitives.
 
 \begin{table}[t]
 \centering
-\caption{Whole-design routed resources, October 16 gravity reference.}
+\caption{Whole-design routed resources, October 23 fresh gravity build.}
 \label{tab:hw_resources}
 \small
 \begin{tabular}{lrrr}
 \toprule
 Resource & Used & Available & Utilization \\
 \midrule
-CLB LUTs & 54,289 & 522,720 & 10.39\% \\
-CLB registers & 58,469 & 1,045,440 & 5.59\% \\
+CLB LUTs & 54,321 & 522,720 & 10.39\% \\
+CLB registers & 58,523 & 1,045,440 & 5.60\% \\
 BRAM tiles & 495 & 984 & 50.30\% \\
 URAM blocks & 92 & 128 & 71.88\% \\
 DSP48E2 & 30 & 1,968 & 1.52\% \\
@@ -26,9 +24,9 @@ DSP48E2 & 30 & 1,968 & 1.52\% \\
 \end{tabular}
 \end{table}
 
-The UI clock is 233.380 MHz, the HD video clock is 74.250 MHz, and the reference is 27 MHz. Routed setup, hold, and pulse-width worst slacks are respectively $+0.075$, $+0.010$, and $+0.064$ ns, with zero total negative slack in each summary. All 143,118 routable nets are fully routed, and no Error-severity DRC entry is reported. The scoped gravity and IR-epoch audit covers 3,524 sequential cells without missing clocks, unconstrained internal paths, or unintended internal timing cuts. The 64-bit pose and eight-bit control mailbox transfers retain their 4.000 ns maximum-delay constraints; all 80 reported bus-skew checks pass, with a minimum slack of $+1.785$ ns.
+The UI clock is 233.380 MHz, the HD video clock is 74.250 MHz, and the reference is 27 MHz. Routed setup, hold, and pulse-width worst slacks are respectively $+0.022$, $+0.010$, and $+0.009$ ns, with zero total negative slack in each summary. All 143,180 routable nets are fully routed, and no Error-severity DRC entry is reported. The scoped gravity and IR-epoch audit covers 3,524 sequential cells without missing clocks, unconstrained internal paths, or unintended internal timing cuts. The 64-bit pose and eight-bit control mailbox transfers retain their 4.000 ns maximum-delay constraints; all 80 reported bus-skew checks pass, with a minimum slack of $+2.525$ ns.
 
-These checks establish closure under the reported internal constraints, not complete physical signoff. The full-design CDC report retains 128 Critical and 265 Warning entries, including inherited crossings requiring separate disposition. The timing report also identifies 159 ports without input-delay constraints and 37 without output-delay constraints. Consequently, neither the scoped mailbox checks nor positive internal slack proves board-I/O timing or exposure synchronization. C/RTL regressions complement these implementation checks by testing angle arithmetic, coherent pose transport, epoch association, and rendered pixels; simulation does not measure external-memory stalls or camera timing.
+These checks establish closure under the reported internal constraints, not complete physical signoff. The full-design CDC report retains 131 Critical and 265 Warning entries, including inherited crossings requiring separate disposition. The timing report also identifies 159 inputs without input-delay constraints and 37 output-delay check entries (36 unconstrained outputs plus one clock port). Consequently, neither the scoped mailbox checks nor positive internal slack proves board-I/O timing or exposure synchronization. C/RTL regressions complement these implementation checks by testing angle arithmetic, coherent pose transport, epoch association, and rendered pixels; simulation does not measure external-memory stalls or camera timing.
 
 \subsection{Storage and Throughput Boundaries}
 The implemented pipeline stores captured source frames and published output frames in DDR. Replay feeds a three-row source ring, followed by the source-driven sampler and a 256-row EO (512-row IR) destination RowWindow. Vertical interpolation accesses two adjacent source rows, but the complete architecture is not a two-line-only streaming pipeline. Memory accounting must include primitive rounding, control, metadata, external frame storage, and debug. The nominal capacity represented by the routed BRAM and URAM allocation is 5,672,448 bytes including parity; that number includes infrastructure and excludes DDR and distributed memory, so it is not directly comparable with an algorithm's image or model-memory footprint.
@@ -80,7 +78,7 @@ The boundaries also differ by mode. EO starts from a descriptor-valid event, whe
 The contemporaneous narrative lists other session observations and estimates a ``typical'' total by adding 16.7 ms mean row age and 16.7 ms scanout. Those additions are modeled terms, omit sensor/ISP delay, and do not remedy the panorama source association. We retain only the trace-backed snapshots as measured values. None of these historical intervals is a measurement of current gravity-path latency or physical exposure-to-display delay.
 
 \subsection{Camera Raster and Content Synchronization}
-Camera-input evidence is separate from renderer output FPS. The October 9 study used physical cameras 2--6 at 1080p60, manual shutter setting 1/60 s, gain 0 dB, zero external-trigger delay, and a 30 Hz FPGA trigger with 2 ms high time. A common nominal 27 MHz counter timestamps the received rasters. The shutter value is a verified setting, not a measured exposure duration, and the trigger timestamp observes the FPGA output rather than camera acceptance.
+Camera-input evidence is separate from renderer output FPS. The October 9 study used physical cameras 2--6 at 1080p60, manual shutter setting 1/60 s, gain 0 dB, zero external-trigger delay, and a 30 Hz FPGA trigger with 2 ms high time. The archived receiver detects a raster boundary at the first valid embedded BT.1120 timing marker whose V bit changes from one to zero, using the qualified rising-edge sampling path. A common nominal 27 MHz counter timestamps the resulting event after synchronization and before serialization. This observes a received-raster boundary, not a sensor exposure or an external VSYNC-pin edge. The shutter value is a verified setting, not a measured exposure duration, and the trigger timestamp observes the FPGA output rather than camera acceptance.
 
 For each matched raster set, let $t_i$ be a camera timestamp and $P$ the estimated raster period. We sort $t_i\bmod P$ and subtract the largest circular inter-camera gap from $P$. This yields the shortest circular arc containing the five raster phases. Table~\ref{tab:camera_sync} summarizes the resulting spread for sequential 2D+3D digital noise reduction (DNR) settings. The audit independently recomputed all 14,051 spans from stored timestamps and periods, then reconciled the twenty corresponding workbook summary cells without modifying the workbook.
 

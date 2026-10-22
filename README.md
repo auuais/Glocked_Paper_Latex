@@ -24,6 +24,10 @@ is local and ignored by Git. The original 17-page PDF is preserved locally as
 at commit `4d2b5a7`. No Overleaf connection or synchronization is used for this
 revision. `origin` remains the existing GitHub paper repository.
 
+The October 23 reviewed PDF is **11 pages including references**. Its exact
+hash, staged source hashes and visual/layout checks are recorded in
+`evidence/pdf_validation_20261023.json`.
+
 ## Source and figures
 
 - `g_locked_panorama_stabilization.tex`: title, abstract, introduction, related
@@ -47,6 +51,8 @@ revision. `origin` remains the existing GitHub paper repository.
   arithmetic and memory contracts.
 - `evidence/hardware_audit.md` and `hardware_summary.json`: classified routed,
   historical live FPS/latency, camera synchronization, and DNR evidence.
+  The original summary retains its October 16 route record; the manuscript's
+  updated route table uses the fresh October 23 archive below.
 - `evidence/recompute_legacy_overlap.py`, `legacy_overlap_reanalysis.json`, and
   `legacy_overlap_per_seam.csv`: 12 shared target identities, nine common
   successes, explicit SIFT failures, and 130 hashed source inputs. The script
@@ -58,6 +64,10 @@ revision. `origin` remains the existing GitHub paper repository.
   `5126c37`, with all suites passing, 28,224,000 exact pixel comparisons across
   two renderer interfaces, source hashes and byte-preserved logs. Finite
   functional tests are distinguished from geometric proofs and physical tests.
+- `evidence/fpga_rebuild_20261023/`: fresh full synthesis/place/route and
+  bitstream completion, with `complete_verified` acceptance, source/artifact
+  hashes and selected raw reports. Setup/hold/pulse-width slacks are
+  +0.022/+0.010/+0.009 ns. No FPGA or MCU programming was performed in this run.
 
 Exact C/RTL and pixel agreement establish consistency with their respective
 references. Routing establishes implementation timing under its constraints.

@@ -13,9 +13,11 @@ Audit date: 2026-10-23. This audit read existing artifacts; it did not access ha
 | Camera raster/content studies | 2026-10-07 through 2026-10-09 | Input raster rate, qualified content-change diagnostics, and raster-phase spread |
 | C/RTL and host regressions | Separate implementation validation manifests | Numerical and protocol checks; not camera, DDR, exposure, or physical CDC measurements |
 
-A fresh build of source `5126c37` was in progress in `E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934` when this audit was prepared. It must have its own final manifest before replacing the October 16 numbers. Successful routing of an earlier source is not a timing result for a later source.
+The fresh build of source `5126c37` in `E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934` subsequently completed on October 23 at 00:50:09 KST, with Vivado exit zero and independent parser status `complete_verified`. Its separate record is [fpga_rebuild_20261023/full_build_20261022_235934.json](fpga_rebuild_20261023/full_build_20261022_235934.json). The manuscript now uses that fresh route record. The October 16 figures below and in `hardware_summary.json` remain historical evidence, not the new build's results.
 
-## Routed gravity resources and timing
+Fresh routed results: 54,321 LUTs, 58,523 registers, 495 BRAM tiles, 92 URAM, and 30 DSP; setup/hold/pulse slacks +0.022/+0.010/+0.009 ns; all 143,180 routable nets routed, all 80 bus-skew checks passing (minimum +2.525 ns), and zero DRC Error entries. The scoped 3,524-cell logic audit and 64/8-bit 4.000 ns mailbox constraints pass. Full-design CDC retains 131 Critical/265 Warning/707 Info entries. The output-delay count of 37 comprises 36 unconstrained outputs and one clock port; 159 inputs lack delay constraints. The fresh record hashes the bitstream/probes and all reports. Post-build hashing matched 137 registered inputs, 14 staged ROMs and three build/audit scripts. No hardware was programmed by this build. Fresh numerical tests are separately archived in `regression_20261023/`.
+
+## Historical October 16 routed resources and timing
 
 Primary manifest: `E:/Xylinx/EO_IR_GravityLocked_Stabilization/docs/validation/full_build_20261016_020605.json`. Primary reports and BIT/LTX are in `E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261016_020605/`. The top is `KintexTop_EO_IR_HD_SDI_panorama_base`, the part is `xcku15p-ffve1517-2-i`, and the tool is Vivado 2025.2. Ten report/artifact hashes independently matched that manifest.
 
@@ -106,3 +108,38 @@ Spread is the shortest circular arc containing the five matched raster phases wi
 | Sept4 static-renderer BIT | `b6bfaeb898f16270195a092b94372aa0ec3bc24697d9c2b4ec2c3c95fa9d96e4` |
 
 The paper may report the authors' qualitative live success, the scoped routed results, the historical output-FPS observations, the exact latency snapshots, and the input raster/DNR statistics. It must retain their separate configurations. Exposure-to-display delay, source-matched current gravity latency, sustained current-envelope rate, calibrated attitude error under motion, and complete physical CDC/board-I/O qualification remain unmeasured in the cited numerical evidence. A local pose receipt sequence or trigger epoch is an association identifier, not a sensor exposure timestamp.
+
+## Follow-up: exact October 9 raster-event definition
+
+Read-only source trace completed 2026-10-23. The measurement is **V-bit-derived**, not an external VSYNC-pin edge, an active-line-count threshold, a capture descriptor, or a sensor exposure strobe. This precision does not change any numerical records above.
+
+The October 9 archive's `logs/program_r4.log` records programming `builds/eo_sync_20261008_r4_trig30/EoSyncTop.bit`. Its BIT and LTX hashes match the October 9 `build_sha256.json` and the more complete October 8 `docs/eo_sync_evidence/trig30_20261008/build_sha256.json`. The latter records source commit `a9020ee`, resolved locally to `a9020ee0db8b873b429b89abfc6d2b478e392c87`. All 14 files in that build manifest were independently rehashed and matched, including the BIT/LTX, routed checkpoint, build options, and seven RTL snapshot files. The generated synthesis script reads those `source_snapshot/rtl/` files, with `PHASE_CLOCK=1` and `TRIGGER_HZ=30`. The raster monitor, sampler, and telemetry snapshot bytes also match their files at the recorded Git commit exactly; the top matches after CRLF/LF normalization. This audit uses the archived build snapshot rather than assuming the current diagnostic sources are the original build inputs.
+
+All paths in the following trace are relative to `E:/Xylinx/EO_Panorama_V19_RollPitch/`:
+
+1. `builds/eo_sync_20261008_r4_trig30/source_snapshot/rtl/Eo60InputSampler.v` samples each parallel Y/C bus on rising and falling edges of its camera-derived, phase-adjusted clock, then aligns both paths to rising-edge logic. `EoSyncTop.v` runs separate raster monitors on both paths. The October 9 analysis explicitly selects **rising** observations for every camera (`docs/eo_sync_evidence/dnr_all5_20261009/scripts/analyze.py:30`), at the documented per-camera phase taps. The snapshot edge selector affects OSD observation, not which telemetry paths run.
+2. `source_snapshot/rtl/Eo60RasterMonitor.v:14` recognizes the luma timing prefix `FF 00 00`, followed by an XY byte with bit 7 set and the expected protection-bit relationships. `marker = prefix && xy_ok`. Its exact raster-start condition at line 20 is `marker && prev_v && !yi[5]`; `prev_v` is updated from bit 5 of every valid marker at line 50. Thus the observable is the **first valid luma TRS marker whose V bit is 0 after a valid marker with V=1**. The condition does not require H=0: either SAV or EAV can carry the detected transition. It does not wait for an active-pixel or active-line counter to reach a threshold.
+3. At that event, after initial acquisition, the monitor publishes the **preceding raster's** accumulated CRC/geometry report and toggles its event bit (`Eo60RasterMonitor.v:62–66`), then resets its frame accumulators. Consequently the report's CRC describes the interval that just ended, while its publication event marks recognition of the next raster's V transition. Content-change timestamps inherit this report-boundary convention; they are not pixel-acquisition or exposure timestamps.
+4. `source_snapshot/rtl/EoSyncTelemetry.v:40,50–52` passes the event toggle through three reference-domain registers and detects a change against `seen`. It then latches the current 48-bit free-running **27 MHz** counter. The timestamp is therefore taken at the common-clock observation of the synchronized event, after input-sampler/monitor and CDC latency, rather than directly at the camera pin. The retained timestamp is attached before round-robin serialization (`:44`), so serializer order does not determine the event time. The nominal 37.037 ns tick is resolution, not independently established pin-to-timestamp accuracy or channel-delay calibration.
+5. `source_snapshot/scripts/capture.tcl:78` stores ILA samples only when the telemetry valid flag is asserted. The decoder checks the signature, event kind/channel, overrun count, and report fields, then sorts by stored timestamp rather than serializer/sample order. Camera mapping is `channel//2+2`, with even channels rising and odd channels falling (`source_snapshot/scripts/decode_events.py:80,87`). Timing qualification requires 2,073,600 pixels, 1,080 active lines, 1,125 EAVs, 2,475,000 frame clocks, and 2,200 clocks per line, with valid status/protection fields. The all-five study additionally asserts full geometry qualification, including no Y/C marker mismatch, for every selected record and asserts no sequence gaps (`analyze.py:38–39`). These are report-quality checks, not the raster-start detector itself.
+
+The following SHA-256 anchors make the detector trace reproducible without copying implementation RTL or hardware images into the paper repository:
+
+| Source relative to the RollPitch repository | SHA-256 |
+|---|---|
+| `docs/eo_sync_evidence/trig30_20261008/build_sha256.json` | `b8f14362eb4dae67952d147130644adb7c9495b1f855c65265509d1ae682d1fd` |
+| `docs/eo_sync_evidence/dnr_all5_20261009/build_sha256.json` | `3e1e112a7d039b71776e3ff85cf66685d00aff542d958497c80160fa6e92f34e` |
+| `docs/eo_sync_evidence/dnr_all5_20261009/logs/program_r4.log` | `1679e0082acbbc7cfc0f40b6bbd3a15a6b5a116ef1c81889f098c471eb4da4d1` |
+| `builds/eo_sync_20261008_r4_trig30/EoSyncTop.bit` | `4bc5272d453f505f14399f305149ac6a317848bb6761116a3e374ee0e5f54006` |
+| `builds/eo_sync_20261008_r4_trig30/EoSyncTop.ltx` | `40d5728d16f684f0e07388c32abef7fc3dd2a649c5c3c55fd6a2092d423a8e5c` |
+| `builds/eo_sync_20261008_r4_trig30/source_snapshot/rtl/Eo60RasterMonitor.v` | `51daaed9aba5c7e93e84c615e3b3bbb0c526110f56bdd1e166274cd2e8fd50df` |
+| `builds/eo_sync_20261008_r4_trig30/source_snapshot/rtl/Eo60InputSampler.v` | `7bb2daca05c83c08435ca22a8eff4689fa0d0dfc74a62065bdabd1bb550de07c` |
+| `builds/eo_sync_20261008_r4_trig30/source_snapshot/rtl/EoSyncTelemetry.v` | `75794d3d7c4557fe992917e1e1ae8e2bd6dd78b665596d37b4dd5e80a028c284` |
+| `builds/eo_sync_20261008_r4_trig30/source_snapshot/rtl/EoSyncTop.v` | `6cee924d19547a3e6f1f6ee5fb538b571f76234e6a7599bfd301f389aa39ec61` |
+| `builds/eo_sync_20261008_r4_trig30/source_snapshot/scripts/capture.tcl` | `eadb9755927fc5202b4160e0f0eb7a7b15e607f266db9841e481df1ba2986aee` |
+| `builds/eo_sync_20261008_r4_trig30/source_snapshot/scripts/decode_events.py` | `1023eee54ff24430735eaec31d217a4892d88b8907f607261631a08133d0880c` |
+| `docs/eo_sync_evidence/dnr_all5_20261009/scripts/analyze.py` | `35d8353e00b2123979fee17fa52d32cc70b82b89455aba55c750f3dc473c9907` |
+
+The current `diagnostics/eo_sync/scripts/decode_events.py` has the same hash as the archived decoder listed above. No hardware action, script execution against hardware, or numeric-record edit was performed for this source trace.
+
+Suggested manuscript wording: "The receiver detects raster boundaries at the first valid embedded BT.1120 timing marker whose V bit changes from 1 to 0, using the qualified rising-edge sampling path. A common 27 MHz counter timestamps the resulting event after synchronization and before serialization; it observes a received-raster boundary, not a sensor exposure or an external VSYNC-pin edge."
