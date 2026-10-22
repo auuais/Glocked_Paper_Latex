@@ -1,0 +1,383 @@
+% Replacement algorithm and FPGA architecture sections.
+% Required packages: amsmath, amssymb, graphicx, booktabs, tikz.
+% Required TikZ libraries: arrows.meta, positioning, calc.
+% Compile from the manuscript directory so figures/ resolves correctly.
+% This file makes no claim of measured physical stabilization or throughput.
+
+\section{Gravity-Referenced Camera Correction}
+\label{sec:gl_algorithm}
+\label{sec:algorithm}
+
+\subsection{Scope and Calibration Contract}
+The method separates static optical mapping, time-varying camera orientation,
+and frame association. An archived inverse map accounts for the fixed lens,
+cylindrical projection, crop, and strip placement. A low-rate orientation
+engine converts one rig roll/pitch pair into six camera-specific corrections.
+The renderer applies these corrections to the map segments associated with
+one leased source frameset. The FPGA receives orientation estimates; it does
+not estimate attitude from raw inertial samples. There is no live yaw input,
+heading lock, translation estimate, or rolling-shutter model in this path.
+
+For pure rotation and a calibrated central camera, a rotation in ray space
+can be mapped back to a cylinder. Thus a sufficiently general global
+spherical or cylindrical warp can compensate rotation. The practical issue
+here is narrower: a common vertical shift or planar roll applied to an
+already assembled panorama does not generally reproduce the different local
+corrections around the ring. The proposed implementation uses camera-specific
+affine corrections to retain the existing segment-based mapping and sampling
+hardware. It is an approximation to ray reprojection, rather than a claim
+that all global rotational correction is impossible.
+
+Let camera $i$ have mounting yaw $\psi_i$, pitch $p_i^0$, and roll $r_i^0$.
+The six EO yaws are $(0,60,120,180,240,300)^\circ$; the IR yaws are
+$(90,150,210,270,330,390)^\circ$. The $390^\circ$ value is retained in
+calibration and normalized modulo $360^\circ$ for trigonometric lookup.
+Initial mounting roll and pitch are zero for all cameras. Subsequently,
+per-camera UI roll/pitch trims are retained across boots. The MCU applies
+the selected mounting profile once, recording revision \texttt{0x7106B1F1}
+in a CRC-protected two-page journal. Runtime yaw edits are stored by the MCU,
+but the present FPGA uses the fixed yaw constants above. Only roll/pitch
+trims feed its orientation engine.
+
+Table~\ref{tab:gl_calibration} distinguishes the installed optical profile
+from the selected mounting-profile INI. In particular, adopting the mounting
+angles does not regenerate the optical maps. The INI's example live poses
+$(0.75,-5.00)^\circ$ for EO and $(1.25,6.50)^\circ$ for IR are test inputs,
+not runtime defaults. Likewise its output-mode and DDR-offset fields are
+not the hardware mode/address contract.
+
+\begin{table*}[t]
+\caption{Calibration and preserved optical configuration. The ``selected INI''
+column is recorded for reproducibility; only its mounting arrays are imported.
+Focal lengths and principal points are in original source pixels.}
+\label{tab:gl_calibration}
+\centering\footnotesize\setlength{\tabcolsep}{4.3pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Parameter & Installed EO & Installed IR & Selected INI: EO / IR \\
+\midrule
+Source size; cameras & $1920\!\times\!1080$; 6 & $640\!\times\!512$; 6 & unchanged \\
+$(f_x,f_y)$ & $(1141.834740,1142.434960)$ & $(564.835060,564.024805)$ & unchanged \\
+Normalized principal point & $(0.489836,0.514300)$ & $(0.497330,0.476162)$ & unchanged \\
+Distortion principal point & $(940.486,555.444)$ & $(318.291416,243.794865)$ & unchanged \\
+$(k_1,k_2,k_3)$ & $(-.163318,.165940,-.064582)$ & $(-.327245098,.299803510,-.197210469)$ & unchanged \\
+$(p_1,p_2)$ & $(.000236,.000773)$ & $(.000324600,.000015975)$ & unchanged \\
+Map resize factor & $0.5$ & $1.0$ & $0.56296$ / $1.0$ \\
+Cylindrical horizontal/vertical FOV & $57.56^\circ/48.56^\circ$ & $54.5^\circ/45.0^\circ$ & $77^\circ/54^\circ$ / $65^\circ/52^\circ$ \\
+Crop height/width scale & $0.888/1.0$ & $0.9375/1.0$ & $0.79/0.70$ / $0.65/0.9$ \\
+Map-profile overlap; feather strength & $50$; $1.0$ & $30$; $1.0$ & $60$; $1.0$ / $30$; $1.0$ \\
+Logical panorama size & $3840\!\times\!480$ & $3576\!\times\!480$ & $3840\!\times\!480$ / $3240\!\times\!480$ \\
+Source pitch shift, pixels/degree & $-9.80$ & $-8.72$ & newer C: $-17.408$ / $-8.72$ \\
+Per-camera strip widths & $650,655,655,655,655,655$ & $616,621,640,621,621,621$ & installed segment ROMs retained \\
+Panorama strip starts & $0,633,1271,1909,2547,3185$ & $0,587,1179,1771,2363,2955$ & installed placement retained \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Upstream Attitude Estimate}
+The copied MCU firmware parses IIM-46234 accelerometer, gyroscope, and
+temperature packets. Its requested sensor profile is a $1000$ Hz packet
+rate (divider $1$), output selection \texttt{0x07}, and bandwidth setting
+\texttt{0x44} (BW4 for both sensors). These are configuration values, not
+measured acquisition rates or a measured filter response. Eight accepted
+samples are averaged before each six-axis Madgwick update~\cite{madgwick2011gradient}, giving a nominal
+$125$ Hz fusion rate. The gain is $\beta=0.12$, the initial quaternion is
+$(1,0,0,0)$, and the configured gyro-bias vector is
+$(0.421587,-0.133538,0.064359)$ degrees/s. Gyro values are converted to
+radians/s after bias subtraction; acceleration and gyro axes are passed
+directly to fusion, without a calibrated rig-axis remapping in this path.
+The update uses gyro quaternion integration, normalized accelerometer
+gradient feedback, and quaternion normalization; no magnetometer is used.
+An isolated host test of the copied filter at identity orientation, zero
+gyro, and acceleration $(0,0,1)$ yields a non-finite quaternion because
+zero-gradient normalization is unguarded; this is a numerical boundary
+finding, not an observed physical failure.
+The assumed packet rate is refreshed from groups of $32$ timestamp/counter
+intervals, and fusion uses that rate divided by eight.
+
+Quaternion-derived roll/pitch are clipped to $\pm90^\circ$, smoothed, then
+rounded to centidegrees and quantized in $10$ cd steps. The implemented
+output smoothing is $z\leftarrow z+\alpha(\theta-z)$, with
+\begin{equation}
+ \alpha=\operatorname{clip}\!\left(
+ \frac{1000/f_s}{10+1000/f_s},0.02,1\right),
+\end{equation}
+where $f_s$ is the estimated packet rate in Hz and times are in ms.
+The shadow angles update every ten accepted packets or when a VSYNC request
+is pending. Since this schedule differs from the interval used to calculate
+$\alpha$, the constant $10$ is not a measured end-to-end time constant.
+PC4 VSYNC sets a pending flag; the main loop services it for panorama modes
+\texttt{0x14}/\texttt{0x15} and sends the current shadow pair to the FPGA.
+The source packet timestamp is not included in that transaction. A separate
+$250$ ms no-DRDY status timeout also does not establish exposure alignment.
+
+\subsection{Azimuth-Dependent Orientation Projection}
+All angle interfaces use integer centidegrees (cd), with $100$ cd per degree.
+Using the usual right-handed axis-rotation matrices, the implemented order is
+\begin{align}
+ R_s &= R_x(r)R_y(p), & T_i &= R_z(\psi_i)R_y(p_i^0),\\
+ R_{m,i} &= T_iR_x(r_i^0), & R_i &= R_sR_{m,i}.
+ \label{eq:gl_matrix_chain}
+\end{align}
+These are four distinct fixed-point matrix products. Their order and
+intermediate quantization are part of the numerical specification.
+For zero mounting trims and small $r,p$ in radians,
+\begin{equation}
+ \begin{bmatrix}r_i\\p_i\end{bmatrix}
+ \simeq
+ \begin{bmatrix}\cos\psi_i&\sin\psi_i\\-\sin\psi_i&\cos\psi_i\end{bmatrix}
+ \begin{bmatrix}r\\p\end{bmatrix}.
+ \label{eq:gl_small_angle}
+\end{equation}
+This expression explains the azimuth dependence in
+Fig.~\ref{fig:gl_projection}; the hardware evaluates
+\eqref{eq:gl_matrix_chain}, not this linearization. Axis names and signs here
+define the software convention. Their correspondence to the physical IMU
+and rig still requires installation-specific measurement.
+
+\begin{figure}[t]
+\centering\input{figures/gl_projection_geometry.tex}
+\caption{Camera mounting orientation changes the local roll/pitch induced by
+one rig tilt. The small-angle relation is explanatory; finite-angle values
+come from the fixed-point matrix chain.}
+\label{fig:gl_projection}
+\end{figure}
+
+The orientation trigonometric ROM contains $36000$ sine/cosine pairs at
+$0.01^\circ$ spacing. Its scale is $32767$, including the matrix identity
+entries. Each dot product uses the quantizer
+\begin{equation}
+ \begin{aligned}
+ Q(a)&=\operatorname{sat}_{[-32768,32767]}
+       \left(\left\lfloor\frac{a+2^{14}}{2^{15}}\right\rfloor\right),
+ \\
+ [AB]_{jk}&=Q\!\left(\sum_{\ell=0}^2 A_{j\ell}B_{\ell k}\right).
+ \end{aligned}
+ \label{eq:gl_mat_quant}
+\end{equation}
+The positive bias applies even to negative accumulators. Replacing it with
+symmetric rounding, floating-point multiplication, or a reassociated matrix
+chain changes the bit-level result. Products are signed 32-bit values and
+the RTL accumulator is signed 36-bit. ROM generation uses the C library's
+nearest rounding with half-way cases away from zero.
+
+The inverse trigonometric operator $A(y,x)$ implements integer
+$\operatorname{atan2}$ in centidegrees. For $m=\min(|x|,|y|)$ and
+$d=\max(|x|,|y|)>0$, it indexes a $4097$-entry table by
+\begin{equation}
+ \begin{aligned}
+ j&=\left\lfloor\frac{4096m+\lfloor d/2\rfloor}{d}\right\rfloor,\\
+ L[j]&=\operatorname{round}_{\mathrm{away}}
+       \left(\frac{18000}{\pi}\tan^{-1}\frac{j}{4096}\right).
+ \end{aligned}
+\end{equation}
+Axis exchange and quadrant reconstruction give the complete angle;
+$A(0,0)=0$. With $v=\operatorname{clip}(-R_{i,20},-32767,32767)$,
+\begin{equation}
+ p_i=A\!\left(v,\left\lfloor\sqrt{2^{30}-v^2}\right\rfloor\right).
+\end{equation}
+If the magnitude of the ROM cosine of $p_i$ exceeds $8$, then
+$r_i=A(R_{i,21},R_{i,22})$ and
+$y_i=A(R_{i,10},R_{i,00})$; otherwise $r_i=0$ and
+$y_i=A(-R_{i,01},R_{i,11})$. The extracted yaw is not used by the renderer.
+The $32767$ scale and integer square root mean that ideal right-angle
+inputs need not yield exactly $9000$ cd.
+
+\subsection{Correction Range and Preserved Pixel Mapping}
+The controller first computes all six camera roll/pitch pairs and
+$M=\max_i\{|r_i|,|p_i|\}$. When $(r,p)\ne(0,0)$ and $M>1000$, it replaces
+each live component $v\in\{r,p\}$ by
+\begin{equation}
+ v'=\operatorname{sgn}(v)
+   \left\lfloor\frac{1000|v|+\lfloor M/2\rfloor}{M}\right\rfloor
+ \label{eq:gl_global_scale}
+\end{equation}
+and recomputes the six cameras once. Static trims are never rescaled.
+This single global adjustment is distinct from independently clipping six
+camera poses, and it need not force every recomputed angle within the limit.
+A separate flag reports that condition. The preserved renderer finally
+clips each camera roll and pitch to $[-1000,1000]$ cd. Disabled or unusable
+live correction bypasses the projection and returns the static trim arrays
+exactly; enabled zero tilt still executes the quantized matrix chain.
+
+Let $\boldsymbol b(u,v)$ be the archived inverse map, in original source
+pixels, with source center $(c_x,c_y)=(W/2,H/2)$. For the final camera
+angles $\bar r_i,\bar p_i$ in degrees, the source coordinate is
+\begin{align}
+ t_i&=\operatorname{round}_{\mathrm{away}}(K_p\bar p_i/2^{16}),\\
+ d_x&=b_x-c_x, & d_y&=b_y+t_i-c_y,\\
+ x_s&=c\,d_x+s\,d_y+c_x,&
+ y_s&=-s\,d_x+c\,d_y+c_y,
+ \label{eq:gl_map_affine}
+\end{align}
+where $c=\cos(-\bar r_i)$, $s=\sin(-\bar r_i)$ and
+$K_p=\operatorname{round}_{\mathrm{away}}(2^{16}k_p)$ is $-642253$ for EO
+($k_p=-9.80$) or $-571474$ for IR ($k_p=-8.72$).
+Translation precedes rotation.
+This pixel path intentionally uses a different trigonometric scale,
+$32768$, so zero angle is an exact identity. Its $1001$-entry magnitude
+ROM covers $0$--$1000$ cd, restores signs at runtime, and stores the pitch
+translation as a signed 8-bit integer ($\pm98$ EO or $\pm87$ IR rows).
+The newer C optical path's resize-normalized EO factor is Q16
+$-1140855$, approximately $-17.408$ pixels/degree; it is not substituted
+into the retained renderer. Therefore exact agreement of the orientation
+engine with C does not imply end-to-end pixel agreement with that newer
+optical pipeline.
+
+Map origins and running coordinates are signed 32-bit integers with
+$16$ fractional bits. Each row segment has at most $64$ pixels; stored
+16-bit increments have $5$ fractional bits for EO and $4$ for IR, and
+are shifted left by $11$ or $12$ before transformation. Transformed
+increments use signed 24-bit Q16 storage. Coordinate products are shifted
+arithmetically by $15$ without an added rounding bias. Since the map is
+affine within a segment, transformed endpoints bound every coordinate in it.
+
+The sampler accepts $0\le x_s\le W-2$ and $0\le y_s\le H-2$; other
+samples become black. It uses two vertically adjacent samples, rather than
+general bilinear interpolation. EO quantizes the horizontal coordinate to
+the output pixel's chroma parity and vertically interpolates luma and chroma
+separately with a $2^{15}$ rounding bias before shifting by $16$. IR uses
+$\lfloor x_s\rfloor$, truncating fixed-point vertical interpolation, and
+constant chroma $128$. Archived seam-weight ROMs and strip placement remain
+unchanged. EO overlaps contain $17$ output pixels; ordinary IR overlaps
+contain $29$. The IR camera-2/3 fold seam uses the inherited $48$-pixel tail,
+$90$-pixel head, and specialized alpha-index mapping.
+
+\section{Frame-Coherent FPGA Architecture}
+\label{sec:gl_architecture}
+\label{sec:fpga}
+
+\subsection{Atomic Pose Reception and Source-Epoch Association}
+The runtime flow is shown in Fig.~\ref{fig:gl_runtime}.
+The MCU writes I\textsuperscript{2}C slave address \texttt{0x36}, starting
+at register \texttt{0x10}, with four little-endian bytes: signed 16-bit
+roll followed by signed 16-bit pitch. The receiver commits only at STOP
+after exactly four acknowledged sequential data bytes. Partial, excess,
+misordered, or restarted bursts cannot publish a torn pose. A separate
+one-byte transaction at \texttt{0x04} accepts \texttt{0xA1} to enable
+correction and \texttt{0xA0} to disable it; reset is disabled. The MCU
+enables correction only for UI On together with Attitude Sensor.
+Request/acknowledge CDC mailboxes transfer coherent pose and control into
+the DDR user-interface (UI) clock domain. The 32-bit receipt sequence counts
+accepted FPGA pose transactions; it is not an IMU timestamp.
+
+\begin{figure}[t]
+\centering\input{figures/gl_runtime_flow.tex}
+\caption{Pose selection follows the source-frame lease. New poses may arrive
+throughout rendering but cannot modify an accepted pass. A lease or mode
+change before acceptance cancels pending computation.}
+\label{fig:gl_runtime}
+\end{figure}
+
+EO strobe and IR genlock drive independent 16-bit epoch counters. Each
+family's six capture writers receive its Gray-coded epoch; a synchronized
+trigger edge also captures the latest coherent pose in that family's
+16-entry history. Each entry stores the complete epoch tag, roll/pitch,
+receipt sequence, pose age, validity, enable state, and calibration revision.
+Both histories continue capturing while the other family is displayed.
+Consequently identical numeric EO and IR epochs cannot select each other's
+pose. Full tags reject an entry overwritten by an index alias; requests
+must not remain live across an entire 16-bit epoch wrap.
+
+Pose age is zero on its receipt edge and increases in UI cycles. Freshness
+is evaluated \emph{at trigger capture}, with the inclusive default bound
+$23{,}340{,}000$ cycles ($100$ ms at nominal $233.4$ MHz).
+Age is 32-bit saturating, with a sticky overflow flag that forces unusable
+status. A pose update on the capture edge takes precedence; capture also
+takes precedence over a simultaneous lookup of the same tag. Neither this
+age bound nor an epoch establishes the physical exposure time. IMU filtering,
+delivery latency, trigger-to-exposure delay, and their variation remain
+separate calibration quantities.
+
+The frameset manager provides source banks sharing an epoch among the
+present cameras and holds the panorama lease until retirement. The pose
+controller looks up the key (sensor family, leased epoch), freezes the
+current static trims, and checks the captured calibration revision. Missing,
+stale, disabled, or revision-mismatched data selects the exact static bypass.
+The static register-bank path requires $2^{25}$ unchanged UI cycles before
+adopting new values and clamps them to $\pm1000$ cd; the MCU accepts UI
+trims within $\pm500$ cd. The two 16-bit bank-update counters form the
+32-bit revision, so a change in either bank invalidates old calibration
+association. This settling filter is distinct from the atomic live-pose
+transaction protocol.
+
+\subsection{Frozen Parameters and Source-Driven Rendering}
+Figure~\ref{fig:gl_hardware} shows the implemented data and control paths.
+One iterative projection engine evaluates six cameras sequentially and
+publishes their $6\times16$-bit roll and pitch arrays atomically. At render
+acceptance, the renderer snapshots those arrays, sensor selection, and
+revision. Table construction reads the same frozen registers. Identical
+angles and sensor selection permit table reuse; updates arriving during a
+build or active pass cannot invalidate it. Replay is held until the new
+source requirements are valid, avoiding a first-row fetch based on an old
+table. The lease/pose controller cancels obsolete work before acceptance;
+accepted coefficients remain fixed through completion or abort.
+
+\begin{figure*}[t]
+\centering\input{figures/gl_hardware_architecture.tex}
+\caption{Implemented panorama path. Full source-frame address spaces reside
+in DDR even when EO capture writes a proven subwindow. On-chip input rows
+are replay caches, not the complete image storage. The same processing
+engine serves EO or IR; output scanout is decoupled from image production.}
+\label{fig:gl_hardware}
+\end{figure*}
+
+The base map contains $480\times6\times11=31680$ EO segments or
+$480\times6\times10=28800$ IR segments. The table builder transforms each
+segment, chooses traversal direction so source $y$ is nondecreasing, and
+counting-sorts entries by their first source row. It stores a bucket end
+index for each source row and a row-ready threshold equal to the maximum
+last source row needed by each output row. A $4096$-entry queue retains
+partially traversed segments. For source row $y_0$, the walker drains the
+previously queued work and newly eligible segments, emits their pixels,
+and requeues unfinished segments. Coordinates advance by addition.
+
+DDR replay fills a three-row ring for each camera: rows $y_0$ and $y_0+1$
+are sampled while $y_0+2$ is prefetched into the third slot. After pipeline
+drain, the retired row's slot may be reused. The physical ring contains
+$18$ memories of $512\times64$ bits, of which $480$ words cover an EO row.
+Partially completed output strips are stored in a $2^{18}\times72$-bit
+UltraRAM RowWindow. Packing four 16-bit EO pixels per word gives $256$
+output-row slots; packing eight 8-bit IR samples gives $512$. The parameter
+store is $32768\times144$ bits and the work queue $4096\times144$ bits.
+These structures, ROMs, and metadata must all be included in memory claims;
+the design is not a strict two-line architecture.
+
+An output row becomes eligible only after all its required source rows
+have retired. The emitter then blends seams and folds the panorama into
+two HD raster bands. EO divides $3840$ columns into two $1920$-pixel halves.
+IR divides its $3576$ valid columns into two $1788$-pixel halves and pads
+each to $1920$ pixels. Both use $960$ active output rows within a
+$1920\times1080$ raster. RowWindow alias guards stall the walker when the
+emitter can advance; an unresolvable window overflow is reported and the
+affected output row is blackened. It is not silently treated as a valid
+stabilized image.
+
+\subsection{Capture Coverage, Bandwidth, and Validation Boundary}
+Each camera has four DDR source-bank address spaces. EO panorama capture
+uses rows $0$--$1079$ and 16-pixel beats $8$--$111$, namely columns
+$128$--$1791$. This fixed envelope includes every permitted transformed
+segment endpoint, the sampler guard, and replay's eight-beat rounding for
+all $2001$ roll values and pitch translations between $-98$ and $98$ rows.
+Pitch monotonicity at fixed roll and affine variation within a segment
+reduce the proof to endpoint tests at the two pitch extremes. IR retains
+full $640\times512$ capture. A selected EO single-camera view requests full
+capture and waits for a descriptor marked as adopting the full window;
+an old narrow descriptor cannot satisfy it. The marker denotes the adopted
+window, not an independent proof of a complete received raster.
+
+Capture and output writes share DDR service. At an \emph{assumed} $30$
+new frames/s, EO panorama capture requires $20.2176$ million useful
+256-bit write beats/s, and output construction adds $3.456$, totaling
+$23.6736$. IR panorama totals $1.8432+3.456=5.2992$ million beats/s.
+The families' DDR captures are mutually gated in steady state. A historical
+aggregate write measurement of $22.3$ million beats/s is below the EO
+requirement and is not a measurement of this candidate. These write totals
+exclude read service and do not establish sustainable frame rate. Output
+scanout may repeat a completed image, so raster rate must be distinguished
+from unique-content rate. A per-row capture ROM alone would not remove
+this burden while replay requests its present global rectangular bounds.
+
+Verification of the arithmetic, frame association, and renderer is reported in
+Section~\ref{sec:verification}; measured and routed results follow in
+Section~\ref{sec:hardware}.

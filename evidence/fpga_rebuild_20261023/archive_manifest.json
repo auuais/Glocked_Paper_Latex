@@ -1,0 +1,60 @@
+[
+  {
+    "path": "source_manifest.json",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/source_manifest.json",
+    "sha256": "3ab4eaf399cf4da5c214ad6238d6b54bfef27fa936d10ff67003261cea24c5c6",
+    "bytes": 18607
+  },
+  {
+    "path": "progress.txt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/progress.txt",
+    "sha256": "5097a159882890dcf052b58280f8cfa0856a3d68664bb5d6bef75d646b84db4d",
+    "bytes": 736
+  },
+  {
+    "path": "inputs.txt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/inputs.txt",
+    "sha256": "95f5ce47c9bd14662075a136129e08fc9b89e4ca27ba2f79b2339f459f25fda5",
+    "bytes": 10433
+  },
+  {
+    "path": "utilization_routed.rpt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/utilization_routed.rpt",
+    "sha256": "e5cadd479d15733c05b07c1f2b0d55fb6f348faa256d563a02e6ea323547447a",
+    "bytes": 15267
+  },
+  {
+    "path": "route_status.rpt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/route_status.rpt",
+    "sha256": "f24fac4d4c34f7732e48468aae8ca56fc19cfd6633a63de660b8ac4e53096046",
+    "bytes": 651
+  },
+  {
+    "path": "drc_routed.rpt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/drc_routed.rpt",
+    "sha256": "7b12a4133bac5c8eb535e50c9b086bb401643a87a870d528724de839b74fafa5",
+    "bytes": 32721
+  },
+  {
+    "path": "gravity_timing_routed.rpt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/gravity_timing_routed.rpt",
+    "sha256": "f4d320ec715e15df422b00f927e947e07042a74046b54d1320c89c279d86d2d3",
+    "bytes": 2511
+  },
+  {
+    "path": "gravity_ignored_routed.rpt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/gravity_ignored_routed.rpt",
+    "sha256": "92e893a297113abed853521529e8ad3bb28ebf4c9edb91b7618b71f1b45882b8",
+    "bytes": 138
+  },
+  {
+    "path": "timing_summary_excerpt.rpt",
+    "source": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/timing_routed.rpt",
+    "source_lines_inclusive": [
+      1,
+      218
+    ],
+    "sha256": "8ad26ef0e8fce86dc32a208928a4c499cc60fa61d36d8a1a95c1d02e0967dd8b",
+    "bytes": 19778
+  }
+]

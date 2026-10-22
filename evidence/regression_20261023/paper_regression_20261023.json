@@ -1,0 +1,1528 @@
+{
+  "schema": "paper-fresh-regression-v1",
+  "run_local_date": "2026-10-23",
+  "run_timezone": "Asia/Seoul",
+  "recorded_at_utc": "2026-10-22T15:37:55.396668+00:00",
+  "status": "PASS",
+  "implementation_root": "E:/Xylinx/EO_IR_GravityLocked_Stabilization",
+  "source_commit": "5126c375957005e65dd000b2004fb01fbe1baaae",
+  "source_inputs_match_recorded_commit": true,
+  "command_provenance": "Parent confirmed the ten invocations and default arguments; progress.txt and required suite PASS markers independently verified. Commands are reproduction invocations, not a stored process command-line transcript.",
+  "run_directory": "builds/paper_regression_20261023",
+  "requested_suite_count": 10,
+  "passed_suite_count": 10,
+  "toolchain": {
+    "rtl": "Vivado 2025.2 xvlog/xelab/xsim",
+    "vivado_bin": "C:/AMDDesignTools/2025.2/Vivado/bin",
+    "math_oracle": {
+      "family": "MSVC",
+      "installation": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community",
+      "flags": "/std:c++17 /EHsc /W4 /O2 /fp:precise"
+    }
+  },
+  "suites": [
+    {
+      "name": "gravity_math",
+      "status": "PASS",
+      "command": "python scripts/test_gravity_math.py --ini config/parameters_unified.ini",
+      "console_log": "gravity_math.log",
+      "pass_lines": [],
+      "details": {
+        "requests": 79397,
+        "integer_values_compared": 245237,
+        "counts": {
+          "LUTS": 1,
+          "ASIN": 65541,
+          "ATAN": 1100,
+          "SQRT": 1008,
+          "DIV": 231,
+          "FLOAT": 12,
+          "FRAME": 2033,
+          "MAP": 7324,
+          "ANGLE": 2147
+        },
+        "random_seed": "0xC0DE6015",
+        "random_frames": 2000,
+        "production_fixture": "E:\\Xylinx\\EO_IR_GravityLocked_Stabilization\\config\\parameters_unified.ini",
+        "production_fixture_sha256": "7106b1f1ad56d545c6b3eef5b29f9608fdb1cfb02ce364b1ca85ca096c3eea3c",
+        "production_fixture_cases": 4,
+        "request_sha256": "ca7fdf3db2bde04aa2e2bf85bb17808b1a768850c63691af2c684288284735ad",
+        "status": "PASS",
+        "source_sha256": "f4dea4cbfba60bfe686644081c7bcfb4744c9d8b14771c0d916dad6702839495",
+        "oracle_sha256": "ee50c3156218c4eb5e1f077f6e2ad8761afaa49a63c45876f7e6c032f5908b65",
+        "compiler": {
+          "family": "MSVC",
+          "installation": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community",
+          "flags": "/std:c++17 /EHsc /W4 /O2 /fp:precise"
+        },
+        "elapsed_seconds": 10.282
+      }
+    },
+    {
+      "name": "test_gl_pose_receiver",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_pose_receiver.ps1",
+      "console_log": "test_gl_pose_receiver.log",
+      "pass_lines": [
+        "PASS GlPoseReceiver: 190 state checks; atomic pose receipt and rejection cases"
+      ],
+      "details": {
+        "state_checks": 190,
+        "scope": "Atomic STOP commit, rejection and retained-state/reset cases"
+      }
+    },
+    {
+      "name": "test_gl_pose_cdc",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_pose_cdc.ps1",
+      "console_log": "test_gl_pose_cdc.log",
+      "pass_lines": [
+        "PASS GlPoseCdc src_half=5 dst_half=7 phase=3 last_epoch_sent=96 delivered=24",
+        "PASS GlPoseCdc src_half=11 dst_half=3 phase=1 last_epoch_sent=96 delivered=42",
+        "PASS GlPoseCdc src_half=7 dst_half=13 phase=8 last_epoch_sent=96 delivered=22"
+      ],
+      "details": {
+        "clock_cases": [
+          {
+            "src_half_ns": 5,
+            "dst_half_ns": 7,
+            "phase_ns": 3,
+            "last_epoch_sent": 96,
+            "delivered": 24
+          },
+          {
+            "src_half_ns": 11,
+            "dst_half_ns": 3,
+            "phase_ns": 1,
+            "last_epoch_sent": 96,
+            "delivered": 42
+          },
+          {
+            "src_half_ns": 7,
+            "dst_half_ns": 13,
+            "phase_ns": 8,
+            "last_epoch_sent": 96,
+            "delivered": 22
+          }
+        ],
+        "scope": "Functional mailbox transfer, coalescing, clock stoppage and reset; not metastability proof"
+      }
+    },
+    {
+      "name": "test_gl_camera_projection",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_camera_projection.ps1",
+      "console_log": "test_gl_camera_projection.log",
+      "pass_lines": [
+        "PASS GlCameraProjection: 1342 C-oracle vectors, latency 531..601 cycles; frozen inputs, busy-start rejection and reset abort verified"
+      ],
+      "details": {
+        "oracle_vectors": 1342,
+        "latency_cycles": [
+          531,
+          601
+        ],
+        "scope": "Exact C outputs, frozen inputs, busy-start rejection, reset abort"
+      }
+    },
+    {
+      "name": "test_gl_pose_epoch_history",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_pose_epoch_history.ps1",
+      "console_log": "test_gl_pose_epoch_history.log",
+      "pass_lines": [
+        "PASS GlPoseEpochHistory depth=1 age_width=1 checks=131 hits=44 misses=37",
+        "PASS GlPoseEpochHistory depth=1 age_width=4 checks=145 hits=44 misses=37",
+        "PASS GlPoseEpochHistory depth=4 age_width=4 checks=145 hits=78 misses=3",
+        "PASS GlPoseEpochHistory depth=16 age_width=4 checks=145 hits=78 misses=3"
+      ],
+      "details": {
+        "parameter_cases": [
+          {
+            "history_depth": 1,
+            "age_width": 1,
+            "checks": 131,
+            "hits": 44,
+            "misses": 37
+          },
+          {
+            "history_depth": 1,
+            "age_width": 4,
+            "checks": 145,
+            "hits": 44,
+            "misses": 37
+          },
+          {
+            "history_depth": 4,
+            "age_width": 4,
+            "checks": 145,
+            "hits": 78,
+            "misses": 3
+          },
+          {
+            "history_depth": 16,
+            "age_width": 4,
+            "checks": 145,
+            "hits": 78,
+            "misses": 3
+          }
+        ],
+        "total_state_checks": 566,
+        "scope": "Age boundary and overflow, update/capture/lookup ordering, full tags and reset"
+      }
+    },
+    {
+      "name": "test_gl_frame_pose",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_frame_pose.ps1",
+      "console_log": "test_gl_frame_pose.log",
+      "pass_lines": [
+        "PASS frame-pose golden check: 266 cases, 230 enabled C, 36 exact disabled bypass, 190 limited, 218 outside after final result, 6 zero-live trim quantization cases",
+        "PASS GlFramePose: 266 cases (230 enabled C, 36 exact disabled), 190 limited, 218 out-of-range, EO/IR=133/133; enabled latency 3556..7319 cycles; disabled=1; frozen inputs, atomic six-camera outputs, busy-start rejection, 4 reset phases verified"
+      ],
+      "details": {
+        "cases": 266,
+        "enabled_exact_C": 230,
+        "disabled_exact_static_bypass": 36,
+        "limited_cases": 190,
+        "expected_out_of_range_cases": 218,
+        "sensor_cases": {
+          "EO": 133,
+          "IR": 133
+        },
+        "zero_live_trim_quantization_cases": 6,
+        "enabled_latency_cycles": [
+          3556,
+          7319
+        ],
+        "disabled_latency_cycles": 1,
+        "reset_phases": 4,
+        "scope": "Oracle fixtures freshly checked before RTL; atomic six-camera publication and busy input freeze"
+      }
+    },
+    {
+      "name": "test_gl_lease_pose",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_lease_pose.ps1",
+      "console_log": "test_gl_lease_pose.log",
+      "pass_lines": [
+        "PASS GlLeasePose: 21 leases; frame association, freeze, fallback, overwrite, cancellation, dual-family isolation and reset",
+        "PASS GlTriggerEpoch: independent phases, simultaneous edges, long pulses, 65536-tag wrap, reset and history/writer alignment"
+      ],
+      "details": {
+        "lease_cases": 21,
+        "bundled_trigger_test": {
+          "counter_increments": 65536,
+          "scope": "Independent phases, simultaneous edges, long pulses, wrap, reset, history/writer tag alignment"
+        },
+        "scope": "Lease/pose association, dual-family isolation, fallback, overwrite, cancellation, accepted freeze and reset"
+      }
+    },
+    {
+      "name": "test_gl_i2c_input",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_gl_i2c_input.ps1",
+      "console_log": "test_gl_i2c_input.log",
+      "pass_lines": [
+        "PASS GlI2cInput checks=109"
+      ],
+      "details": {
+        "wire_level_checks": 109,
+        "scope": "Real slave transaction/control/pose integration"
+      }
+    },
+    {
+      "name": "test_eo_capture_coverage",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_eo_capture_coverage.ps1",
+      "console_log": "test_eo_capture_coverage.log",
+      "pass_lines": [
+        "PASS EoV19CaptureCoverage: 116 checks, 4 ordered descriptors",
+        "PASS EoV19SingleFrameSelect: 19 checks",
+        "PASS: camera bank publishes only after in-band marker retirement"
+      ],
+      "details": {
+        "capture_checks": 116,
+        "ordered_descriptors": 4,
+        "single_selection_checks": 19,
+        "marker_ordering_test": "PASS",
+        "scope": "Capture writer/descriptor/single selection cases; not the exhaustive geometric envelope proof"
+      }
+    },
+    {
+      "name": "test_rp_renderer",
+      "status": "PASS",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test_rp_renderer.ps1 -Suite All",
+      "console_log": "test_rp_renderer.log",
+      "pass_lines": [
+        "PASS tb_RpTables",
+        "PASS Tables. Logs: E:\\Xylinx\\EO_IR_GravityLocked_Stabilization\\builds\\rp_renderer_tables",
+        "PASS RpRenderer: 8 rasters, 14112000 bit-exact pixels",
+        "PASS Legacy. Logs: E:\\Xylinx\\EO_IR_GravityLocked_Stabilization\\builds\\rp_renderer_legacy",
+        "PASS RpRenderer: 8 rasters, 14112000 bit-exact pixels",
+        "PASS Gravity. Logs: E:\\Xylinx\\EO_IR_GravityLocked_Stabilization\\builds\\rp_renderer_gravity"
+      ],
+      "details": {
+        "table_cases": [
+          {
+            "name": "eo_zero",
+            "build_cycles": 954753,
+            "source_row_lo": 46,
+            "source_row_hi": 1051,
+            "column_lo": 271,
+            "column_hi": 1610,
+            "mismatches": 0
+          },
+          {
+            "name": "eo_mixed",
+            "build_cycles": 954753,
+            "source_row_lo": 0,
+            "source_row_hi": 1078,
+            "column_lo": 187,
+            "column_hi": 1678,
+            "mismatches": 0
+          },
+          {
+            "name": "ir_zero",
+            "build_cycles": 866081,
+            "source_row_lo": 23,
+            "source_row_hi": 486,
+            "column_lo": 25,
+            "column_hi": 630,
+            "mismatches": 0
+          },
+          {
+            "name": "ir_mixed",
+            "build_cycles": 866081,
+            "source_row_lo": 0,
+            "source_row_hi": 510,
+            "column_lo": 0,
+            "column_hi": 639,
+            "mismatches": 0
+          },
+          {
+            "name": "eo_roll10",
+            "build_cycles": 954753,
+            "source_row_lo": 0,
+            "source_row_hi": 1078,
+            "column_lo": 200,
+            "column_hi": 1678,
+            "mismatches": 0
+          },
+          {
+            "name": "ir_roll10",
+            "build_cycles": 866081,
+            "source_row_lo": 0,
+            "source_row_hi": 510,
+            "column_lo": 0,
+            "column_hi": 639,
+            "mismatches": 0
+          },
+          {
+            "name": "eo_alt10",
+            "build_cycles": 954753,
+            "source_row_lo": 0,
+            "source_row_hi": 1078,
+            "column_lo": 217,
+            "column_hi": 1699,
+            "mismatches": 0
+          },
+          {
+            "name": "ir_alt10",
+            "build_cycles": 866081,
+            "source_row_lo": 0,
+            "source_row_hi": 510,
+            "column_lo": 15,
+            "column_hi": 639,
+            "mismatches": 0
+          }
+        ],
+        "variants": [
+          {
+            "variant": "legacy",
+            "simulated_passes": [
+              {
+                "name": "eo_zero",
+                "cycles": 3152415,
+                "pixels": 1843200,
+                "status_flags_hex": "0003",
+                "build_count": 1
+              },
+              {
+                "name": "ir_zero",
+                "cycles": 2924275,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 2
+              },
+              {
+                "name": "eo_mixed",
+                "cycles": 3557470,
+                "pixels": 1843200,
+                "status_flags_hex": "0003",
+                "build_count": 3
+              },
+              {
+                "name": "ir_mixed",
+                "cycles": 3350754,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 4
+              },
+              {
+                "name": "ir_alt10",
+                "cycles": 3553254,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 5
+              },
+              {
+                "name": "ir_absent2",
+                "cycles": 2923816,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 6
+              },
+              {
+                "name": "ir_absent3",
+                "cycles": 3350802,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 7
+              },
+              {
+                "name": "eo_absent",
+                "cycles": 3557990,
+                "pixels": 1843200,
+                "status_flags_hex": "0003",
+                "build_count": 8
+              }
+            ],
+            "retained_rasters_compared": 8,
+            "bit_exact_pixels": 14112000,
+            "raster_hashes": [
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_eo_zero.hex",
+                "bytes": 11059200,
+                "sha256": "1b73de160a6bf3cc8f56cf111ac552f04af5333231b3919e9c225cdb300201f2",
+                "last_write_utc": "2026-10-22T15:07:45.321124+00:00",
+                "name": "eo_zero",
+                "pixels": 1843200
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_ir_zero.hex",
+                "bytes": 10298880,
+                "sha256": "33f52543c64b4b7ac9032a3b4c47937b91a3874fea9b1802484a45986a08fb8f",
+                "last_write_utc": "2026-10-22T15:08:35.375165+00:00",
+                "name": "ir_zero",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_eo_mixed.hex",
+                "bytes": 11059200,
+                "sha256": "58582d9755077eb9c17264124fff2e091ca4aa09678a87cb7557e8fdb2589076",
+                "last_write_utc": "2026-10-22T15:09:51.966614+00:00",
+                "name": "eo_mixed",
+                "pixels": 1843200
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_ir_mixed.hex",
+                "bytes": 10298880,
+                "sha256": "98ec60112a3abd3514af463e250469669ff666df090199820a995ba59f0d6f61",
+                "last_write_utc": "2026-10-22T15:10:47.126049+00:00",
+                "name": "ir_mixed",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_ir_alt10.hex",
+                "bytes": 10298880,
+                "sha256": "57f2c6c1ab5dff2143ed3b3db15779e1c9af69a26e25fccc81a1007fe8439424",
+                "last_write_utc": "2026-10-22T15:11:46.260994+00:00",
+                "name": "ir_alt10",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_ir_absent2.hex",
+                "bytes": 10298880,
+                "sha256": "0fc6fc96057dc525947d776d66274a90be13d395caddeb4fbff66a4bc6ba1178",
+                "last_write_utc": "2026-10-22T15:12:35.612114+00:00",
+                "name": "ir_absent2",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_ir_absent3.hex",
+                "bytes": 10298880,
+                "sha256": "53876504e5fffcd0c71f7e3d1a585c4367824850c2ba55b201ad83f4e7318d73",
+                "last_write_utc": "2026-10-22T15:13:33.138513+00:00",
+                "name": "ir_absent3",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_legacy/sim_out/rp_eo_absent.hex",
+                "bytes": 11059200,
+                "sha256": "40361572d31e6e0d4aba566f6408344611af1cd03a661fdaddbaafb5f3a07094",
+                "last_write_utc": "2026-10-22T15:14:47.930691+00:00",
+                "name": "eo_absent",
+                "pixels": 1843200
+              }
+            ],
+            "note": "Eight simulated passes and eight retained raster comparisons."
+          },
+          {
+            "variant": "gravity",
+            "simulated_passes": [
+              {
+                "name": "eo_zero",
+                "cycles": 3152412,
+                "pixels": 1843200,
+                "status_flags_hex": "0003",
+                "build_count": 1
+              },
+              {
+                "name": "ir_zero",
+                "cycles": 2924252,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 2
+              },
+              {
+                "name": "eo_mixed",
+                "cycles": 3557633,
+                "pixels": 1843200,
+                "status_flags_hex": "0003",
+                "build_count": 3
+              },
+              {
+                "name": "ir_mixed",
+                "cycles": 3350701,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 4
+              },
+              {
+                "name": "ir_mixed",
+                "cycles": 2484498,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 4
+              },
+              {
+                "name": "ir_alt10",
+                "cycles": 3552766,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 5
+              },
+              {
+                "name": "ir_absent2",
+                "cycles": 2924849,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 6
+              },
+              {
+                "name": "ir_absent3",
+                "cycles": 3350371,
+                "pixels": 1716480,
+                "status_flags_hex": "0103",
+                "build_count": 7
+              },
+              {
+                "name": "eo_absent",
+                "cycles": 3557904,
+                "pixels": 1843200,
+                "status_flags_hex": "0003",
+                "build_count": 8
+              }
+            ],
+            "retained_rasters_compared": 8,
+            "bit_exact_pixels": 14112000,
+            "raster_hashes": [
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_eo_zero.hex",
+                "bytes": 11059200,
+                "sha256": "1b73de160a6bf3cc8f56cf111ac552f04af5333231b3919e9c225cdb300201f2",
+                "last_write_utc": "2026-10-22T15:16:11.614371+00:00",
+                "name": "eo_zero",
+                "pixels": 1843200
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_ir_zero.hex",
+                "bytes": 10298880,
+                "sha256": "33f52543c64b4b7ac9032a3b4c47937b91a3874fea9b1802484a45986a08fb8f",
+                "last_write_utc": "2026-10-22T15:17:03.117347+00:00",
+                "name": "ir_zero",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_eo_mixed.hex",
+                "bytes": 11059200,
+                "sha256": "58582d9755077eb9c17264124fff2e091ca4aa09678a87cb7557e8fdb2589076",
+                "last_write_utc": "2026-10-22T15:18:23.237516+00:00",
+                "name": "eo_mixed",
+                "pixels": 1843200
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_ir_mixed.hex",
+                "bytes": 10298880,
+                "sha256": "98ec60112a3abd3514af463e250469669ff666df090199820a995ba59f0d6f61",
+                "last_write_utc": "2026-10-22T15:20:12.381604+00:00",
+                "name": "ir_mixed",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_ir_alt10.hex",
+                "bytes": 10298880,
+                "sha256": "57f2c6c1ab5dff2143ed3b3db15779e1c9af69a26e25fccc81a1007fe8439424",
+                "last_write_utc": "2026-10-22T15:21:18.697248+00:00",
+                "name": "ir_alt10",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_ir_absent2.hex",
+                "bytes": 10298880,
+                "sha256": "0fc6fc96057dc525947d776d66274a90be13d395caddeb4fbff66a4bc6ba1178",
+                "last_write_utc": "2026-10-22T15:22:11.909204+00:00",
+                "name": "ir_absent2",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_ir_absent3.hex",
+                "bytes": 10298880,
+                "sha256": "53876504e5fffcd0c71f7e3d1a585c4367824850c2ba55b201ad83f4e7318d73",
+                "last_write_utc": "2026-10-22T15:23:08.804465+00:00",
+                "name": "ir_absent3",
+                "pixels": 1716480
+              },
+              {
+                "path": "builds/rp_renderer_gravity/sim_out/rp_eo_absent.hex",
+                "bytes": 11059200,
+                "sha256": "40361572d31e6e0d4aba566f6408344611af1cd03a661fdaddbaafb5f3a07094",
+                "last_write_utc": "2026-10-22T15:24:30.405823+00:00",
+                "name": "eo_absent",
+                "pixels": 1843200
+              }
+            ],
+            "note": "Gravity repeats ir_mixed to check reuse; the same filename retains its second raster. Only eight retained rasters are pixel-compared."
+          }
+        ],
+        "total_bit_exact_pixels_across_two_interfaces": 28224000,
+        "oracle": "Unchanged stable optical model model/rpcore.py; separate from C camera-angle oracle",
+        "root_override": "E:/Xylinx/EO_IR_GravityLocked_Stabilization"
+      }
+    }
+  ],
+  "archived_logs_and_results": [
+    {
+      "path": "builds/paper_regression_20261023/gravity_math.log",
+      "bytes": 1049,
+      "sha256": "fd382a6401d7120e4293679a859a14de941836ce4d55c337d4dcd811f843107d",
+      "last_write_utc": "2026-10-22T15:03:34.511913+00:00",
+      "archived_path_relative_to_log_directory": "gravity_math.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_pose_receiver.log",
+      "bytes": 1970,
+      "sha256": "38cab82426961dfc5f3026707a97e1123b8d7b1b484ced8246bdc1868d9dda5a",
+      "last_write_utc": "2026-10-22T15:03:46.233335+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_pose_receiver.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_pose_cdc.log",
+      "bytes": 331,
+      "sha256": "8f26996b555aad4d6fa33e0f6428bafd58736d379bab38c3f0fc813ef118f48b",
+      "last_write_utc": "2026-10-22T15:04:08.067839+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_pose_cdc.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_camera_projection.log",
+      "bytes": 2101,
+      "sha256": "6d0e9506165ac5c13322f053aa2364d8d80c194a4f4ad0298ff050abf574ed83",
+      "last_write_utc": "2026-10-22T15:04:16.659181+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_camera_projection.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_pose_epoch_history.log",
+      "bytes": 295,
+      "sha256": "4deaa6d3ce84b5c5d00968e1f01117f9ae520a12a6a1e55610c8ed0ac9c98f0f",
+      "last_write_utc": "2026-10-22T15:04:45.334608+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_pose_epoch_history.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_frame_pose.log",
+      "bytes": 2582,
+      "sha256": "9a8b848bc0a8635e04ccc2016cad87c297be1b4d983aeef5f66170f7ee509c7e",
+      "last_write_utc": "2026-10-22T15:05:00.069845+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_frame_pose.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_lease_pose.log",
+      "bytes": 4432,
+      "sha256": "06f964401b3faa177f98456c51dcb6071d3570c7540c8142fa18632b69e72b0e",
+      "last_write_utc": "2026-10-22T15:05:14.519136+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_lease_pose.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_gl_i2c_input.log",
+      "bytes": 28,
+      "sha256": "25bbf906f08368dcab280ead55af33e1fcac18e4cea4b3b086200d20c991194d",
+      "last_write_utc": "2026-10-22T15:05:22.674511+00:00",
+      "archived_path_relative_to_log_directory": "test_gl_i2c_input.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_eo_capture_coverage.log",
+      "bytes": 9896,
+      "sha256": "496f236408715600cc74a0aff1bd0ec85e5d6edeaa3cb37468f63fa61284129f",
+      "last_write_utc": "2026-10-22T15:05:46.848020+00:00",
+      "archived_path_relative_to_log_directory": "test_eo_capture_coverage.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/test_rp_renderer.log",
+      "bytes": 16235,
+      "sha256": "d689e95f922b629c7f3567216415f10d60c76d258972155f9d39bb035aa0fcde",
+      "last_write_utc": "2026-10-22T15:24:38.053227+00:00",
+      "archived_path_relative_to_log_directory": "test_rp_renderer.log"
+    },
+    {
+      "path": "builds/paper_regression_20261023/progress.txt",
+      "bytes": 558,
+      "sha256": "d47e17934e7fb7aa4a5ed1796f0c023bb42579316e85616c7e0d7c1c86f4b4bf",
+      "last_write_utc": "2026-10-22T15:24:38.056230+00:00",
+      "archived_path_relative_to_log_directory": "progress.txt"
+    },
+    {
+      "path": "build/gravity_math/results.json",
+      "bytes": 1049,
+      "sha256": "fd382a6401d7120e4293679a859a14de941836ce4d55c337d4dcd811f843107d",
+      "last_write_utc": "2026-10-22T15:03:34.505914+00:00",
+      "archived_path_relative_to_log_directory": "gravity_math_results.json"
+    },
+    {
+      "path": "builds/i2c_input/compile.console.log",
+      "bytes": 885,
+      "sha256": "6b49f661157b9d48e54aafa2a6fe12d6da6cfd966a3f525aaf63798d7ac8e87a",
+      "last_write_utc": "2026-10-22T15:05:16.108706+00:00",
+      "archived_path_relative_to_log_directory": "internal/i2c_input/compile.console.log"
+    },
+    {
+      "path": "builds/i2c_input/elaborate.console.log",
+      "bytes": 810,
+      "sha256": "d08ab2616642eb1712d9d2fe6581bc543e4e7e967c4e83d41c1e3f0e3ccc7f47",
+      "last_write_utc": "2026-10-22T15:05:18.972639+00:00",
+      "archived_path_relative_to_log_directory": "internal/i2c_input/elaborate.console.log"
+    },
+    {
+      "path": "builds/i2c_input/run.console.log",
+      "bytes": 753,
+      "sha256": "52a31ec4760c89f16cf4812a546746ed57390d03f6bb51599e8b816b2603a67b",
+      "last_write_utc": "2026-10-22T15:05:22.589665+00:00",
+      "archived_path_relative_to_log_directory": "internal/i2c_input/run.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/compile.console.log",
+      "bytes": 365,
+      "sha256": "e48b3d7bf93bc0334ca31d08170d62bbd1ee746d9d23cbac076b0f614b0f9477",
+      "last_write_utc": "2026-10-22T15:03:48.901026+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/compile.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/source_faster.elaborate.console.log",
+      "bytes": 726,
+      "sha256": "59b1692f7cfdacd85d51bebb2efde0a9a2ab758b7f05fcc1f90421d97fab9123",
+      "last_write_utc": "2026-10-22T15:03:51.912012+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/source_faster.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/source_faster.run.console.log",
+      "bytes": 821,
+      "sha256": "8d2fa61925e0fce1f3e92513a92c389a0002a0690d44f5b06ff45b0d8c5109fe",
+      "last_write_utc": "2026-10-22T15:03:55.871328+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/source_faster.run.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/destination_faster.elaborate.console.log",
+      "bytes": 760,
+      "sha256": "7f00cfd3999561317edec8e516df86afed7f327a98ddbae5fcb64fb653694b2a",
+      "last_write_utc": "2026-10-22T15:03:58.233783+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/destination_faster.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/destination_faster.run.console.log",
+      "bytes": 832,
+      "sha256": "0dcd576963c43287a3d26e1c6118c7a2db201f520f79b0f5fb73774383bdd354",
+      "last_write_utc": "2026-10-22T15:04:01.999214+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/destination_faster.run.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/offset_phase.elaborate.console.log",
+      "bytes": 748,
+      "sha256": "98963f8a9363c3e17157fd11a8c7d71a3b9f00c9405c0c5a19b1fbbc7ae972e7",
+      "last_write_utc": "2026-10-22T15:04:04.334128+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/offset_phase.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_cdc/offset_phase.run.console.log",
+      "bytes": 821,
+      "sha256": "86177f74f73a050f818999183cf9f9089d024bbc10cbb93f0fcd6d0d9cc05581",
+      "last_write_utc": "2026-10-22T15:04:07.988117+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_cdc/offset_phase.run.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/compile.console.log",
+      "bytes": 401,
+      "sha256": "d7b3b6b2caf87472a40a67c84dd39926eeb724c880c7fe656858b7edcd2a059f",
+      "last_write_utc": "2026-10-22T15:04:18.851456+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/compile.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_1_1.elaborate.console.log",
+      "bytes": 752,
+      "sha256": "1f713eea7f3d5368b5d1de462a4749079a000c2c2359963b3066e7c57521ea24",
+      "last_write_utc": "2026-10-22T15:04:22.088398+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_1_1.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_1_1.run.console.log",
+      "bytes": 822,
+      "sha256": "7b4128e68e91f2878c5d90467e1d47e9dba7f4ab39c935552b718e23c8af0a3a",
+      "last_write_utc": "2026-10-22T15:04:26.240141+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_1_1.run.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_1_4.elaborate.console.log",
+      "bytes": 752,
+      "sha256": "eb41767be7e0672be27ef9e504bc5a846d06256c4b983969641b71c0b1a51f34",
+      "last_write_utc": "2026-10-22T15:04:28.959414+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_1_4.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_1_4.run.console.log",
+      "bytes": 822,
+      "sha256": "0cef429256ffb6f25fc79778d77e9be42aff1b66e5c64ad05850b5dffe3073e9",
+      "last_write_utc": "2026-10-22T15:04:32.824774+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_1_4.run.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_4_4.elaborate.console.log",
+      "bytes": 752,
+      "sha256": "3dd745acac76576cd0b0f689705a2ddffd4be322fb43d3604493da253edd984b",
+      "last_write_utc": "2026-10-22T15:04:35.497097+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_4_4.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_4_4.run.console.log",
+      "bytes": 821,
+      "sha256": "3908fe251c0b8f11be38bd464d876cae066c4d788a5a0505794b5f70a3dab155",
+      "last_write_utc": "2026-10-22T15:04:39.155124+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_4_4.run.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_16_4.elaborate.console.log",
+      "bytes": 737,
+      "sha256": "eef66c97a6c82dc15aa45e08e579fd3d5ace2ff714ebd0167398afb96fde4364",
+      "last_write_utc": "2026-10-22T15:04:41.617824+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_16_4.elaborate.console.log"
+    },
+    {
+      "path": "builds/pose_epoch_history/gl_pose_history_16_4.run.console.log",
+      "bytes": 824,
+      "sha256": "95b671f9c3d7afaf2f7c920936209aeabc5d620b745e18fb31d87ee104aca255",
+      "last_write_utc": "2026-10-22T15:04:45.258376+00:00",
+      "archived_path_relative_to_log_directory": "internal/pose_epoch_history/gl_pose_history_16_4.run.console.log"
+    }
+  ],
+  "source_and_fixture_hashes": [
+    {
+      "path": "assets/rollpitch/eo_rp_angle.mem",
+      "bytes": 13013,
+      "sha256": "91f7e6e2c83dcf667e16b777acf9abf14658f5fe42de428811e5a67b0f1f76a4",
+      "last_write_utc": "2026-10-15T14:34:50.030854+00:00"
+    },
+    {
+      "path": "assets/rollpitch/ir_rp_angle.mem",
+      "bytes": 13013,
+      "sha256": "d02ae9fd486b537ae5f18630bc5bc5698f0a1659bf3bfb589291211dacbea7fa",
+      "last_write_utc": "2026-10-15T14:34:50.030854+00:00"
+    },
+    {
+      "path": "assets/rowruns/eo_v19_alpha_c.mem",
+      "bytes": 48,
+      "sha256": "79886005b79248c0d4e5996218efc5a73704bafcaa23cedf84b5239943a86dac",
+      "last_write_utc": "2026-10-15T14:34:50.031856+00:00"
+    },
+    {
+      "path": "assets/rowruns/eo_v19_alpha_y.mem",
+      "bytes": 102,
+      "sha256": "223e06fb6b0bbef42a3bc5ede037d6d24b8737ec2b1666e758d80252758841f7",
+      "last_write_utc": "2026-10-15T14:34:50.031856+00:00"
+    },
+    {
+      "path": "assets/rowruns/eo_v19_render_runs.mem",
+      "bytes": 1203840,
+      "sha256": "d7a724124a545ed862f697bfcd3219ffbb6f6333f352514792781f03ed9489ca",
+      "last_write_utc": "2026-10-15T14:34:50.037854+00:00"
+    },
+    {
+      "path": "assets/rowruns/ir_v19_alpha_y.mem",
+      "bytes": 174,
+      "sha256": "d1bf0d2f394e308db68a6c4f947ffde7b477a2bf5acbc6f97fd3208bc8413a69",
+      "last_write_utc": "2026-10-15T14:34:50.190553+00:00"
+    },
+    {
+      "path": "assets/rowruns/ir_v19_render_runs.mem",
+      "bytes": 748800,
+      "sha256": "24c7c4a7047be2de917b49e073016c35b8405a3c3548a2ca39ab37a442d05a81",
+      "last_write_utc": "2026-10-15T14:34:50.194550+00:00"
+    },
+    {
+      "path": "config/parameters_unified.ini",
+      "bytes": 5898,
+      "sha256": "7106b1f1ad56d545c6b3eef5b29f9608fdb1cfb02ce364b1ca85ca096c3eea3c",
+      "last_write_utc": "2026-08-26T20:15:59.095928+00:00"
+    },
+    {
+      "path": "model/compare_rp_tb.py",
+      "bytes": 2014,
+      "sha256": "75d23a2de5933d158f06e2a8ee2495bd8448bcf48057a2dd62a7ec0d48c55f25",
+      "last_write_utc": "2026-10-15T14:34:50.234059+00:00"
+    },
+    {
+      "path": "model/gravity_reference.py",
+      "bytes": 10713,
+      "sha256": "81866c476ef7179b721cab61e73364878dd1a668b41f917d7da61057eb9c28d1",
+      "last_write_utc": "2026-10-15T14:33:23.356121+00:00"
+    },
+    {
+      "path": "model/rpcore.py",
+      "bytes": 17254,
+      "sha256": "2b6f074b790195751cd814da1c32aa3c8a83016155c0340a2f03b30b53f51545",
+      "last_write_utc": "2026-10-15T14:34:50.236059+00:00"
+    },
+    {
+      "path": "reference/gravity_math/angle_centi_q15.mem",
+      "bytes": 324000,
+      "sha256": "2f4f47949a63a34247b8639216cb4a7461af483415c5c34c679a159a226d1365",
+      "last_write_utc": "2026-10-15T14:45:50.212701+00:00"
+    },
+    {
+      "path": "reference/gravity_math/atan_ratio_centi.mem",
+      "bytes": 20485,
+      "sha256": "2bf93fc4bf4caa827a4f02108b7783c825cc9c6198c31b90a6382dea0c6ef938",
+      "last_write_utc": "2026-10-15T14:45:50.212701+00:00"
+    },
+    {
+      "path": "reference/gravity_math/oracle.hpp",
+      "bytes": 3347,
+      "sha256": "64fc6b9f6e96b82fbeaa193c9378679117ec26e22aedd621d3928f0c5a297502",
+      "last_write_utc": "2026-10-15T14:34:37.631727+00:00"
+    },
+    {
+      "path": "reference/gravity_math/oracle_main.cpp",
+      "bytes": 3689,
+      "sha256": "5f2db568f82abfb33eb38baf2f7b162a5b3b8de1f5f941fc33cf80830379bec5",
+      "last_write_utc": "2026-10-15T14:34:37.632729+00:00"
+    },
+    {
+      "path": "reference/gravity_math/provenance.json",
+      "bytes": 8313,
+      "sha256": "e989cbdb67316398aa85f5ae483cd764d808b164b0c7d5758819c504ad0c5ba3",
+      "last_write_utc": "2026-10-15T14:35:20.642287+00:00"
+    },
+    {
+      "path": "reference/gravity_math/rtl_assets_manifest.json",
+      "bytes": 3278,
+      "sha256": "76dcc25c9e10f7235d0feb4da90da1159095856330d11ffcc37297dbf1827e10",
+      "last_write_utc": "2026-10-15T14:45:50.216276+00:00"
+    },
+    {
+      "path": "reference/gravity_math/source_camera_coefficients.inc",
+      "bytes": 367,
+      "sha256": "c8d2286cdc0d72ca7e9d1a5adc4862ed7cff7dcb2c752946c8047f41e4feb562",
+      "last_write_utc": "2026-10-15T14:35:20.641289+00:00"
+    },
+    {
+      "path": "reference/gravity_math/source_clamp.inc",
+      "bytes": 1712,
+      "sha256": "bf2fdcf1b272e3a0e9543378fad8248291b5a8fa1b0f97710aa630f87e3286e8",
+      "last_write_utc": "2026-10-15T14:35:20.640289+00:00"
+    },
+    {
+      "path": "reference/gravity_math/source_functions.inc",
+      "bytes": 7395,
+      "sha256": "ca009916c55a0cdb0d84b717185c154c0c6a160b00ad6da710e4aa8e25605a73",
+      "last_write_utc": "2026-10-15T14:35:20.639287+00:00"
+    },
+    {
+      "path": "reference/gravity_math/source_projection.inc",
+      "bytes": 1076,
+      "sha256": "e0c58ac53ef2e14c2eedeaba7c0d278988b1148f70fc55b656fe5b5c2a2db7aa",
+      "last_write_utc": "2026-10-15T14:35:20.640289+00:00"
+    },
+    {
+      "path": "scripts/compare_rp_renderer.py",
+      "bytes": 1498,
+      "sha256": "e1b6a08c1ca7bd3181a8a1437f9f16d09b16d991d17601bccfa97d804ecc8189",
+      "last_write_utc": "2026-10-15T15:57:27.248329+00:00"
+    },
+    {
+      "path": "scripts/test_eo_capture_coverage.ps1",
+      "bytes": 1453,
+      "sha256": "5b6d2c9c19de539ec48c2aeab595fe8d876929c649d0c3053ccfe2f6cc66f8ea",
+      "last_write_utc": "2026-10-15T16:18:02.831640+00:00"
+    },
+    {
+      "path": "scripts/test_gl_camera_projection.ps1",
+      "bytes": 1875,
+      "sha256": "122ee07b8db7ac83161db9719ad16685203c029ef5136e24496b4dfd70318d7a",
+      "last_write_utc": "2026-10-15T14:48:45.115901+00:00"
+    },
+    {
+      "path": "scripts/test_gl_frame_pose.ps1",
+      "bytes": 2561,
+      "sha256": "27d42cba9a6dec66513c3029936e71fca2af3ab7ef9bb36d8ac9800c64935a8b",
+      "last_write_utc": "2026-10-15T15:57:45.625636+00:00"
+    },
+    {
+      "path": "scripts/test_gl_i2c_input.ps1",
+      "bytes": 1106,
+      "sha256": "71e0b57e38c8385f89d71214e358f1ab0964485a6decc8d49bf34dae847ca1f8",
+      "last_write_utc": "2026-10-15T15:57:42.243075+00:00"
+    },
+    {
+      "path": "scripts/test_gl_lease_pose.ps1",
+      "bytes": 1363,
+      "sha256": "2513dd215e3dfa56881556c35962ac3412377c4d7be959d91af11c0ded1caae6",
+      "last_write_utc": "2026-10-15T17:03:53.494289+00:00"
+    },
+    {
+      "path": "scripts/test_gl_pose_cdc.ps1",
+      "bytes": 2327,
+      "sha256": "50673a8571c0d049e95c8a4df3bf88a892fc3dab25858ca3d9109d5dbf89faef",
+      "last_write_utc": "2026-10-15T14:36:22.247152+00:00"
+    },
+    {
+      "path": "scripts/test_gl_pose_epoch_history.ps1",
+      "bytes": 2211,
+      "sha256": "a0d3d9761eb8a480bb95247414b8fd6d6c965424b5950f641e35aefd79edcbb7",
+      "last_write_utc": "2026-10-15T14:58:59.275079+00:00"
+    },
+    {
+      "path": "scripts/test_gl_pose_receiver.ps1",
+      "bytes": 1594,
+      "sha256": "907cfc1b73afef14614a3763f2fbdcfc66505b5b7a9953dcd1f2e9ffb298183b",
+      "last_write_utc": "2026-10-15T14:33:52.368680+00:00"
+    },
+    {
+      "path": "scripts/test_gravity_math.py",
+      "bytes": 15220,
+      "sha256": "bbbfb5e244a77a008f2090f17b8112f09b7734bcf86e9a34b865cecc9c52826c",
+      "last_write_utc": "2026-10-15T14:38:32.040379+00:00"
+    },
+    {
+      "path": "scripts/test_rp_renderer.ps1",
+      "bytes": 2533,
+      "sha256": "4a5e1ea9f9667515ed465a9fa58a45084439509fb5c0657f6138bef3ae1f6d0c",
+      "last_write_utc": "2026-10-15T15:57:51.065068+00:00"
+    },
+    {
+      "path": "sim/gravity_math/engine_vectors.txt",
+      "bytes": 58885,
+      "sha256": "a568deef8c4871881d3581a15ca2400ee1ef4d13d0283e11f46ad7234edeb067",
+      "last_write_utc": "2026-10-15T14:45:50.213702+00:00"
+    },
+    {
+      "path": "sim/gravity_math/frame_pose_manifest.json",
+      "bytes": 245569,
+      "sha256": "bdbf41dcc4d36946ae70c4f6ec146d25bed32cbb507ee9df35b63958ff0c9237",
+      "last_write_utc": "2026-10-15T15:53:33.800113+00:00"
+    },
+    {
+      "path": "sim/gravity_math/frame_pose_vectors.txt",
+      "bytes": 33492,
+      "sha256": "804e5b702587c278ded90ffef88b732223243ef58c7115319a3e399a5d34ceba",
+      "last_write_utc": "2026-10-15T15:53:33.800113+00:00"
+    },
+    {
+      "path": "sim/gravity_math/generate_frame_pose_vectors.py",
+      "bytes": 9946,
+      "sha256": "63f737826cf0d8cb939ec210de004019618cf60e61004c41d5082092d3aa2773",
+      "last_write_utc": "2026-10-15T15:53:27.808432+00:00"
+    },
+    {
+      "path": "sim/tb_EoV19CaptureCoverage.sv",
+      "bytes": 5350,
+      "sha256": "40ae29ac9581693df75796884035ff75fe9455e54d12db68c001bb76216996d4",
+      "last_write_utc": "2026-10-15T16:17:49.952061+00:00"
+    },
+    {
+      "path": "sim/tb_EoV19DdrCamWriterMarker.v",
+      "bytes": 6641,
+      "sha256": "a4e678d9712273bcdecc58f9380630c08c9cfd307eb09a5b191f5b91f4dbcf93",
+      "last_write_utc": "2026-10-15T14:34:50.400872+00:00"
+    },
+    {
+      "path": "sim/tb_EoV19SingleFrameSelect.sv",
+      "bytes": 4453,
+      "sha256": "c2c325efe47f7891278a43394d3d4cf734ab6d038681429a95f6770a6ed92512",
+      "last_write_utc": "2026-10-15T16:19:26.795696+00:00"
+    },
+    {
+      "path": "sim/tb_GlCameraProjection.sv",
+      "bytes": 5997,
+      "sha256": "92dc15559688214d185a5b0cf9ecb32a5ff6558f42c2e97ae28ebd6a3b15aa9b",
+      "last_write_utc": "2026-10-15T14:52:22.529279+00:00"
+    },
+    {
+      "path": "sim/tb_GlFramePose.sv",
+      "bytes": 8840,
+      "sha256": "a3162d02691056a9d048cde2dd9136e1d1f97d599e8cd2d1d582ecb56407d9dd",
+      "last_write_utc": "2026-10-15T15:57:13.562488+00:00"
+    },
+    {
+      "path": "sim/tb_GlI2cInput.sv",
+      "bytes": 6705,
+      "sha256": "38001a73631101ad6100a2824bf92fb46a4e7bdfed51bb3011ea85fd15da64f5",
+      "last_write_utc": "2026-10-15T15:57:42.243075+00:00"
+    },
+    {
+      "path": "sim/tb_GlLeasePose.sv",
+      "bytes": 11634,
+      "sha256": "237c67454e2edaaabc3d7386bfbc22cb3a54c99f509601b52964c20b74e33ffc",
+      "last_write_utc": "2026-10-15T17:03:53.471283+00:00"
+    },
+    {
+      "path": "sim/tb_GlPoseCdc.sv",
+      "bytes": 8145,
+      "sha256": "60696429af8979bb54a768354625053306dd1962c65efd0225cd04905d2ae90b",
+      "last_write_utc": "2026-10-15T16:10:23.951578+00:00"
+    },
+    {
+      "path": "sim/tb_GlPoseEpochHistory.sv",
+      "bytes": 10161,
+      "sha256": "610ad262c89791f7df75278ce05072b853678265cd8d0227adadd3bd100c5eb8",
+      "last_write_utc": "2026-10-15T14:58:59.274559+00:00"
+    },
+    {
+      "path": "sim/tb_GlPoseReceiver.sv",
+      "bytes": 8214,
+      "sha256": "99f48efc9c0519154ae6bf08b57638738dfffc57472073815aaf4a6d0f729e64",
+      "last_write_utc": "2026-10-15T14:33:52.367678+00:00"
+    },
+    {
+      "path": "sim/tb_GlTriggerEpoch.sv",
+      "bytes": 2824,
+      "sha256": "2ba70de4303511b4e3cc2c7092f8b26025d292d7c4e35d628bd0e40e7d957b27",
+      "last_write_utc": "2026-10-15T17:03:53.483289+00:00"
+    },
+    {
+      "path": "sim/tb_RpRenderer.v",
+      "bytes": 12569,
+      "sha256": "633ba16cdbbdc3c07b569f58ca3bf7be5cc41a0ad075c8a129052e5dba587027",
+      "last_write_utc": "2026-10-15T15:56:39.076970+00:00"
+    },
+    {
+      "path": "sim/tb_RpTables.v",
+      "bytes": 6308,
+      "sha256": "86fd2cfbecf0753c9e806a0dba9925f37329693838dd857fc8ea8c5735ec110f",
+      "last_write_utc": "2026-10-15T14:34:50.416901+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_alt10/bucket_end.mem",
+      "bytes": 6474,
+      "sha256": "668ce14f69bccffdce7ce998080e1a161ebc7d1d82ea3aec8b1fd70a37f18b39",
+      "last_write_utc": "2026-10-15T14:34:50.416901+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_alt10/meta.mem",
+      "bytes": 24,
+      "sha256": "ab4d57b70ba3227390e25d8c31bbc5fa0d9d2a338688b9b25dd369ed23eb7208",
+      "last_write_utc": "2026-10-15T14:34:50.417901+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_alt10/offsets.mem",
+      "bytes": 72,
+      "sha256": "d5006e591705a838809104c9d14cacb0f419fdb3d9c7e8b011a6a1d530151612",
+      "last_write_utc": "2026-10-15T14:34:50.418414+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_alt10/params.mem",
+      "bytes": 1203840,
+      "sha256": "4ccf8c8cf298e05725556b3de803ccbe0cdf4e3113b6585bda67594b5041d412",
+      "last_write_utc": "2026-10-15T14:34:50.423410+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_alt10/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "a824403f313515dc714e2933edc25b23d235cd23fceb0883ace1f888a089ce5e",
+      "last_write_utc": "2026-10-15T14:34:50.424415+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_alt10/bucket_end.mem",
+      "bytes": 3066,
+      "sha256": "012bdb889df6dfb8dd16be324082cd1f439ef3856ad9e45f5ed9f4e0a4656791",
+      "last_write_utc": "2026-10-15T14:34:50.425413+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_alt10/meta.mem",
+      "bytes": 24,
+      "sha256": "1935b6e46bc5c1b78298e7a9d3fc3f7e22f1bce88636bb6d1b2a0d090242692e",
+      "last_write_utc": "2026-10-15T14:34:50.425413+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_alt10/offsets.mem",
+      "bytes": 72,
+      "sha256": "d5006e591705a838809104c9d14cacb0f419fdb3d9c7e8b011a6a1d530151612",
+      "last_write_utc": "2026-10-15T14:34:50.426411+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_alt10/params.mem",
+      "bytes": 1094400,
+      "sha256": "45c97850a48616c69ce037c028f9981d0dafc61c2d09a529563541a8abdb8855",
+      "last_write_utc": "2026-10-15T14:34:50.431412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_alt10/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "a8d49a2aa79df7e2943a623a34aaea33f637afcd9fa4b48ec2d9e3bb02e9dd45",
+      "last_write_utc": "2026-10-15T14:34:50.431412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_mixed/bucket_end.mem",
+      "bytes": 3066,
+      "sha256": "4059e6c792e7f09705be93ffab3c9bde4b247ce8ad5812fc5239634ddb283bb7",
+      "last_write_utc": "2026-10-15T14:34:50.432411+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_mixed/meta.mem",
+      "bytes": 24,
+      "sha256": "5d79208c25ef41fc2657094da3405899ba7875352b9628451ad8031dd5662cb1",
+      "last_write_utc": "2026-10-15T14:34:50.432411+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_mixed/offsets.mem",
+      "bytes": 72,
+      "sha256": "f9cccdf7aff170871b05c07de53c9619ade90650307ae9e700de2e66c3cff436",
+      "last_write_utc": "2026-10-15T14:34:50.433411+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_mixed/params.mem",
+      "bytes": 1094400,
+      "sha256": "a4866bdb53964ba40a94480293575675b79d058ae9e7bd01d8edd6dbaf445fde",
+      "last_write_utc": "2026-10-15T14:34:50.439410+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_mixed/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "a2271c094f8673854cb77ad32ab59ef7a2874eadae79636fce2aed03a00f2e0d",
+      "last_write_utc": "2026-10-15T14:34:50.440410+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_roll10/bucket_end.mem",
+      "bytes": 3066,
+      "sha256": "dec014702aa2fe04714491d09f0ae96ffa7d334e399ce288e2c5efdb02d87f26",
+      "last_write_utc": "2026-10-15T14:34:50.440410+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_roll10/meta.mem",
+      "bytes": 24,
+      "sha256": "5d79208c25ef41fc2657094da3405899ba7875352b9628451ad8031dd5662cb1",
+      "last_write_utc": "2026-10-15T14:34:50.441748+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_roll10/offsets.mem",
+      "bytes": 72,
+      "sha256": "7f88587a4e55a6c37c3427749b8cd36bcd1deab64bdf8c9682cdbb7632ecdedc",
+      "last_write_utc": "2026-10-15T14:34:50.441748+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_roll10/params.mem",
+      "bytes": 1094400,
+      "sha256": "c4e6536b63d06734adf01f55394d60e074873ea3ec885cbc2e59907db5d37c92",
+      "last_write_utc": "2026-10-15T14:34:50.449410+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_roll10/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "2d7c42c01d4f71cd2562dfcc674e4c3ddc1bc3c0a5d25161c7787f0d7cdea238",
+      "last_write_utc": "2026-10-15T14:34:50.450412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_zero/bucket_end.mem",
+      "bytes": 3066,
+      "sha256": "68f82bee8b1aee219bc235288b3cfc227bc89b2f892de01a6cba1752ec85b500",
+      "last_write_utc": "2026-10-15T14:34:50.450412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_zero/meta.mem",
+      "bytes": 24,
+      "sha256": "e8e32e9671f37ddb35f04f733df62d4b03a58da89ed9ba69853ad4de81686731",
+      "last_write_utc": "2026-10-15T14:34:50.450412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_zero/offsets.mem",
+      "bytes": 72,
+      "sha256": "73eaa55a49d4b2f63cbb85b93bf3934b2d2a25013d0c21a2ea44fac96f2b0f17",
+      "last_write_utc": "2026-10-15T14:34:50.451413+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_zero/params.mem",
+      "bytes": 1094400,
+      "sha256": "1d31fce51b63338cb47aa2d128149f527a173ddec1b4f761024f63506c731ea5",
+      "last_write_utc": "2026-10-15T14:34:50.456412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_ir_zero/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "0e5d9a389d4d7bf12850f5e33de8cc6c23de07a1d4062cc6b7dc70cb87490c16",
+      "last_write_utc": "2026-10-15T14:34:50.456412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_mixed/bucket_end.mem",
+      "bytes": 6474,
+      "sha256": "8a1f79d30b24863d17efe923fb50f53358b39e41ad2b21b2e1badde76c45158e",
+      "last_write_utc": "2026-10-15T14:34:50.457412+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_mixed/meta.mem",
+      "bytes": 24,
+      "sha256": "1b827225b24e71594f8d0e8ea246bdf4607608617e3c43356b5258abae539670",
+      "last_write_utc": "2026-10-15T14:34:50.458416+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_mixed/offsets.mem",
+      "bytes": 72,
+      "sha256": "f9cccdf7aff170871b05c07de53c9619ade90650307ae9e700de2e66c3cff436",
+      "last_write_utc": "2026-10-15T14:34:50.458416+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_mixed/params.mem",
+      "bytes": 1203840,
+      "sha256": "86704b721f032d3ba7f749dbfa78fe05ef627f31850090ef2e13fdf32205898a",
+      "last_write_utc": "2026-10-15T14:34:50.465921+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_mixed/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "58d4e035f02293a26df49412122ff9330619844ae250beb47b3ee5a22e87f0a8",
+      "last_write_utc": "2026-10-15T14:34:50.465921+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_roll10/bucket_end.mem",
+      "bytes": 6474,
+      "sha256": "475d53a247ca1402f86b07db7d3450ff57deb6a181ba7a20a08a74dfbc0d26d7",
+      "last_write_utc": "2026-10-15T14:34:50.466922+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_roll10/meta.mem",
+      "bytes": 24,
+      "sha256": "f45e96127a4ca94a288e93e59453137bbf6985314eaee3fbf9a3a8f6a2d09451",
+      "last_write_utc": "2026-10-15T14:34:50.466922+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_roll10/offsets.mem",
+      "bytes": 72,
+      "sha256": "7f88587a4e55a6c37c3427749b8cd36bcd1deab64bdf8c9682cdbb7632ecdedc",
+      "last_write_utc": "2026-10-15T14:34:50.467922+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_roll10/params.mem",
+      "bytes": 1203840,
+      "sha256": "df821162c15fa924369b711da0dbf9b026e0ee418e69b2f8682d6426edbac948",
+      "last_write_utc": "2026-10-15T14:34:50.478678+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_roll10/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "357ab203723754c6ebb7e0a38f67c25421c8376790b907f5728a986b4910353b",
+      "last_write_utc": "2026-10-15T14:34:50.479679+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_zero/bucket_end.mem",
+      "bytes": 6474,
+      "sha256": "fc534791c197a77d30acf0be8e585a5fcfb0af10d401c15474e9ada0a03c9dd7",
+      "last_write_utc": "2026-10-15T14:34:50.479679+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_zero/meta.mem",
+      "bytes": 24,
+      "sha256": "53fd25aee3d3d654cb88bbfbcf3ab91670047094ccff751d48e141eab71d2374",
+      "last_write_utc": "2026-10-15T14:34:50.480520+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_zero/offsets.mem",
+      "bytes": 72,
+      "sha256": "73eaa55a49d4b2f63cbb85b93bf3934b2d2a25013d0c21a2ea44fac96f2b0f17",
+      "last_write_utc": "2026-10-15T14:34:50.480520+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_zero/params.mem",
+      "bytes": 1203840,
+      "sha256": "471437977be5c9f1986d268d886c22d13f64b23907ef142adb056c03f2aa8bb7",
+      "last_write_utc": "2026-10-15T14:34:50.485740+00:00"
+    },
+    {
+      "path": "sim/vectors/rp_tables_zero/row_ready.mem",
+      "bytes": 2400,
+      "sha256": "b6ebfb39cc562dd9c3300d5a54247e8b3cf10a2ae369e20eddd24717516af749",
+      "last_write_utc": "2026-10-15T14:34:50.486713+00:00"
+    },
+    {
+      "path": "src/EoV19DdrDesync.v",
+      "bytes": 69030,
+      "sha256": "acd06b3a36961f7a80952a8abd157d4723cbfe405b15b615abc4c9e7c84b2182",
+      "last_write_utc": "2026-10-15T16:19:26.795696+00:00"
+    },
+    {
+      "path": "src/EoV19PanoramaParams.vh",
+      "bytes": 3654,
+      "sha256": "116e314fc69d72d687ab9f159cf689c1e449c6246ca00fddaa8987a9ea7ac71f",
+      "last_write_utc": "2026-10-15T14:34:50.492710+00:00"
+    },
+    {
+      "path": "src/EoV19RunRom.v",
+      "bytes": 701,
+      "sha256": "910dfbccb3b60d3a55ba9190592a8a7ca04b7ff29287a890504eb4e478ce284a",
+      "last_write_utc": "2026-10-15T14:34:50.493710+00:00"
+    },
+    {
+      "path": "src/EoV19SingleCamReader.v",
+      "bytes": 9127,
+      "sha256": "6836c0fe64ab8989ff05202f8ef60188b4d96b20e99f58be8058de73313ba2d5",
+      "last_write_utc": "2026-10-15T14:34:50.493710+00:00"
+    },
+    {
+      "path": "src/GlCameraProjection.v",
+      "bytes": 16618,
+      "sha256": "32453f0c422d0cc89c18cf0f564899fc74c0cb920b2651bd8d1808f04298f5f2",
+      "last_write_utc": "2026-10-15T14:46:49.308990+00:00"
+    },
+    {
+      "path": "src/GlFramePose.v",
+      "bytes": 10667,
+      "sha256": "bb7dffeb156fda9a75b3372018a75e5bdcf5f7beda2b652af43023135a67e19b",
+      "last_write_utc": "2026-10-15T15:50:53.011704+00:00"
+    },
+    {
+      "path": "src/GlLeasePose.v",
+      "bytes": 11004,
+      "sha256": "b98d8016f529d77ddd44610f598f94fdbe29836a14ac3c8a31da75c5f61651f4",
+      "last_write_utc": "2026-10-15T17:03:53.434059+00:00"
+    },
+    {
+      "path": "src/GlPoseCdc.v",
+      "bytes": 4515,
+      "sha256": "0be146accc1eb76056e2e60eaf2e7f19804e2373108874678fedc4b308b4e63a",
+      "last_write_utc": "2026-10-15T16:09:07.121730+00:00"
+    },
+    {
+      "path": "src/GlPoseEpochHistory.v",
+      "bytes": 7494,
+      "sha256": "472e82d751b323a0b4f325c818353e1a41bcd507cc4af06b1b1f25d9e3aa64d7",
+      "last_write_utc": "2026-10-15T14:56:07.488458+00:00"
+    },
+    {
+      "path": "src/GlPoseReceiver.v",
+      "bytes": 4469,
+      "sha256": "b50b3eca8377ca49b0181ebae40a4694ed0dad588685414cf2c2de73552a26a5",
+      "last_write_utc": "2026-10-15T14:33:52.366677+00:00"
+    },
+    {
+      "path": "src/IrV19PanoramaParams.vh",
+      "bytes": 6237,
+      "sha256": "01b42dfaa0a05a7ce7a1dd91f71b8de4a31c65156437d045f7da13e251a3f1c7",
+      "last_write_utc": "2026-10-15T14:34:50.498735+00:00"
+    },
+    {
+      "path": "src/IrV19RunRom.v",
+      "bytes": 2291,
+      "sha256": "6446cd9441f3e7f023ae7fa7bf21ee2591fc783e35af8f43b5c6902002725a32",
+      "last_write_utc": "2026-10-15T14:34:50.498735+00:00"
+    },
+    {
+      "path": "src/Kintex_top_I2C_test.v",
+      "bytes": 20677,
+      "sha256": "1c358d665edd1f67b86fece9159843efbae6fbc30f9cfc4bff8ffbdabd1e3110",
+      "last_write_utc": "2026-10-15T15:58:08.931969+00:00"
+    },
+    {
+      "path": "src/RpEmitter.v",
+      "bytes": 12983,
+      "sha256": "a4162839135d1b42ff78691c4238e4177ba328bf1cf7df9720f0af8f01f62cc0",
+      "last_write_utc": "2026-10-15T14:34:50.508708+00:00"
+    },
+    {
+      "path": "src/RpLineRing.v",
+      "bytes": 6655,
+      "sha256": "f97ec69cf6f00ec1d44b854f61d3a605f16794b760ce0a7c95255550cceac63c",
+      "last_write_utc": "2026-10-15T14:34:50.508708+00:00"
+    },
+    {
+      "path": "src/RpOffsetSync.v",
+      "bytes": 2477,
+      "sha256": "2418f8c3c8d7bfeb58edf1a8322a5ac4b9e4bcb29107b3d4ef4eb967f70eea8f",
+      "last_write_utc": "2026-10-15T14:34:50.508708+00:00"
+    },
+    {
+      "path": "src/RpRenderer.v",
+      "bytes": 19501,
+      "sha256": "909dbab138193b811ed8a9edfacb4e999599c5b7348d37ca4ef91b8a29de03e2",
+      "last_write_utc": "2026-10-15T15:51:39.577933+00:00"
+    },
+    {
+      "path": "src/RpRowWindow.v",
+      "bytes": 2180,
+      "sha256": "9133bfed4191b54c7e20fce01e8b82c33732aca8f1a688bf061ba2027be0612c",
+      "last_write_utc": "2026-10-15T14:34:50.509706+00:00"
+    },
+    {
+      "path": "src/RpSampler.v",
+      "bytes": 9049,
+      "sha256": "2a2cc8bc263a8d6accec99948fb062ce29529607a2170ed46a3d63fa610f51ba",
+      "last_write_utc": "2026-10-15T14:34:50.510706+00:00"
+    },
+    {
+      "path": "src/RpSegXform.v",
+      "bytes": 7948,
+      "sha256": "4175ae47121611f4568cfcdcf6cb1baf58831d46ba3b9b4aaab36da5149843a0",
+      "last_write_utc": "2026-10-15T14:34:50.510706+00:00"
+    },
+    {
+      "path": "src/RpTables.v",
+      "bytes": 17784,
+      "sha256": "3e000ffb367135f96f4108dbbda0e88c540e014b391cf73a4a3cd97b2504e58a",
+      "last_write_utc": "2026-10-15T14:34:50.511737+00:00"
+    },
+    {
+      "path": "src/RpWalker.v",
+      "bytes": 9768,
+      "sha256": "44e7a99a76ee1e7184f69a2c9819eb8a4edb59d5c993d04c08d7a76851a0cb74",
+      "last_write_utc": "2026-10-15T14:34:50.511737+00:00"
+    }
+  ],
+  "nonfatal_warnings": [
+    {
+      "suite": "test_eo_capture_coverage",
+      "lines": [
+        "WARNING: [VRFC 10-3645] port 'cam_alive_tgl' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19CaptureCoverage.sv:19]",
+        "WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:340]",
+        "WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:617]",
+        "WARNING: [VRFC 10-3645] port 'px_valid' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19SingleFrameSelect.sv:19]",
+        "WARNING: [VRFC 10-3645] port 'wr_beat_lo_ui' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19DdrCamWriterMarker.v:54]",
+        "WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:340]",
+        "WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:617]"
+      ]
+    }
+  ],
+  "scope_limits": [
+    "This manifest archives this fresh ten-command run. It does not rerun or reclassify historical evidence.",
+    "The exhaustive 2001-roll capture-envelope endpoint enumeration was NOT rerun by this session; test_eo_capture_coverage is a directed writer/selector/marker suite.",
+    "No full-top synthesis, implementation, route, timing, bus-skew or structural CDC audit is part of these ten commands. The parent records the fresh route separately.",
+    "No MCU calibration journal, payload, STM32 HAL, or physical sensor/filter-response suite was rerun by these ten commands.",
+    "Functional CDC simulations do not demonstrate metastability margin or physical bundled-bus constraints.",
+    "Finite directed/random/fixture tests do not exhaust the complete production system state space.",
+    "Pixel comparisons use stable optical geometry; camera-angle C equivalence is a separate property.",
+    "No hardware programming, physical stabilization, exposure latency, or sustainable unique-content frame rate is established.",
+    "Renderer raster files are hashed in place but not copied to this small evidence archive; all comparison logs are retained."
+  ],
+  "archive_identity": "Implementation JSON and paper JSON are byte-identical; each archived log/result was copied byte-for-byte and checked against its source hash."
+}

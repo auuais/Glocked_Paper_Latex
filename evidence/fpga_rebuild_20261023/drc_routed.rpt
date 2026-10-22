@@ -1,0 +1,309 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Oct 23 00:46:08 2026
+| Host         : RMachine running 64-bit major release  (build 9200)
+| Command      : report_drc -file E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/drc_routed.rpt
+| Design       : KintexTop_EO_IR_HD_SDI_panorama_base
+| Device       : xcku15p-ffve1517-2-i
+| Speed File   : -2
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 50
++-----------+----------+--------------------------------------------------+--------+
+| Rule      | Severity | Description                                      | Checks |
++-----------+----------+--------------------------------------------------+--------+
+| DPIP-2    | Warning  | Input pipelining                                 | 17     |
+| DPOP-3    | Warning  | PREG Output pipelining                           | 6      |
+| DPOP-4    | Warning  | MREG Output pipelining                           | 14     |
+| PDCN-1569 | Warning  | LUT equation term check                          | 3      |
+| REQP-1731 | Warning  | DSP_Abus_preadd_amult_sel_A_sign_bit_restriction | 2      |
+| REQP-1732 | Warning  | DSP_Dbus_preadd_amult_sign_bit_restriction       | 2      |
+| REQP-1934 | Warning  | RAMB18E2_nochange_collision_advisory             | 1      |
+| REQP-1935 | Warning  | RAMB36E2_nochange_collision_advisory             | 4      |
+| RTSTAT-10 | Warning  | No routable loads                                | 1      |
++-----------+----------+--------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+DPIP-2#1 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/d_y_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/d_y_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#2 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0 input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#3 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0 input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#4 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/wacc0_return input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/wacc0_return/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#5 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/wacc0_return__0 input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/wacc0_return__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#6 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/wacc0_return__0 input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/wacc0_return__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#7 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/vlerp_return0 input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/vlerp_return0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#8 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/wacc_return input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/wacc_return/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#9 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/wacc_return__0 input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/wacc_return__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#10 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdax_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdax_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#11 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdx_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdx_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#12 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdy_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdy_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#13 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_ax_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_ax_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#14 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_ay_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_ay_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#15 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_dy_reg input u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_dy_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#16 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/accumulator0 input u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/accumulator0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#17 Warning
+Input pipelining  
+DSP u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/accumulator0 input u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/accumulator0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-3#1 Warning
+PREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/cam23_fold_alpha_pos3 output u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/cam23_fold_alpha_pos3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-3#2 Warning
+PREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0 output u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-3#3 Warning
+PREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/vlerp_return0 output u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/vlerp_return0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-3#4 Warning
+PREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx50 output u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx50/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-3#5 Warning
+PREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My50 output u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My50/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-3#6 Warning
+PREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/accumulator0 output u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/accumulator0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-4#1 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/cam23_fold_alpha_pos3 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/cam23_fold_alpha_pos3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#2 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/d_c_reg multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/d_c_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#3 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/d_y_reg multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/d_y_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#4 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_emit/vlerp0_return0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#5 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/accc6_reg multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/accc6_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#6 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/accy6_reg multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/accy6_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#7 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/vlerp_return0 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_sampler/vlerp_return0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#8 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx50 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx50/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#9 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx5_reg multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx5_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#10 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx5_reg__0 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/Mx5_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#11 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My50 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My50/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#12 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My5_reg multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My5_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#13 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My5_reg__0 multiplier stage u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/My5_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-4#14 Warning
+MREG Output pipelining  
+DSP u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/asin_square_reg multiplier stage u_ddr_black_frame/g_src_v19.u_gravity_pose/u_pose/u_projection/asin_square_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+PDCN-1569#1 Warning
+LUT equation term check  
+Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A3*A5)+(A3*(~A5)*(~A1))+((~A3))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#2 Warning
+LUT equation term check  
+Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A3*A5)+(A3*(~A5)*(~A1))+((~A3))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#3 Warning
+LUT equation term check  
+Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A5))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+REQP-1731#1 Warning
+DSP_Abus_preadd_amult_sel_A_sign_bit_restriction  
+u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdx_reg: When using the PreAdder and AMULTSEL is set to 'AD' and PREADDINSEL is set to 'A', the A operand should be restricted to 26 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+Related violations: <none>
+
+REQP-1731#2 Warning
+DSP_Abus_preadd_amult_sel_A_sign_bit_restriction  
+u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_ay_reg: When using the PreAdder and AMULTSEL is set to 'AD' and PREADDINSEL is set to 'A', the A operand should be restricted to 26 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+Related violations: <none>
+
+REQP-1732#1 Warning
+DSP_Dbus_preadd_amult_sign_bit_restriction  
+u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/p_cdx_reg: When using the PreAdder and AMULTSEL is set to 'AD' and PREADDINSEL is set to 'A' or 'B', the D operand should be restricted to 26 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+Related violations: <none>
+
+REQP-1732#2 Warning
+DSP_Dbus_preadd_amult_sign_bit_restriction  
+u_ddr_black_frame/g_src_v19.g_eo_rp.u_v19_renderer/u_tables/u_xf/sum_ay_reg: When using the PreAdder and AMULTSEL is set to 'AD' and PREADDINSEL is set to 'A' or 'B', the D operand should be restricted to 26 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+Related violations: <none>
+
+REQP-1934#1 Warning
+RAMB18E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (u_ddr_black_frame/u_beat_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_5) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#1 Warning
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (u_ddr_black_frame/u_beat_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#2 Warning
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (u_ddr_black_frame/u_beat_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#3 Warning
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (u_ddr_black_frame/u_beat_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#4 Warning
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (u_ddr_black_frame/u_beat_fifo/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+343 net(s) have no routable loads. The problem bus(es) and/or net(s) are u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_ddr_cal_riu/LMB_CE_riu,
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_ddr_cal_riu/LMB_UE_riu,
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_cal/u_xsdb_arbiter/Q[12],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_cal/u_xsdb_arbiter/Q[13],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_cal/u_xsdb_arbiter/Q[14],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_cal/u_xsdb_arbiter/Q[15],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_fixdly_rdy_low/SYNC[0].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_fixdly_rdy_low/SYNC[1].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_fixdly_rdy_upp/SYNC[0].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_fixdly_rdy_upp/SYNC[1].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_phy_rdy_low/SYNC[0].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_phy_rdy_low/SYNC[1].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_phy_rdy_low/SYNC[2].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_phy_rdy_upp/SYNC[0].sync_reg[1],
+u_ddr_black_frame/u_ddr4_sub64/inst/u_ddr4_mem_intfc/u_phy2clb_phy_rdy_upp/SYNC[1].sync_reg[1]
+ (the first 15 of 183 listed nets/buses).
+Related violations: <none>
+
+

@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlPoseCdc.v" into library work
+INFO: [VRFC 10-311] analyzing module GlPoseCdc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlPoseReceiver.v" into library work
+INFO: [VRFC 10-311] analyzing module GlPoseReceiver
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/Kintex_top_I2C_test.v" into library work
+INFO: [VRFC 10-311] analyzing module Kintex_top_I2C_test
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlI2cInput.sv" into library work
+INFO: [VRFC 10-311] analyzing module BUFG
+INFO: [VRFC 10-311] analyzing module IBUF
+INFO: [VRFC 10-311] analyzing module IOBUF
+INFO: [VRFC 10-311] analyzing module tb_GlI2cInput

@@ -1,0 +1,166 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v" into library work
+INFO: [VRFC 10-311] analyzing module EoV19DdrCamWriter
+INFO: [VRFC 10-311] analyzing module EoV19SingleFrameSelect
+INFO: [VRFC 10-311] analyzing module EoV19DdrReplay
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19SingleCamReader.v" into library work
+INFO: [VRFC 10-311] analyzing module EoV19SingleCamReader
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19CaptureCoverage.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_EoV19CaptureCoverage
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19SingleFrameSelect.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_EoV19SingleFrameSelect
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19DdrCamWriterMarker.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_EoV19DdrCamWriterMarker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/AMDDesignTools/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_EoV19CaptureCoverage glbl -L xpm --snapshot tb_EoV19CaptureCoverage --log tb_EoV19CaptureCoverage.xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'cam_alive_tgl' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19CaptureCoverage.sv:19]
+WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:340]
+WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:617]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xpm.xpm_cdc_sync_rst(DEST_SYNC_FF=2,...
+Compiling module xpm.xpm_fifo_rst(COMMON_CLOCK=0)
+Compiling module xpm.xpm_fifo_reg_bit
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=5...
+Compiling module xpm.xpm_counter_updn
+Compiling module xpm.xpm_memory_base(MEMORY_TYPE=1,ME...
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_fifo_reg_vec
+Compiling module xpm.xpm_cdc_gray(INIT_SYNC_FF=1,WIDT...
+Compiling module xpm.xpm_fifo_reg_vec(REG_WIDTH=5)
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=2...
+Compiling module xpm.xpm_fifo_base(COMMON_CLOCK=0,FIF...
+Compiling module xpm.xpm_fifo_async(FIFO_MEMORY_TYPE=...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=1...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=1...
+Compiling module xpm.xpm_memory_base(MEMORY_TYPE=1,ME...
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_fifo_reg_vec(REG_WIDTH=11)
+Compiling module xpm.xpm_cdc_gray(INIT_SYNC_FF=1,WIDT...
+Compiling module xpm.xpm_fifo_reg_vec(REG_WIDTH=12)
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_fifo_base(COMMON_CLOCK=0,FIF...
+Compiling module xpm.xpm_fifo_async(FIFO_MEMORY_TYPE=...
+Compiling module work.EoV19DdrCamWriter(INPUT_W=64,INP...
+Compiling module work.tb_EoV19CaptureCoverage
+Compiling module work.glbl
+Built simulation snapshot tb_EoV19CaptureCoverage
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:05:30 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_EoV19CaptureCoverage/xsim_script.tcl
+# xsim {tb_EoV19CaptureCoverage} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS EoV19CaptureCoverage: 116 checks, 4 ordered descriptors
+$finish called at time : 7476 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19CaptureCoverage.sv" Line 117
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:05:32 2026...
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_EoV19SingleFrameSelect glbl -L xpm --snapshot tb_EoV19SingleFrameSelect --log tb_EoV19SingleFrameSelect.xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'px_valid' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19SingleFrameSelect.sv:19]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.EoV19SingleFrameSelect(STALE_WID...
+Compiling module work.EoV19SingleCamReader(SRC_BASE_AD...
+Compiling module work.tb_EoV19SingleFrameSelect
+Compiling module work.glbl
+Built simulation snapshot tb_EoV19SingleFrameSelect
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:05:36 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_EoV19SingleFrameSelect/xsim_script.tcl
+# xsim {tb_EoV19SingleFrameSelect} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS EoV19SingleFrameSelect: 19 checks
+$finish called at time : 1216 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19SingleFrameSelect.sv" Line 73
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:05:38 2026...
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_EoV19DdrCamWriterMarker glbl -L xpm --snapshot tb_EoV19DdrCamWriterMarker --log tb_EoV19DdrCamWriterMarker.xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'wr_beat_lo_ui' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19DdrCamWriterMarker.v:54]
+WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:340]
+WARNING: [VRFC 10-3645] port 'sbiterr' remains unconnected for this instance [E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19DdrDesync.v:617]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xpm.xpm_cdc_sync_rst(DEST_SYNC_FF=2,...
+Compiling module xpm.xpm_fifo_rst(COMMON_CLOCK=0)
+Compiling module xpm.xpm_fifo_reg_bit
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=5...
+Compiling module xpm.xpm_counter_updn
+Compiling module xpm.xpm_memory_base(MEMORY_TYPE=1,ME...
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_fifo_reg_vec
+Compiling module xpm.xpm_cdc_gray(INIT_SYNC_FF=1,WIDT...
+Compiling module xpm.xpm_fifo_reg_vec(REG_WIDTH=5)
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=2...
+Compiling module xpm.xpm_fifo_base(COMMON_CLOCK=0,FIF...
+Compiling module xpm.xpm_fifo_async(FIFO_MEMORY_TYPE=...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=1...
+Compiling module xpm.xpm_counter_updn(COUNTER_WIDTH=1...
+Compiling module xpm.xpm_memory_base(MEMORY_TYPE=1,ME...
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_fifo_reg_vec(REG_WIDTH=11)
+Compiling module xpm.xpm_cdc_gray(INIT_SYNC_FF=1,WIDT...
+Compiling module xpm.xpm_fifo_reg_vec(REG_WIDTH=12)
+Compiling module xpm.xpm_cdc_gray(DEST_SYNC_FF=2,INIT...
+Compiling module xpm.xpm_fifo_base(COMMON_CLOCK=0,FIF...
+Compiling module xpm.xpm_fifo_async(FIFO_MEMORY_TYPE=...
+Compiling module work.EoV19DdrCamWriter(CAM_BASE_ADDR=...
+Compiling module work.tb_EoV19DdrCamWriterMarker
+Compiling module work.glbl
+Built simulation snapshot tb_EoV19DdrCamWriterMarker
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:05:44 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_EoV19DdrCamWriterMarker/xsim_script.tcl
+# xsim {tb_EoV19DdrCamWriterMarker} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: camera bank publishes only after in-band marker retirement
+$finish called at time : 1311 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_EoV19DdrCamWriterMarker.v" Line 193
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:05:46 2026...

@@ -1,0 +1,21 @@
+% Native vector artwork; requires tikz with arrows.meta and positioning.
+\begin{tikzpicture}[>=Latex,font=\footnotesize,node distance=5mm,
+  glfbox/.style={draw,rounded corners=1pt,align=center,text width=7.25cm,inner sep=4pt},
+  glflink/.style={->,thick}]
+  \node[glfbox] (receive) {Commit complete roll/pitch transaction at STOP\\
+    Transfer coherent pose and local receipt sequence to UI clock};
+  \node[glfbox,below=of receive] (capture) {On each family's trigger: capture pose, age, enable, revision\\
+    Independent EO and IR histories; key = (family, epoch)};
+  \node[glfbox,below=of capture] (lease) {Obtain source-bank lease; freeze static calibration\\
+    Look up that family's epoch, even if the view has changed};
+  \node[glfbox,below=of lease] (policy) {Found, fresh, enabled, and same calibration revision?\\
+    Yes: project six cameras; optionally rescale live tilt once\\
+    No: use exact static roll/pitch values};
+  \node[glfbox,below=of policy] (publish) {Publish one six-camera angle set atomically\\
+    Accept render request and freeze its angles and identity};
+  \node[glfbox,below=of publish] (render) {Reuse matching tables or rebuild from the frozen set\\
+    Replay leased pixels; render, blend, and retire the pass};
+  \foreach \a/\b in {receive/capture,capture/lease,lease/policy,policy/publish,publish/render}
+    \draw[glflink] (\a)--(\b);
+  \draw[->,dashed] (render.east)--++(.30,0)|-(capture.east);
+\end{tikzpicture}

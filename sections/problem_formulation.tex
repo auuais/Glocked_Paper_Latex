@@ -1,0 +1,40 @@
+\section{Geometry, Timing, and Evaluation Definitions}
+\label{sec:problem}
+\subsection{Gravity Referencing on a Cylinder}
+For geometric motivation, let a cylindrical viewing ray be proportional to
+$\mathbf d(\vartheta,v)=[\sin\vartheta,\ v/f_c,\ \cos\vartheta]^\top$, where the second axis is vertical, $f_c$ is the cylindrical focal parameter, and $v$ is measured from the nominal horizon. If $\mathbf g=[g_x,g_y,g_z]^\top$ is gravity expressed in this coordinate system, a horizontal scene direction satisfies $\mathbf g^\top\mathbf d=0$. For $g_y\ne0$, its horizon is
+\begin{equation}
+ v_h(\vartheta)=-f_c\frac{g_x\sin\vartheta+g_z\cos\vartheta}{g_y}.
+ \label{eq:cylhorizon}
+\end{equation}
+A small rig tilt therefore creates an approximately sinusoidal vertical deviation across azimuth. In a camera-centered approximation, the same tilt produces different local roll and pitch at different mount yaw angles. Per-camera pre-alignment is a compact way to represent this dependence before calibrated projection and blending. The code-level axis and multiplication conventions are specified separately in Section~\ref{sec:algorithm}; physical sensor-axis signs must be verified on the rig.
+
+Equation~\eqref{eq:cylhorizon} also identifies a limitation of a planar baseline: a correction $a\vartheta+b$ cannot in general cancel the sinusoid across a wide field. It does \emph{not} prove that a general global image warp cannot correct it. A suitable spherical rotation or nonlinear cylindrical warp can represent that transformation. Moreover, a single-depth rotational model cannot remove translation-induced parallax, rolling-shutter effects, or unequal exposure times.
+
+\subsection{Three Consistency Requirements}
+Let $F_{s,e}$ denote a complete source frameset of sensor family $s\in\{\mathrm{EO},\mathrm{IR}\}$ and trigger-association tag $e$. Let $P_{s,e}$ be the stored pose/control snapshot and $C_j$ the mounting calibration at revision $j$. A valid rendering pass requires:
+\begin{enumerate}
+\item \emph{Numerical consistency}: the projection and pixel mapper use their documented units, quantizers, angle ranges, and optical profile.
+\item \emph{State consistency}: the pass uses one accepted $(F_{s,e},P_{s,e},C_j)$ association; changing input registers cannot change a partly built table or an active frame.
+\item \emph{Physical temporal consistency}: the pose represents the actual camera exposure interval, to the accuracy required by the motion.
+\end{enumerate}
+The first two properties can be checked against source and RTL tests. The third requires a measurement of camera/ISP delay, attitude-estimator delay, transport timing, and exposure timing. Matching trigger tags establishes an association rule, not an exposure timestamp.
+
+\subsection{Rates and Latency Boundaries}
+A raster start counts an interface timing event. A distinct-frame estimate counts accepted content changes under a stated measurement rule. An output commit counts completion of a buffered image. These rates may differ because a camera repeats images, a renderer skips source epochs, or a display repeats its current buffer. A format label such as 1080p60 is therefore not a measurement of 60 independently exposed images/s.
+
+For a trace with valid event associations, define descriptor-to-copy and descriptor-to-commit intervals as
+\begin{equation}
+ L_{dc}=t_{\rm copy\ done}-t_{\rm descriptor},\qquad
+ L_{dp}=t_{\rm commit}-t_{\rm descriptor}.
+ \label{eq:latencybounds}
+\end{equation}
+Neither includes sensor integration or ISP delay before the descriptor, and neither automatically includes display scanout. If the descriptor timestamp belongs to a newer frame than the consumed lease, these differences are diagnostics rather than the latency of that consumed frame. This caveat is applied to the archived measurements in Section~\ref{sec:hardware}.
+
+For future dynamic tests, a horizon profile can be summarized by a detrended residual
+\begin{equation}
+ D_h=\sqrt{\frac{1}{|\Omega|}\sum_{x\in\Omega}
+ [y_h(x)-(\hat a x+\hat b)]^2},
+ \label{eq:dhr}
+\end{equation}
+where $(\hat a,\hat b)$ minimize squared error on a fixed valid support $\Omega$. This statistic removes an additive linear component on that support only. It is not invariant to arbitrary warps or changing crops. A horizon synthesized from the same IMU estimate that drives correction measures model consistency; an independent target or orientation instrument is required to measure physical leveling accuracy.

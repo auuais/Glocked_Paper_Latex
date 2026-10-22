@@ -1,0 +1,236 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpEmitter.v" into library work
+INFO: [VRFC 10-311] analyzing module RpEmitter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpLineRing.v" into library work
+INFO: [VRFC 10-311] analyzing module RpLineRing
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpOffsetSync.v" into library work
+INFO: [VRFC 10-311] analyzing module RpOffsetSync
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpRenderer.v" into library work
+INFO: [VRFC 10-311] analyzing module RpRenderer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpRowWindow.v" into library work
+INFO: [VRFC 10-311] analyzing module RpRowWindow
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpSampler.v" into library work
+INFO: [VRFC 10-311] analyzing module RpSampler
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpSegXform.v" into library work
+INFO: [VRFC 10-311] analyzing module RpSegXform
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpTables.v" into library work
+INFO: [VRFC 10-311] analyzing module RpTables
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpWalker.v" into library work
+INFO: [VRFC 10-311] analyzing module RpWalker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19RunRom.v" into library work
+INFO: [VRFC 10-311] analyzing module EoV19RunRom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/IrV19RunRom.v" into library work
+INFO: [VRFC 10-311] analyzing module IrV19RunRom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_RpTables.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_RpTables
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_RpTables --generic_top ROOT=E:/Xylinx/EO_IR_GravityLocked_Stabilization --snapshot rp_test --log xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.RpSegXform_default
+Compiling module work.RpTables(ANGLE_ROM_FILE="E:/Xyli...
+Compiling module work.tb_RpTables(ROOT="E:/Xylinx/EO_I...
+Built simulation snapshot rp_test
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:05:52 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/rp_test/xsim_script.tcl
+# xsim {rp_test} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+eo_zero: build 954753 cycles, Y=46..1051 cols=271..1610, 0 mismatches
+eo_mixed: build 954753 cycles, Y=0..1078 cols=187..1678, 0 mismatches
+ir_zero: build 866081 cycles, Y=23..486 cols=25..630, 0 mismatches
+ir_mixed: build 866081 cycles, Y=0..510 cols=0..639, 0 mismatches
+eo_roll10: build 954753 cycles, Y=0..1078 cols=200..1678, 0 mismatches
+ir_roll10: build 866081 cycles, Y=0..510 cols=0..639, 0 mismatches
+eo_alt10: build 954753 cycles, Y=0..1078 cols=217..1699, 0 mismatches
+ir_alt10: build 866081 cycles, Y=0..510 cols=15..639, 0 mismatches
+PASS tb_RpTables
+$finish called at time : 80295170 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_RpTables.v" Line 146
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:28 . Memory (MB): peak = 194.965 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 12904 KB (Peak: 12904 KB), Simulation CPU Usage: 28078 ms
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:06:23 2026...
+PASS Tables. Logs: E:\Xylinx\EO_IR_GravityLocked_Stabilization\builds\rp_renderer_tables
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpEmitter.v" into library work
+INFO: [VRFC 10-311] analyzing module RpEmitter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpLineRing.v" into library work
+INFO: [VRFC 10-311] analyzing module RpLineRing
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpOffsetSync.v" into library work
+INFO: [VRFC 10-311] analyzing module RpOffsetSync
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpRenderer.v" into library work
+INFO: [VRFC 10-311] analyzing module RpRenderer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpRowWindow.v" into library work
+INFO: [VRFC 10-311] analyzing module RpRowWindow
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpSampler.v" into library work
+INFO: [VRFC 10-311] analyzing module RpSampler
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpSegXform.v" into library work
+INFO: [VRFC 10-311] analyzing module RpSegXform
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpTables.v" into library work
+INFO: [VRFC 10-311] analyzing module RpTables
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpWalker.v" into library work
+INFO: [VRFC 10-311] analyzing module RpWalker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19RunRom.v" into library work
+INFO: [VRFC 10-311] analyzing module EoV19RunRom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/IrV19RunRom.v" into library work
+INFO: [VRFC 10-311] analyzing module IrV19RunRom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_RpRenderer.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_RpRenderer
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_RpRenderer --generic_top ROOT=E:/Xylinx/EO_IR_GravityLocked_Stabilization --generic_top OUTDIR=E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/rp_renderer_legacy/sim_out --generic_top GRAVITY_POSE_INPUTS=0 --snapshot rp_test --log xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.EoV19RunRom(DEPTH=31680,ROM_FILE...
+Compiling module work.IrV19RunRom(ROM_FILE="E:/Xylinx/...
+Compiling module work.RpSegXform_default
+Compiling module work.RpTables(ANGLE_ROM_FILE="E:/Xyli...
+Compiling module work.RpLineRing
+Compiling module work.RpWalker_default
+Compiling module work.RpSampler
+Compiling module work.RpRowWindow
+Compiling module work.RpEmitter(RW_RD_LAT=5,ALPHA_Y_FI...
+Compiling module work.RpRenderer(RUN_ROM_FILE="E:/Xyli...
+Compiling module work.tb_RpRenderer(ROOT="E:/Xylinx/EO...
+Built simulation snapshot rp_test
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:06:32 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/rp_test/xsim_script.tcl
+# xsim {rp_test} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+eo_zero: 3152415 cycles, 1843200 px, flags=0003 builds=1 Y=46..1051 fetch=16..96 wr_rows=46..1052 wr_beats=16..103
+ir_zero: 2924275 cycles, 1716480 px, flags=0103 builds=2 Y=23..486 fetch=16..96 wr_rows=46..1052 wr_beats=16..103
+eo_mixed: 3557470 cycles, 1843200 px, flags=0003 builds=3 Y=0..1078 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_mixed: 3350754 cycles, 1716480 px, flags=0103 builds=4 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_alt10: 3553254 cycles, 1716480 px, flags=0103 builds=5 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_absent2: 2923816 cycles, 1716480 px, flags=0103 builds=6 Y=23..486 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_absent3: 3350802 cycles, 1716480 px, flags=0103 builds=7 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+eo_absent: 3557990 cycles, 1843200 px, flags=0003 builds=8 Y=0..1078 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+DONE tb_RpRenderer
+$finish called at time : 263709540 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_RpRenderer.v" Line 243
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:08:14 . Memory (MB): peak = 195.324 ; gain = 0.516
+exit
+INFO: xsimkernel Simulation Memory Usage: 17108 KB (Peak: 17108 KB), Simulation CPU Usage: 492671 ms
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:14:48 2026...
+eo_zero: bit-exact (1843200 pixels)
+ir_zero: bit-exact (1716480 pixels)
+eo_mixed: bit-exact (1843200 pixels)
+ir_mixed: bit-exact (1716480 pixels)
+ir_alt10: bit-exact (1716480 pixels)
+ir_absent2: bit-exact (1716480 pixels)
+ir_absent3: bit-exact (1716480 pixels)
+eo_absent: bit-exact (1843200 pixels)
+PASS RpRenderer: 8 rasters, 14112000 bit-exact pixels
+PASS Legacy. Logs: E:\Xylinx\EO_IR_GravityLocked_Stabilization\builds\rp_renderer_legacy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpEmitter.v" into library work
+INFO: [VRFC 10-311] analyzing module RpEmitter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpLineRing.v" into library work
+INFO: [VRFC 10-311] analyzing module RpLineRing
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpOffsetSync.v" into library work
+INFO: [VRFC 10-311] analyzing module RpOffsetSync
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpRenderer.v" into library work
+INFO: [VRFC 10-311] analyzing module RpRenderer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpRowWindow.v" into library work
+INFO: [VRFC 10-311] analyzing module RpRowWindow
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpSampler.v" into library work
+INFO: [VRFC 10-311] analyzing module RpSampler
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpSegXform.v" into library work
+INFO: [VRFC 10-311] analyzing module RpSegXform
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpTables.v" into library work
+INFO: [VRFC 10-311] analyzing module RpTables
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/RpWalker.v" into library work
+INFO: [VRFC 10-311] analyzing module RpWalker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/EoV19RunRom.v" into library work
+INFO: [VRFC 10-311] analyzing module EoV19RunRom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/IrV19RunRom.v" into library work
+INFO: [VRFC 10-311] analyzing module IrV19RunRom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_RpRenderer.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_RpRenderer
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_RpRenderer --generic_top ROOT=E:/Xylinx/EO_IR_GravityLocked_Stabilization --generic_top OUTDIR=E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/rp_renderer_gravity/sim_out --generic_top GRAVITY_POSE_INPUTS=1 --snapshot rp_test --log xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.EoV19RunRom(DEPTH=31680,ROM_FILE...
+Compiling module work.IrV19RunRom(ROM_FILE="E:/Xylinx/...
+Compiling module work.RpSegXform_default
+Compiling module work.RpTables(ANGLE_ROM_FILE="E:/Xyli...
+Compiling module work.RpLineRing
+Compiling module work.RpWalker_default
+Compiling module work.RpSampler
+Compiling module work.RpRowWindow
+Compiling module work.RpEmitter(RW_RD_LAT=5,ALPHA_Y_FI...
+Compiling module work.RpRenderer(GRAVITY_POSE_INPUTS=1...
+Compiling module work.tb_RpRenderer(ROOT="E:/Xylinx/EO...
+Built simulation snapshot rp_test
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:15:03 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/rp_test/xsim_script.tcl
+# xsim {rp_test} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+eo_zero: 3152412 cycles, 1843200 px, flags=0003 builds=1 Y=46..1051 fetch=16..96 wr_rows=46..1052 wr_beats=16..103
+ir_zero: 2924252 cycles, 1716480 px, flags=0103 builds=2 Y=23..486 fetch=16..96 wr_rows=46..1052 wr_beats=16..103
+eo_mixed: 3557633 cycles, 1843200 px, flags=0003 builds=3 Y=0..1078 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_mixed: 3350701 cycles, 1716480 px, flags=0103 builds=4 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_mixed: 2484498 cycles, 1716480 px, flags=0103 builds=4 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_alt10: 3552766 cycles, 1716480 px, flags=0103 builds=5 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_absent2: 2924849 cycles, 1716480 px, flags=0103 builds=6 Y=23..486 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+ir_absent3: 3350371 cycles, 1716480 px, flags=0103 builds=7 Y=0..510 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+eo_absent: 3557904 cycles, 1843200 px, flags=0003 builds=8 Y=0..1078 fetch=8..104 wr_rows=0..1079 wr_beats=8..111
+DONE tb_RpRenderer
+$finish called at time : 288557020 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_RpRenderer.v" Line 243
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:09:25 . Memory (MB): peak = 195.887 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 17112 KB (Peak: 17112 KB), Simulation CPU Usage: 563609 ms
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:24:30 2026...
+eo_zero: bit-exact (1843200 pixels)
+ir_zero: bit-exact (1716480 pixels)
+eo_mixed: bit-exact (1843200 pixels)
+ir_mixed: bit-exact (1716480 pixels)
+ir_alt10: bit-exact (1716480 pixels)
+ir_absent2: bit-exact (1716480 pixels)
+ir_absent3: bit-exact (1716480 pixels)
+eo_absent: bit-exact (1843200 pixels)
+PASS RpRenderer: 8 rasters, 14112000 bit-exact pixels
+PASS Gravity. Logs: E:\Xylinx\EO_IR_GravityLocked_Stabilization\builds\rp_renderer_gravity
