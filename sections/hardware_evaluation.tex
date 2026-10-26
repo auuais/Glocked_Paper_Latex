@@ -1,0 +1,107 @@
+\section{Hardware Implementation and Measurement}
+\label{sec:hardware}
+
+\subsection{Evidence and Implementation Configuration}
+We separate four forms of evidence: fixed-point and protocol regression, placed-and-routed implementation, archived live pipeline measurements, and camera-input measurements. The authors additionally report successful qualitative operation of the integrated gravity path. Because that report is not accompanied by an identified image and a numerical motion trace, it does not supply a dynamic leveling-error, throughput, or latency statistic. Historical observations below retain their original build and measurement boundary. The accompanying evidence manifest records source paths, SHA-256 hashes, decoded timing words, and workbook checks.
+
+A fresh full synthesis, placement, and routing run of source revision \code{5126c37} completed on October 23, 2026 using Vivado 2025.2 for an XCKU15P-FFVE1517-2-I. Table~\ref{tab:hw_resources} gives the complete top-level allocation, including DDR infrastructure, video interfaces, maps, and debug logic. These counts are not an incremental gravity-transform cost. The 58,523 register resources comprise 58,522 flip-flops and one register used as an AND/OR; no latches are reported. The 495 BRAM tiles comprise 492 RAMB36 and six RAMB18 primitives.
+
+\begin{table}[t]
+\centering
+\caption{Whole-design routed resources, October 23 fresh gravity build.}
+\label{tab:hw_resources}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Resource & Used & Available & Utilization \\
+\midrule
+CLB LUTs & 54,321 & 522,720 & 10.39\% \\
+CLB registers & 58,523 & 1,045,440 & 5.60\% \\
+BRAM tiles & 495 & 984 & 50.30\% \\
+URAM blocks & 92 & 128 & 71.88\% \\
+DSP48E2 & 30 & 1,968 & 1.52\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The UI clock is 233.380 MHz, the HD video clock is 74.250 MHz, and the reference is 27 MHz. Routed setup, hold, and pulse-width worst slacks are respectively $+0.022$, $+0.010$, and $+0.009$ ns, with zero total negative slack in each summary. All 143,180 routable nets are fully routed, and no Error-severity DRC entry is reported. The scoped gravity and IR-epoch audit covers 3,524 sequential cells without missing clocks, unconstrained internal paths, or unintended internal timing cuts. The 64-bit pose and eight-bit control mailbox transfers retain their 4.000 ns maximum-delay constraints; all 80 reported bus-skew checks pass, with a minimum slack of $+2.525$ ns.
+
+These checks establish closure under the reported internal constraints, not complete physical signoff. The full-design CDC report retains 131 Critical and 265 Warning entries, including inherited crossings requiring separate disposition. The timing report also identifies 159 inputs without input-delay constraints and 37 output-delay check entries (36 unconstrained outputs plus one clock port). Consequently, neither the scoped mailbox checks nor positive internal slack proves board-I/O timing or exposure synchronization. C/RTL regressions complement these implementation checks by testing angle arithmetic, coherent pose transport, epoch association, and rendered pixels; simulation does not measure external-memory stalls or camera timing.
+
+\subsection{Storage and Throughput Boundaries}
+The implemented pipeline stores captured source frames and published output frames in DDR. Replay feeds a three-row source ring, followed by the source-driven sampler and a 256-row EO (512-row IR) destination RowWindow. Vertical interpolation accesses two adjacent source rows, but the complete architecture is not a two-line-only streaming pipeline. Memory accounting must include primitive rounding, control, metadata, external frame storage, and debug. The nominal capacity represented by the routed BRAM and URAM allocation is 5,672,448 bytes including parity; that number includes infrastructure and excludes DDR and distributed memory, so it is not directly comparable with an algorithm's image or model-memory footprint.
+
+Table~\ref{tab:historical_fps} reports the accepted September 4, 2026 static-renderer run, build \code{c83e29d}. Distinct images were counted by exact image hashes in nominal 60 FPS HD-SDI/USB captures; EO output was also checked against a \code{frame\_done} counter. These measurements distinguish output updates from repeated scanout rasters. They demonstrate near-30 updates/s for the recorded configuration, with no black grabs in these finite samples.
+
+\begin{table}[t]
+\centering
+\caption{Archived static-renderer output measurements; these are not current gravity-envelope benchmarks.}
+\label{tab:historical_fps}
+\small
+\begin{tabular}{lrr}
+\toprule
+Mode & Distinct images/s & Black grabs / total \\
+\midrule
+EO panorama & 29.97 & 0 / 598 \\
+IR panorama & 29.70 & 0 / 474 \\
+EO single & 29.95 & 0 / 477 \\
+IR single & 29.95 & 0 / 477 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The historical EO capture window was 88 beats by 1,008 rows; the gravity envelope is 104 beats by 1,080 rows. At 30 updates/s, six-camera capture requires 20.218 million write beats/s, while output publication adds 3.456 million, for 23.674 million aggregate write beats/s. Each beat carries 32 useful pixel bytes, giving 757.555 MB/s of analytical write demand before reads and protocol overhead. The older run observed approximately 22.3 million aggregate write beats/s, including capture and output. That observation is neither a capture-only budget nor a proven bandwidth ceiling. The wider envelope's sustained rate must be measured independently. Although the DDR UI is 384 bits wide, the pixel path uses 256 payload bits per beat; clock rate multiplied by the physical interface width would overstate useful pixel throughput. Likewise, the archived reduction from 29.8 to 17.9 ms after reducing the fetch window describes render-pass service time, not end-to-end video latency.
+
+\subsection{Archived Event-Timing Measurements}
+The August 19, 2026 captures use the V19 timing probe from revision \code{67955bc}. Its nominal timer tick is $64/233.4\,\mathrm{MHz}=0.274207\,\mu\mathrm{s}$. The event timestamp available at copy start is retained, and the interval ends at output-frame commit. Commit publishes a completed output buffer; it is not a display-scanout event. Table~\ref{tab:latency_snapshots} decodes the exact archived register words using that revision's field definitions.
+
+\begin{table}[t]
+\centering
+\caption{Trace-backed last-event timing snapshots, revision \code{67955bc}. Values are event-to-output-commit intervals, not end-to-end latency.}
+\label{tab:latency_snapshots}
+\small
+\begin{tabularx}{\columnwidth}{lYr}
+\toprule
+Mode & Start event & Interval (ms) \\
+\midrule
+EO single & Selected camera descriptor-valid & 16.294 \\
+EO panorama & Newest camera-0 descriptor-valid & 63.505 \\
+IR single & Selected camera frame pulse & 58.916 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Both EO captures hold a single timing word across all 2,048 ILA samples. The IR capture holds two values separated by one timer tick, both rounding to 58.916 ms. Repeated observations of a held last-event register are not independent frame-latency samples; these traces therefore do not support a latency distribution or a 95th percentile. The companion IR panorama file contains no sampled timing data and is omitted.
+
+The boundaries also differ by mode. EO starts from a descriptor-valid event, whereas IR starts from a camera frame pulse. More importantly, the EO panorama timestamp is the newest camera-0 completion, not an identity-matched timestamp of the leased frameset. If that completion is newer than the leased content, the reported interval understates the selected source's age. It must not be interpreted as a validated capture-to-output delay for that source. The probe's copy-done field has a coarser 1.123153 ms bin width, and does not justify sub-0.1 ms copy-time precision.
+
+The contemporaneous narrative lists other session observations and estimates a ``typical'' total by adding 16.7 ms mean row age and 16.7 ms scanout. Those additions are modeled terms, omit sensor/ISP delay, and do not remedy the panorama source association. We retain only the trace-backed snapshots as measured values. None of these historical intervals is a measurement of current gravity-path latency or physical exposure-to-display delay.
+
+\subsection{Camera Raster and Content Synchronization}
+Camera-input evidence is separate from renderer output FPS. The October 9 study used physical cameras 2--6 at 1080p60, manual shutter setting 1/60 s, gain 0 dB, zero external-trigger delay, and a 30 Hz FPGA trigger with 2 ms high time. The archived receiver detects a raster boundary at the first valid embedded BT.1120 timing marker whose V bit changes from one to zero, using the qualified rising-edge sampling path. A common nominal 27 MHz counter timestamps the resulting event after synchronization and before serialization. This observes a received-raster boundary, not a sensor exposure or an external VSYNC-pin edge. The shutter value is a verified setting, not a measured exposure duration, and the trigger timestamp observes the FPGA output rather than camera acceptance.
+
+For each matched raster set, let $t_i$ be a camera timestamp and $P$ the estimated raster period. We sort $t_i\bmod P$ and subtract the largest circular inter-camera gap from $P$. This yields the shortest circular arc containing the five raster phases. Table~\ref{tab:camera_sync} summarizes the resulting spread for sequential 2D+3D digital noise reduction (DNR) settings. The audit independently recomputed all 14,051 spans from stored timestamps and periods, then reconciled the twenty corresponding workbook summary cells without modifying the workbook.
+
+\begin{table}[t]
+\centering
+\caption{Five-camera raster-phase spread, October 9, 2026. DNR conditions were sequential; percentiles describe raster cohorts, not latency.}
+\label{tab:camera_sync}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+DNR condition & Sets & Median & p95 & Maximum \\
+ & & \multicolumn{3}{c}{Spread (ms)} \\
+\midrule
+ON initial & 3,515 & 10.855 & 10.874 & 10.876 \\
+OFF & 3,523 & 10.670 & 10.690 & 10.692 \\
+ON return & 3,478 & 10.478 & 10.505 & 10.507 \\
+OFF repeat & 3,535 & 10.252 & 10.272 & 10.274 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each condition spans approximately 58--59 s. Spread decreases through the return to DNR ON, so this sequence does not isolate a causal benefit from turning DNR OFF. Camera-clock drift remains a confounder. Small residuals after fitting that drift are not the actual five-camera spread. Moreover, matching periodic raster events cannot identify an unknown whole-frame pipeline offset. The approximately 10 ms spread therefore describes received raster phases, not aligned exposures.
+
+Frozen-scene controls are essential to interpreting content signatures. Earlier full-frame signature measurements that suggested 60 fresh images/s continued changing under Freeze and were withdrawn. Later matched full-frame/ROI controls qualify cameras 2--4, whose live content changes occur predominantly every two input rasters, approximately 30/s despite approximately 60 rasters/s. Cameras 5 and 6 still show full-frame changes when frozen: 981 and 1,268 transitions with DNR ON, and 625 and 1,847 with DNR OFF, while frozen ROI signatures remain stable. Extra live ROI transitions also remain. Thus a full-frame change count cannot certify 60 independent clean images/s across the camera set, and disabling DNR does not resolve the diagnostic limitation.
+
+Together, these records establish configuration-specific output update rates, input raster/content behavior, and event timing. They do not establish absolute exposure alignment. A quantitative dynamic gravity experiment must additionally identify the FPGA/MCU images, associate source and output identities, capture an independent orientation reference, and measure the desired exposure-to-output or exposure-to-display boundary under sustained load.

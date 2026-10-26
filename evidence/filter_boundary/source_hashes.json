@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "implementation_commit": "5126c375957005e65dd000b2004fb01fbe1baaae",
+  "result": "REPRODUCED_NONFINITE_ZERO_GRADIENT",
+  "physical_hardware_used": false,
+  "source_modified": false,
+  "files": [
+    {
+      "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/firmware/eo_osd_remote/Core/Src/imu_madgwick.c",
+      "sha256": "9f7040ff256606c7425e9c1bdfc872bb2e225d3473a7bf269424d8ad9c54dad7"
+    },
+    {
+      "path": "E:/Xylinx/EO_IR_GravityLocked_Stabilization/firmware/eo_osd_remote/Core/Src/imu_madgwick.h",
+      "sha256": "1710659724a877d1ff2890cfa24b1aa005f989b42f7bd95f5b58fad4ee565850"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/evidence/filter_boundary/madgwick_boundary.c",
+      "sha256": "168e17378c32abd1e491fc25afce4f9b407209617275524d509060a75a400be3"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/evidence/filter_boundary/test_madgwick_boundary.cmd",
+      "sha256": "53d98c6c608b8d3bdf972175f014afc0e83ccdffea62f538344d43a8a1b9066b"
+    },
+    {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/evidence/filter_boundary/madgwick_boundary.log",
+      "sha256": "990c7cf6af9e3acf726fa9cdce975b5d5a1acdfad25929bd5a9fe54e6de03574"
+    }
+  ]
+}

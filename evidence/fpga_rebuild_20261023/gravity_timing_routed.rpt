@@ -1,0 +1,60 @@
+Scope: u_ddr_black_frame/g_src_v19.u_gravity_pose u_ddr_black_frame/u_ir_epoch
+Sequential cells: 3524
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date              : Fri Oct 23 00:47:13 2026
+| Host              : RMachine running 64-bit major release  (build 9200)
+| Command           : check_timing -cells {u_ddr_black_frame/g_src_v19.u_gravity_pose u_ddr_black_frame/u_ir_epoch} -override_defaults {no_clock constant_clock multiple_clock unconstrained_internal_endpoints loops latch_loops} -verbose -return_string
+| Design            : KintexTop_EO_IR_HD_SDI_panorama_base
+| Device            : xcku15p-ffve1517
+| Speed File        : -2  PRODUCTION 1.29 05-01-2022
+| Design State      : Routed
+| Temperature Grade : I
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking unconstrained_internal_endpoints (0)
+4. checking multiple_clock (0)
+5. checking loops (0)
+6. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+4. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+5. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+6. checking latch_loops (0)
+---------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+

@@ -1,0 +1,77 @@
+\section{Numerical and Temporal Verification}
+\label{sec:verification}
+\subsection{Separate Oracles for Angles and Pixels}
+The ten-suite regression was rerun on October 23, 2026 at source revision
+\code{5126c37}. Full hashes, commands, inputs, and logs are archived with the
+paper. Results below refer to this run unless a historical scope is stated.
+
+The orientation reference is extracted from the compiled C++ translation
+unit, with source and table hashes recorded. A portable C++ harness is
+compiled using MSVC with precise floating-point semantics for table
+construction; an independently expressed Python model checks the integer
+operations. The 79,397 requests compare 245,237 integer outputs, including
+inverse-trigonometric boundaries, division, integer square root, signed
+extremes, directed camera cases, and 2,000 seeded random frames. All recorded
+outputs agree exactly. This establishes agreement with the chosen discrete
+reference, not agreement with ideal real-valued rotations or measured rig
+orientation.
+
+The pixel oracle is separate. It uses the preserved EO/IR segment maps and
+sampling arithmetic, rather than the newer C application's optical profile.
+Two renderer suites exercise legacy static input and the frozen gravity-pose
+interface. Each compares 14,112,000 pixels exactly across EO and IR cases,
+including zero, mixed, and limit-angle configurations. Consequently angle
+agreement and pixel agreement are not conflated into an unsupported claim
+of end-to-end equality to a different optical pipeline.
+
+\begin{table}[t]
+\centering\footnotesize
+\caption{Recorded verification scopes and outcomes. Counts refer to tested
+cases, not exhaustive coverage of the complete system state space.}
+\label{tab:verification}
+\begin{tabularx}{\columnwidth}{@{}lY@{}}
+\toprule
+Scope & Check and observed result \\
+\midrule
+C/Python arithmetic & 79,397 requests; 245,237 integer outputs agree \\
+Camera projection RTL & 1,342 compiled-C vectors; exact outputs \\
+Six-camera controller & 266 cases; atomic publication and limiting \\
+Pose association & 21 lease cases; independent EO/IR histories, cancellation, fallback \\
+Trigger epoch & Phase/reset tests; all 65,536 counter increments \\
+I\textsuperscript{2}C interface & 109 wire-level checks; partial/malformed transaction rejection \\
+CDC mailbox & Three clock ratios, clock stoppage, reset and coherent transfer \\
+Renderer & Two suites, each 14,112,000 matching pixels; eight table cases \\
+Capture/selection & 116 envelope checks; 19 single-selection checks; marker-order test \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{State Invariants and Failure Cases}
+Table~\ref{tab:verification} complements numeric tests with transaction and
+state-machine tests. Publication occurs only after a complete pose burst;
+changing input registers while computation is busy cannot change its result.
+A source lease selects the corresponding family's history entry, not the
+newest pose and not an equal numeric epoch from the other sensor family.
+Missing, stale, disabled, overwritten, and calibration-mismatched entries
+exercise the static fallback. Mode and lease changes cancel pending work,
+while reset clears valid state. The renderer tests vary live inputs during
+table generation and replay to check that accepted coefficients remain
+constant.
+
+The capture-envelope check has a different character: affine coordinates
+within each segment and pitch monotonicity reduce a bounded geometric
+coverage problem to endpoint checks over the supported discrete roll range.
+This proves coverage of the defined fetch envelope under those model
+assumptions. It does not prove that camera capture, DDR arbitration, source
+bank ownership, and display publication meet every real-time deadline.
+Likewise functional CDC tests do not prove metastability margins; those
+require implementation constraints and physical review.
+
+The orientation engine takes 531--601 clock cycles in the camera tests; the
+enabled six-camera controller takes 3,556--7,319 cycles, depending on whether
+the global rescale needs a second pass. At the nominal 233.4 MHz UI clock,
+that controller range corresponds to approximately 15.2--31.4 microseconds.
+This is a conversion of simulation cycles, not a measured camera-to-display
+latency, and excludes table building, source replay, memory contention,
+publication, and scanout. The firmware control and calibration-storage tests
+are archived separately; they do not validate the physical filter response.

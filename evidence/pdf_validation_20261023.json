@@ -1,0 +1,43 @@
+{
+  "recorded_at_utc": "2026-10-22T15:55:26.366505+00:00",
+  "pages": 11,
+  "page_limit_including_references": 14,
+  "pdf_path": "output/pdf/g_locked_panorama_stabilization.pdf",
+  "pdf_sha256": "d30f51d8d32725e3678190b4231e30b12f0fe53d5115b242d8a9c0d6c685d655",
+  "root_pdf_matches": true,
+  "format": "IEEEtran journal, normal 10pt letter-paper layout; no margin or global font reduction",
+  "compiler": "TeX Live 2026 pdfTeX, latexmk 4.88; local build",
+  "unresolved_references": 0,
+  "overfull_boxes": 0,
+  "visual_review": "All 11 pages passed: first five final images match reviewed images exactly; pages 6-11 reviewed after final rendering. No clipping, overlap or illegible figure/table labels found.",
+  "render_resolution_dpi": 115,
+  "rendered_page_sha256": {
+    "page-01.png": "10a804c304c9a6ff692e639a86bbaaec196ce68acc989c1cac6db160998b222b",
+    "page-02.png": "6aa64ff61de37af96991ef572bb71ad31f0e6d2db780a35897aa6c3b52062353",
+    "page-03.png": "ad69c17695383ac7c5cf4d6ce006240992be4ec52c7aec07787cad96ff376d66",
+    "page-04.png": "695e030700e0f83e896cde20e2965d280e1bc1f9b8370e2c39c51b5840d97ca5",
+    "page-05.png": "a641088b54c8cb4505c254106f8850661caf9774b9ea775013cd0a1a5719731e",
+    "page-06.png": "98b8ffe42c755a675da36a6e57d1362fafb957fa40298592d5be8d6fa93762a8",
+    "page-07.png": "3a1c80c1c0ab95d0d6700350ca0b30dc16faedc2901258613e493c6d6436a194",
+    "page-08.png": "141301d342e5d8340e08b209905d9911d0da13f370b9847a5a367b04975d4d94",
+    "page-09.png": "e5df5c1de9aa0a5524154c7ba3f47c2fc66dbd3f6d56a7d82340deada51d5070",
+    "page-10.png": "fd7abefe1caf46ec1b1c8312a9dc7fa1940c5b8eb9b0c61ebf70268d1d9f9700",
+    "page-11.png": "96092a1ae8841acab0feca9a85b03508e2fd02f08e8fb013c61304bbec56f45a"
+  },
+  "source_hash_convention": "SHA-256 of staged Git blob bytes (Git text normalization), not platform-specific working-tree line endings. Sources were staged after the final PDF build.",
+  "source_git_blob_sha256": {
+    "g_locked_panorama_stabilization.tex": "c0ed55c0e24c9286dbd17e70617d134213d617a0e95acaa5874b552a02715283",
+    "g_locked_panorama_stabilization.bib": "6d587efe7b0c983314f9dc57014a68cbef9c5623e28457050c615f0abbccf776",
+    "sections/algorithm_architecture.tex": "c2f900148fa86171438a73fc2fc27b486311e39eb3d3ee7118a22ec87912dbdb",
+    "sections/discussion.tex": "87e5cf82a2b7402e9040fe2abe1da07e03f1286c6c2b8fb67d407a71ba21e872",
+    "sections/hardware_evaluation.tex": "c3d886a5e401084dede7a5e1bb5c48adf36bb4f8c2d70475546dfaaa7b53bcad",
+    "sections/legacy_evaluation.tex": "693e09c6b99de082c7d53631b1b4b416ad3d38e15ba52d24f432597162f99bd8",
+    "sections/problem_formulation.tex": "3d886b2659a7c44a83420a07f3b63e112d2ec530cf9542a22417f28609c0b8c6",
+    "sections/verification.tex": "b886f7e7ff9f80b54daa9b661aa4e990370d4d3a5e8ce1ee65d99f04016de944",
+    "figures/gl_hardware_architecture.tex": "1472eabe6c42caeae6bd7785038199af6460ded7f3fe0a15b56cc91adae82e67",
+    "figures/gl_projection_geometry.tex": "8dc8613ff990de5c6b108eca8001c00e49b48a8f1e7942612f0aea27af36eb94",
+    "figures/gl_runtime_flow.tex": "88a214b539cac9a4cbac74dc137739cd407813961452085cf16c8d0f031a63b3",
+    "figures/legacy_matched_comparison.pdf": "dbd74747932552e26bfa452dd853659a139fc59cca845208fed60ea2cb85f996",
+    "scripts/build_paper.ps1": "48f72e7c05dccc5ce6dace531e9e3ac2f5939eeacfa298081546ed9b63980a03"
+  }
+}

@@ -1,0 +1,36 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlCameraProjection.v" into library work
+INFO: [VRFC 10-311] analyzing module GlCameraProjection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlCameraProjection.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_GlCameraProjection
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_GlCameraProjection --snapshot gl_camera_projection --log xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.GlCameraProjection(ANGLE_ROM_FIL...
+Compiling module work.tb_GlCameraProjection
+Built simulation snapshot gl_camera_projection
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:04:13 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/gl_camera_projection/xsim_script.tcl
+# xsim {gl_camera_projection} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS GlCameraProjection: 1342 C-oracle vectors, latency 531..601 cycles; frozen inputs, busy-start rejection and reset abort verified
+$finish called at time : 8053686 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlCameraProjection.sv" Line 124
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:04:16 2026...
+GlCameraProjection verified. Logs: E:\Xylinx\EO_IR_GravityLocked_Stabilization\builds\camera_projection

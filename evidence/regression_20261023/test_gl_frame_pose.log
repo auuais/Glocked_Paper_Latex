@@ -1,0 +1,40 @@
+PASS frame-pose golden check: 266 cases, 230 enabled C, 36 exact disabled bypass, 190 limited, 218 outside after final result, 6 zero-live trim quantization cases
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlCameraProjection.v" into library work
+INFO: [VRFC 10-311] analyzing module GlCameraProjection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/src/GlFramePose.v" into library work
+INFO: [VRFC 10-311] analyzing module GlFramePose
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlFramePose.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_GlFramePose
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_GlFramePose --generic_top EXPECTED_VECTOR_COUNT=266 --snapshot gl_frame_pose --log xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.GlCameraProjection(ANGLE_ROM_FIL...
+Compiling module work.GlFramePose(ANGLE_ROM_FILE="../....
+Compiling module work.tb_GlFramePose
+Built simulation snapshot gl_frame_pose
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Oct 23 00:04:55 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/gl_frame_pose/xsim_script.tcl
+# xsim {gl_frame_pose} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS GlFramePose: 266 cases (230 enabled C, 36 exact disabled), 190 limited, 218 out-of-range, EO/IR=133/133; enabled latency 3556..7319 cycles; disabled=1; frozen inputs, atomic six-camera outputs, busy-start rejection, 4 reset phases verified
+$finish called at time : 15463486 ns : File "E:/Xylinx/EO_IR_GravityLocked_Stabilization/sim/tb_GlFramePose.sv" Line 167
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 23 00:05:00 2026...
+GlFramePose verified. Logs: E:\Xylinx\EO_IR_GravityLocked_Stabilization\builds\frame_pose

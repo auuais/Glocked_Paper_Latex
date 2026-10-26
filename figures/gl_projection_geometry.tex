@@ -1,0 +1,27 @@
+% Native vector artwork; requires tikz with arrows.meta and calc.
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,font=\footnotesize,
+  glgbox/.style={draw,rounded corners=1pt,align=center,inner sep=5pt}]
+  \draw[gray] (1.45,0) circle (1.08);
+  \draw[->] (1.45,0)--(2.8,0) node[right] {$x$};
+  \draw[->] (1.45,0)--(1.45,1.35) node[above] {$y$};
+  \fill (1.45,0) circle (1.4pt);
+  \foreach \a/\n in {0/0,60/1,120/2,180/3,240/4,300/5}{
+    \draw[->,thick] (1.45,0)--++(\a:1.08);
+    \node[fill=white,inner sep=1pt] at ($(1.45,0)+(\a:1.28)$) {\n};
+  }
+  \draw[->] (2.06,0) arc[start angle=0,end angle=60,radius=.61];
+  \node at (2.18,.40) {$\psi_i$};
+  \node[align=center] at (1.45,-1.80) {EO azimuths shown\\IR ring: $+90^\circ$};
+  \node[glgbox,text width=4.15cm] (mount) at (5.60,.82)
+    {Mounting rotation\\$R_{m,i}=R_z(\psi_i)R_y(p_i^0)R_x(r_i^0)$};
+  \node[glgbox,text width=4.15cm] (body) at (5.60,-.40)
+    {Measured rig tilt\\$R_i=[R_x(r)R_y(p)]R_{m,i}$};
+  \draw[->] (mount)--(body);
+  \node[glgbox,text width=4.15cm] (local) at (5.60,-1.73)
+    {Local Euler correction\\$r_i\simeq r\cos\psi_i+p\sin\psi_i$\\
+     $p_i\simeq p\cos\psi_i-r\sin\psi_i$};
+  \draw[->] (body)--(local);
+  \node[align=center,text width=7.8cm] at (4.0,-2.85)
+    {Small-angle expressions explain azimuth dependence.\\
+     The implementation evaluates the quantized matrix products.};
+\end{tikzpicture}

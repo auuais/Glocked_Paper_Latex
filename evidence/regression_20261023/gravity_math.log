@@ -1,0 +1,30 @@
+{
+  "requests": 79397,
+  "integer_values_compared": 245237,
+  "counts": {
+    "LUTS": 1,
+    "ASIN": 65541,
+    "ATAN": 1100,
+    "SQRT": 1008,
+    "DIV": 231,
+    "FLOAT": 12,
+    "FRAME": 2033,
+    "MAP": 7324,
+    "ANGLE": 2147
+  },
+  "random_seed": "0xC0DE6015",
+  "random_frames": 2000,
+  "production_fixture": "E:\\Xylinx\\EO_IR_GravityLocked_Stabilization\\config\\parameters_unified.ini",
+  "production_fixture_sha256": "7106b1f1ad56d545c6b3eef5b29f9608fdb1cfb02ce364b1ca85ca096c3eea3c",
+  "production_fixture_cases": 4,
+  "request_sha256": "ca7fdf3db2bde04aa2e2bf85bb17808b1a768850c63691af2c684288284735ad",
+  "status": "PASS",
+  "source_sha256": "f4dea4cbfba60bfe686644081c7bcfb4744c9d8b14771c0d916dad6702839495",
+  "oracle_sha256": "ee50c3156218c4eb5e1f077f6e2ad8761afaa49a63c45876f7e6c032f5908b65",
+  "compiler": {
+    "family": "MSVC",
+    "installation": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community",
+    "flags": "/std:c++17 /EHsc /W4 /O2 /fp:precise"
+  },
+  "elapsed_seconds": 10.282
+}

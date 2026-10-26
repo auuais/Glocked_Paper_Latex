@@ -1,0 +1,6 @@
+# Preserve archived evidence bytes so recorded SHA-256 hashes survive Git checkout.
+evidence/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Raw tool reports retain vendor-emitted spacing as well as line endings.
+evidence/**/*.log -whitespace
+evidence/*.log -whitespace
+evidence/**/*.rpt -whitespace

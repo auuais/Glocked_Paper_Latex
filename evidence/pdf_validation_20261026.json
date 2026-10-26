@@ -1,0 +1,216 @@
+{
+  "audit_date": "2026-10-26",
+  "recorded_at_utc": "2026-10-26T09:46:44.849091+00:00",
+  "pages": 12,
+  "page_limit_including_references": 14,
+  "pdf_path": "output/pdf/g_locked_panorama_stabilization.pdf",
+  "pdf_sha256": "196a71bc95be4a7dc01e12a4cd76783cf3f8893a03b918ee9de70d84f5ee5aaf",
+  "root_pdf_matches": true,
+  "format": "IEEEtran journal, normal 10pt letter-paper layout; no margin or global font reduction",
+  "compiler": "TeX Live 2026 pdfTeX, latexmk 4.88; local build",
+  "abstract_whitespace_word_count": 179,
+  "unresolved_references": 0,
+  "overfull_boxes": 0,
+  "visual_review": "All 12 pages passed. Pages 1-7 match previously reviewed October 26 images byte-for-byte; revised pages 8-12 visually reviewed after final render. No clipping, overlaps, illegible labels, or orphan reference page.",
+  "render_resolution_dpi": 115,
+  "rendered_page_sha256": {
+    "page-01.png": "3a9e8354f2df972b042a499088023a6d0dcee9af34a0ff5898a2e2687d6df2bb",
+    "page-02.png": "6aa64ff61de37af96991ef572bb71ad31f0e6d2db780a35897aa6c3b52062353",
+    "page-03.png": "a55a0a83f3653468225d54929b3d597d3533dbaab5e24e9a87119950e4632aa1",
+    "page-04.png": "695e030700e0f83e896cde20e2965d280e1bc1f9b8370e2c39c51b5840d97ca5",
+    "page-05.png": "a641088b54c8cb4505c254106f8850661caf9774b9ea775013cd0a1a5719731e",
+    "page-06.png": "7d3e2bd24fca8a39de6fa0703033832648f3749f7c035cb7dfd4ad17040fe7b8",
+    "page-07.png": "7d10b5dde9d3c9a9a438a9558fb4e3419ac4708591fbdc228580c017debcd3f6",
+    "page-08.png": "e38cbabb25dee745f4e6cc6212b090d521414f81415c6484797dfb3780069cdc",
+    "page-09.png": "eff5e27bbc4ad17cd25af5b833ec7e008ef87c5b44e6e21149268b471e5ea4f2",
+    "page-10.png": "7e0f6805baf7c05c3b4aca3a37e174040a456ac6fb45c43c93c8c35cc6f406c3",
+    "page-11.png": "840496ab3725623a00dacddc5078beeec5aaff1084f180433d77c068354425aa",
+    "page-12.png": "51c8ea5c4c7455732c009ac292e6c1157aa6864f148e56676e554bf4e5ce8bd2"
+  },
+  "fonts": {
+    "160": {
+      "name": "NXAXLT+NimbusRomNo9L-Regu",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 20902
+    },
+    "162": {
+      "name": "LREKMX+NimbusRomNo9L-MediItal",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 8298
+    },
+    "163": {
+      "name": "RFTYVD+NimbusRomNo9L-Medi",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 15660
+    },
+    "164": {
+      "name": "JKWNKB+CMR9",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 8297
+    },
+    "165": {
+      "name": "PQILTH+CMMI9",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 7281
+    },
+    "166": {
+      "name": "ENCXZO+CMSY6",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 7613
+    },
+    "167": {
+      "name": "LJNAJG+NimbusRomNo9L-ReguItal",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 14851
+    },
+    "189": {
+      "name": "CBIFHY+CMBX10",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 8821
+    },
+    "190": {
+      "name": "OWYARO+CMR10",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 17137
+    },
+    "191": {
+      "name": "QROCIC+CMMI10",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 17716
+    },
+    "192": {
+      "name": "ATTUKJ+CMMI7",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 10837
+    },
+    "193": {
+      "name": "MKYTNN+CMSY7",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 8112
+    },
+    "194": {
+      "name": "YEPYHF+CMSY10",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 9492
+    },
+    "200": {
+      "name": "FLTCGX+CMR7",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 12077
+    },
+    "219": {
+      "name": "DTUUWT+CMEX10",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 9441
+    },
+    "220": {
+      "name": "OWQOHW+NimbusMonL-Regu",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 12933
+    },
+    "231": {
+      "name": "WMECEI+CMR8",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 10604
+    },
+    "232": {
+      "name": "XZPTWP+CMSY8",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 7646
+    },
+    "233": {
+      "name": "OBMIVV+CMMI8",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 9600
+    },
+    "234": {
+      "name": "AWQONS+CMMI6",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 8714
+    },
+    "235": {
+      "name": "EZGPUP+CMR6",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 7830
+    },
+    "241": {
+      "name": "XITOKC+CMMIB10",
+      "format": "pfa",
+      "kind": "Type1",
+      "embedded_bytes": 7309
+    },
+    "282": {
+      "name": "TimesNewRomanPSMT",
+      "format": "ttf",
+      "kind": "Type0",
+      "embedded_bytes": 1195688
+    },
+    "315": {
+      "name": "TimesNewRomanPSMT",
+      "format": "ttf",
+      "kind": "Type0",
+      "embedded_bytes": 1195688
+    }
+  },
+  "source_hash_convention": "SHA-256 of staged Git blob bytes, with separate working-tree byte hashes. Sources staged after the final PDF build.",
+  "source_git_blob_sha256": {
+    "g_locked_panorama_stabilization.tex": "18f60cfb0428e866db709705e5f2afe9596cbe3cf7ca160d48f221a0fd089f7a",
+    "g_locked_panorama_stabilization.bib": "6d587efe7b0c983314f9dc57014a68cbef9c5623e28457050c615f0abbccf776",
+    "sections/algorithm_architecture.tex": "c2f900148fa86171438a73fc2fc27b486311e39eb3d3ee7118a22ec87912dbdb",
+    "sections/discussion.tex": "d54c647ab04f7ba9b575b3c85ee8131994c18152072939ebcc47c2f19173bd2e",
+    "sections/hardware_evaluation.tex": "c3d886a5e401084dede7a5e1bb5c48adf36bb4f8c2d70475546dfaaa7b53bcad",
+    "sections/legacy_evaluation.tex": "0fe8db0d7463dcd3ce83c416b15a44e729fc9c6734fdeeb4cc07398e9f9f544b",
+    "sections/problem_formulation.tex": "0eef001b170cf9764f303e5bd5472b6f40c34367c2d78c580a91884ae3b0ba34",
+    "sections/verification.tex": "b886f7e7ff9f80b54daa9b661aa4e990370d4d3a5e8ce1ee65d99f04016de944",
+    "sections/video_archive_evaluation.tex": "69ebe7cce21ec903206ba58886dd8752271581e6a65935fad6a1dd25e22cb789",
+    "figures/gl_hardware_architecture.tex": "1472eabe6c42caeae6bd7785038199af6460ded7f3fe0a15b56cc91adae82e67",
+    "figures/gl_projection_geometry.tex": "8dc8613ff990de5c6b108eca8001c00e49b48a8f1e7942612f0aea27af36eb94",
+    "figures/gl_runtime_flow.tex": "88a214b539cac9a4cbac74dc137739cd407813961452085cf16c8d0f031a63b3",
+    "figures/legacy_matched_comparison.pdf": "dbd74747932552e26bfa452dd853659a139fc59cca845208fed60ea2cb85f996",
+    "figures/archived_marker_steadiness.pdf": "b74077a0238a3f55d863cb94b1fbf9d9f66f221dbc3f69d6b9c3cd1380a8a90e",
+    "scripts/build_paper.ps1": "48f72e7c05dccc5ce6dace531e9e3ac2f5939eeacfa298081546ed9b63980a03",
+    "scripts/render_evidence_figures.py": "4386b09c8308189cd39e4413784e23c47f03c79072b7dd9f9b299e0acc614127",
+    "scripts/render_marker_evidence.py": "42b382c3f2619b73538ba3f63a73880623588f34b65f87c7fd5f54b488cf8a0f"
+  },
+  "source_worktree_sha256": {
+    "g_locked_panorama_stabilization.tex": "12f331511e6549c1410347bec3ca7fc55e2fc3ed362469c0656b3662b6001904",
+    "g_locked_panorama_stabilization.bib": "3b0ecd695d2617ee718d2a0ad9e1362a4d6f7ea772a6d55ad354d0cd262996eb",
+    "sections/algorithm_architecture.tex": "b660d3bc975e9c3c0aef81e6ecd89b0982fc60b2348ef42a5a0871ccd7e4e1cd",
+    "sections/discussion.tex": "02f3dddb2d458d8c7c3860be22ffb102a3ab469feb55ccd1604f00488657807a",
+    "sections/hardware_evaluation.tex": "c3d886a5e401084dede7a5e1bb5c48adf36bb4f8c2d70475546dfaaa7b53bcad",
+    "sections/legacy_evaluation.tex": "1993a8cf31cefca6f51f9604706fc4545c9c5b4b821bb942f5bf9ae83d60e83c",
+    "sections/problem_formulation.tex": "e52478c6a48f9474f56a33ebd083ed15b3cf7d611a296d3da099d9d43bccb4c4",
+    "sections/verification.tex": "b5722ce6ff0a128667a3abf3b6238d128d68e5381ff832a8de83798ee3b4a11e",
+    "sections/video_archive_evaluation.tex": "69ebe7cce21ec903206ba58886dd8752271581e6a65935fad6a1dd25e22cb789",
+    "figures/gl_hardware_architecture.tex": "1472eabe6c42caeae6bd7785038199af6460ded7f3fe0a15b56cc91adae82e67",
+    "figures/gl_projection_geometry.tex": "8dc8613ff990de5c6b108eca8001c00e49b48a8f1e7942612f0aea27af36eb94",
+    "figures/gl_runtime_flow.tex": "88a214b539cac9a4cbac74dc137739cd407813961452085cf16c8d0f031a63b3",
+    "figures/legacy_matched_comparison.pdf": "dbd74747932552e26bfa452dd853659a139fc59cca845208fed60ea2cb85f996",
+    "figures/archived_marker_steadiness.pdf": "b74077a0238a3f55d863cb94b1fbf9d9f66f221dbc3f69d6b9c3cd1380a8a90e",
+    "scripts/build_paper.ps1": "48f72e7c05dccc5ce6dace531e9e3ac2f5939eeacfa298081546ed9b63980a03",
+    "scripts/render_evidence_figures.py": "4386b09c8308189cd39e4413784e23c47f03c79072b7dd9f9b299e0acc614127",
+    "scripts/render_marker_evidence.py": "42b382c3f2619b73538ba3f63a73880623588f34b65f87c7fd5f54b488cf8a0f"
+  },
+  "new_evidence_scope": "Recomputed archived software video/IMU measurements; no FPGA/MCU programming or new live capture in this audit. Current hardware routing remains the October 23 record."
+}

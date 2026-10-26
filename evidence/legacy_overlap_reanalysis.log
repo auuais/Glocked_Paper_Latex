@@ -1,0 +1,211 @@
+G-locked complete
+UDIS++ complete
+StabStitch++ complete
+SIFT+homography complete
+{
+  "all_targets": {
+    "G-locked": {
+      "target_count": 12,
+      "success_count": 12,
+      "failures": [],
+      "overlap": {
+        "count": 12,
+        "mean": {
+          "rawP": 15.054484100223853,
+          "strP": 22.587950782471708,
+          "rawS": 0.310705159261991,
+          "strS": 0.752326318668847
+        }
+      },
+      "distant": {
+        "count": 12,
+        "mean": {
+          "rawP": 26.194234960366177,
+          "strP": 33.67179951887747,
+          "rawS": 0.5408514602249644,
+          "strS": 0.7011436800311603
+        }
+      }
+    },
+    "SIFT+homography": {
+      "target_count": 12,
+      "success_count": 9,
+      "failures": [
+        {
+          "case": "EO_Test2_R_2.15_P_0",
+          "pair": "pair_01",
+          "status": "fail"
+        },
+        {
+          "case": "EO_Test5_R_4.75_P_-4.5",
+          "pair": "pair_12",
+          "status": "fail"
+        },
+        {
+          "case": "EO_Test6_R_1.25_P_6.5",
+          "pair": "pair_01",
+          "status": "fail"
+        }
+      ],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 13.243254690052801,
+          "strP": 16.161399051227324,
+          "rawS": 0.3043967456284786,
+          "strS": 0.5338049985017013
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 16.79930935878503,
+          "strP": 19.119221246893233,
+          "rawS": 0.5281968962407925,
+          "strS": 0.6613036167475976
+        }
+      }
+    },
+    "StabStitch++": {
+      "target_count": 12,
+      "success_count": 12,
+      "failures": [],
+      "overlap": {
+        "count": 12,
+        "mean": {
+          "rawP": 12.824859907189778,
+          "strP": 15.560959393469268,
+          "rawS": 0.21308213753043737,
+          "strS": 0.45037329692355826
+        }
+      },
+      "distant": {
+        "count": 12,
+        "mean": {
+          "rawP": 13.543362521880908,
+          "strP": 15.309215848377349,
+          "rawS": 0.418462075947122,
+          "strS": 0.5368471843710312
+        }
+      }
+    },
+    "UDIS++": {
+      "target_count": 12,
+      "success_count": 12,
+      "failures": [],
+      "overlap": {
+        "count": 12,
+        "mean": {
+          "rawP": 13.467502328154488,
+          "strP": 16.875986435641504,
+          "rawS": 0.20458941664743813,
+          "strS": 0.4243344234978362
+        }
+      },
+      "distant": {
+        "count": 12,
+        "mean": {
+          "rawP": 13.926410490676792,
+          "strP": 16.27784454384879,
+          "rawS": 0.3677074579537983,
+          "strS": 0.5022983798149295
+        }
+      }
+    }
+  },
+  "common_success": {
+    "G-locked": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 15.157127563066647,
+          "strP": 22.56218188896633,
+          "rawS": 0.334914844222323,
+          "strS": 0.7565004925003469
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 29.234205033293694,
+          "strP": 37.27487511091887,
+          "rawS": 0.5996721921880527,
+          "strS": 0.7428828510181478
+        }
+      }
+    },
+    "SIFT+homography": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 13.243254690052801,
+          "strP": 16.161399051227324,
+          "rawS": 0.3043967456284786,
+          "strS": 0.5338049985017013
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 16.79930935878503,
+          "strP": 19.119221246893233,
+          "rawS": 0.5281968962407925,
+          "strS": 0.6613036167475976
+        }
+      }
+    },
+    "StabStitch++": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 12.95244344480275,
+          "strP": 15.604061829901607,
+          "rawS": 0.2342481256236281,
+          "strS": 0.4661661461320929
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 14.503714163039994,
+          "strP": 16.21036508220839,
+          "rawS": 0.47092756121593055,
+          "strS": 0.5932983679584876
+        }
+      }
+    },
+    "UDIS++": {
+      "target_count": 9,
+      "success_count": 9,
+      "failures": [],
+      "overlap": {
+        "count": 9,
+        "mean": {
+          "rawP": 13.629265496174357,
+          "strP": 17.09057937860156,
+          "rawS": 0.22918195897216562,
+          "strS": 0.442320325501756
+        }
+      },
+      "distant": {
+        "count": 9,
+        "mean": {
+          "rawP": 14.940506667756596,
+          "strP": 17.343420372908124,
+          "rawS": 0.4254056977378944,
+          "strS": 0.5623324063122604
+        }
+      }
+    }
+  },
+  "duplicate_capture_groups": []
+}

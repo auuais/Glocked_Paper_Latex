@@ -1,0 +1,218 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date              : Fri Oct 23 00:45:29 2026
+| Host              : RMachine running 64-bit major release  (build 9200)
+| Command           : report_timing_summary -max_paths 20 -report_unconstrained -warn_on_violation -file E:/Xylinx/EO_IR_GravityLocked_Stabilization/builds/gravity_20261022_235934/timing_routed.rpt
+| Design            : KintexTop_EO_IR_HD_SDI_panorama_base
+| Device            : xcku15p-ffve1517
+| Speed File        : -2  PRODUCTION 1.29 05-01-2022
+| Design State      : Routed
+| Temperature Grade : I
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (159)
+6. checking no_output_delay (37)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (159)
+--------------------------------
+ There are 159 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (37)
+--------------------------------
+ There are 36 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There is 1 port with no output delay but with a timing clock defined on it or propagating through it (LOW)
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.022        0.000                      0               203850        0.010        0.000                      0               203172        0.009        0.000                       0                 68690  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock                                                                                                Waveform(ns)           Period(ns)      Frequency(MHz)
+-----                                                                                                ------------           ----------      --------------
+CAM0_PCLK                                                                                            {0.000 5.000}          10.000          100.000         
+CAM1_PCLK                                                                                            {0.000 5.000}          10.000          100.000         
+CAM2_PCLK                                                                                            {0.000 6.734}          13.468          74.250          
+CAM3_PCLK                                                                                            {0.000 6.734}          13.468          74.250          
+CAM4_PCLK                                                                                            {0.000 6.734}          13.468          74.250          
+CAM5_PCLK                                                                                            {0.000 6.734}          13.468          74.250          
+IRCAM0_PCLK                                                                                          {0.000 5.000}          10.000          100.000         
+IRCAM1_PCLK                                                                                          {0.000 5.000}          10.000          100.000         
+IRCAM2_PCLK                                                                                          {0.000 5.000}          10.000          100.000         
+IRCAM3_PCLK                                                                                          {0.000 5.000}          10.000          100.000         
+IRCAM4_PCLK                                                                                          {0.000 5.000}          10.000          100.000         
+IRCAM5_PCLK                                                                                          {0.000 5.000}          10.000          100.000         
+c0_sys_clk_p                                                                                         {0.000 2.499}          4.999           200.040         
+  mmcm_clkout0                                                                                       {0.000 2.142}          4.285           233.380         
+    pll_clk[0]                                                                                       {0.000 0.268}          0.536           1867.040        
+      pll_clk[0]_DIV                                                                                 {0.000 2.142}          4.285           233.380         
+    pll_clk[1]                                                                                       {0.000 0.268}          0.536           1867.040        
+      pll_clk[1]_DIV                                                                                 {0.000 2.142}          4.285           233.380         
+    pll_clk[2]                                                                                       {0.000 0.268}          0.536           1867.040        
+      pll_clk[2]_DIV                                                                                 {0.000 2.142}          4.285           233.380         
+  mmcm_clkout5                                                                                       {0.000 8.570}          17.139          58.345          
+  mmcm_clkout6                                                                                       {0.000 4.285}          8.570           116.690         
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK  {0.000 25.000}         50.000          20.000          
+osc27                                                                                                {0.000 18.518}         37.037          27.000          
+  hd_clk_fb                                                                                          {0.000 18.518}         37.037          27.000          
+  hd_clk_mmcm                                                                                        {0.000 6.734}          13.468          74.250          
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                                                                                                    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                                                                                                    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+CAM0_PCLK                                                                                                  5.543        0.000                      0                 3347        0.020        0.000                      0                 3347        4.458        0.000                       0                  1077  
+CAM1_PCLK                                                                                                  5.276        0.000                      0                 3359        0.010        0.000                      0                 3359        4.458        0.000                       0                  1080  
+CAM2_PCLK                                                                                                  7.365        0.000                      0                 3350        0.012        0.000                      0                 3350        6.192        0.000                       0                  1077  
+CAM3_PCLK                                                                                                  4.350        0.000                      0                 3356        0.017        0.000                      0                 3356        6.192        0.000                       0                  1080  
+CAM4_PCLK                                                                                                  8.266        0.000                      0                 3347        0.015        0.000                      0                 3347        6.192        0.000                       0                  1077  
+CAM5_PCLK                                                                                                  9.058        0.000                      0                 3350        0.013        0.000                      0                 3350        6.192        0.000                       0                  1077  
+IRCAM0_PCLK                                                                                                4.096        0.000                      0                 3442        0.019        0.000                      0                 3442        4.458        0.000                       0                  1002  
+IRCAM1_PCLK                                                                                                4.297        0.000                      0                 3436        0.016        0.000                      0                 3436        4.458        0.000                       0                  1001  
+IRCAM2_PCLK                                                                                                2.989        0.000                      0                 3433        0.012        0.000                      0                 3433        4.458        0.000                       0                   999  
+IRCAM3_PCLK                                                                                                2.230        0.000                      0                 3436        0.011        0.000                      0                 3436        4.458        0.000                       0                   999  
+IRCAM4_PCLK                                                                                                4.555        0.000                      0                 3436        0.011        0.000                      0                 3436        4.458        0.000                       0                  1001  
+IRCAM5_PCLK                                                                                                2.482        0.000                      0                 3439        0.013        0.000                      0                 3439        4.458        0.000                       0                  1001  
+c0_sys_clk_p                                                                                               3.862        0.000                      0                   23        0.044        0.000                      0                   23        0.750        0.000                       0                    19  
+  mmcm_clkout0                                                                                             0.022        0.000                      0               141029        0.010        0.000                      0               141029        0.009        0.000                       0                 45893  
+    pll_clk[0]                                                                                                                                                                                                                                         0.099        0.000                       0                     5  
+      pll_clk[0]_DIV                                                                                                                                                                                                                                   0.942        0.000                       0                    20  
+    pll_clk[1]                                                                                                                                                                                                                                         0.099        0.000                       0                     7  
+      pll_clk[1]_DIV                                                                                                                                                                                                                                   0.942        0.000                       0                    25  
+    pll_clk[2]                                                                                                                                                                                                                                         0.099        0.000                       0                     9  
+      pll_clk[2]_DIV                                                                                                                                                                                                                                   0.942        0.000                       0                    40  
+  mmcm_clkout5                                                                                            13.348        0.000                      0                 8389        0.010        0.000                      0                 8389        8.028        0.000                       0                  5640  
+  mmcm_clkout6                                                                                             3.170        0.000                      0                 5508        0.010        0.000                      0                 5112        1.273        0.000                       0                  1697  
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK        9.073        0.000                      0                 1002        0.018        0.000                      0                 1002       24.468        0.000                       0                   487  
+osc27                                                                                                                                                                                                                                                  9.259        0.000                       0                     2  
+  hd_clk_fb                                                                                                                                                                                                                                           35.747        0.000                       0                     3  
+  hd_clk_mmcm                                                                                              8.144        0.000                      0                 4612        0.016        0.000                      0                 4612        6.192        0.000                       0                  2372  
+
+
+------------------------------------------------------------------------------------------------
