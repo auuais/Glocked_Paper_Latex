@@ -31,7 +31,7 @@ For a trace with valid event associations, define descriptor-to-copy and descrip
 \end{equation}
 Neither includes sensor integration or ISP delay before the descriptor, and neither automatically includes display scanout. If the descriptor timestamp belongs to a newer frame than the consumed lease, these differences are diagnostics rather than the latency of that consumed frame. This caveat is applied to the archived measurements in Section~\ref{sec:hardware}.
 
-For future dynamic tests, a horizon profile can be summarized by a detrended residual
+A horizon profile can be summarized by a detrended residual
 \begin{equation}
  D_h=\sqrt{\frac{1}{|\Omega|}\sum_{x\in\Omega}
  [y_h(x)-(\hat a x+\hat b)]^2},

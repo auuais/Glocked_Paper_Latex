@@ -1,0 +1,985 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-26",
+  "scope": "Read-only source/input audit and software re-execution. Only derived paper outputs, audit runners, and small trace evidence are written; no hardware or source archive modification.",
+  "source_root": "E:\\D_Folder\\download\\test",
+  "instructions_found": "No AGENTS.md found at source or searched ancestors/subdirectories.",
+  "classification": "Archived offline software analysis, not current FPGA/MCU performance or independent physical attitude ground truth.",
+  "legacy_claim_disposition": {
+    "22_ms_42_ms": "Reproduced for exact original positive-lag unnormalized dot-correlation convention; nominal sample-index displacement versus same-sensor accelerometer angle, with centered smoothing and inferred500Hz; not calibrated causal latency.",
+    "0.14_to_0.31_deg": "Reproduced mean absolute roll differences on low-gyro samples versus accelerometer-derived angles from same sensor. Not independent absolute accuracy, not degrees of horizon error.",
+    "47_48_frames": "Reproduced in-sample optical-flow/gyro least-squares offset scan over20..74frames; frame-index mapping at assumed30fps, not physical pipeline latency."
+  },
+  "protocol": {
+    "static_bias_corrected_gyro_threshold_rad_s": 0.06,
+    "motion_threshold_rad_s": 0.5,
+    "post_motion_window_samples": 400,
+    "post_motion_window_exclusive_upper_bound": true,
+    "gyro_bias_rad_s": [
+      -0.002843,
+      0.000743,
+      -0.000966
+    ],
+    "fixed_filter": "madgwick_rp_cam(beta=0.1,smooth_win=5)",
+    "adaptive_filter": "madgwick_rp_cam_adaptive(beta_max=0.1,tol=0.08,smooth_win=5)",
+    "camera_axes": "gyro=(-Gyro_Y,-Gyro_X,-Gyro_Z),accel=(-Accel_Y,-Accel_X,-Accel_Z),then negate extracted roll",
+    "smoothing": "Centered five-sample boxcar with edge padding, hence two-sample lookahead, no causal shift correction.",
+    "filter_dt": "Timestamp_ms differences/1000; invalid/nonpositive or >=0.1s replaced with1/400s. First Madgwick step also1/400s. Delta_Time_ms is unused.",
+    "adaptive_gate": "exp(-((abs(|a|/median_record(|a|)-1))/0.08)^2); median computed over entire record.",
+    "physical_reference": "None independent of recorded accelerometer for filter agreement; optical-flow fit uses same data for offset/axis selection and score."
+  },
+  "numeric": {
+    "audit_date": "2026-10-26",
+    "software": {
+      "python": "3.9.6",
+      "numpy": "1.25.2",
+      "pandas": "1.3.1"
+    },
+    "datasets": {
+      "Indoor": {
+        "source": "E:\\D_Folder\\download\\test\\captures\\imu\\imu_data.csv",
+        "rows": 23183,
+        "timestamp_first_ms": 1167.0,
+        "timestamp_last_ms": 59997.0,
+        "timestamp_duration_s": 58.83,
+        "median_dt_ms": 2.0,
+        "median_implied_hz": 500.0,
+        "row_rate_hz": 394.05065442801293,
+        "dt_nonpositive": 5645,
+        "dt_ge100ms": 0,
+        "dt_ms": {
+          "n": 23182,
+          "mean": 2.5377448020015527,
+          "median": 2.0,
+          "p95": 6.0,
+          "max": 30.0,
+          "min": 0.0
+        },
+        "static_samples": 9243,
+        "post_motion_static_samples": 0,
+        "accel_magnitude_median": 9.218987088537926,
+        "accel_relative_deviation": {
+          "n": 23183,
+          "mean": 0.002379588807218083,
+          "median": 0.0018609802219826665,
+          "p95": 0.00592377892260898,
+          "max": 0.029828714338610784,
+          "min": 0.0
+        },
+        "adaptive_gate": {
+          "n": 23183,
+          "mean": 0.9984594837930346,
+          "median": 0.9994590139815757,
+          "p95": 0.9999976735588112,
+          "max": 1.0,
+          "min": 0.870207333717154
+        },
+        "filters": {
+          "fixed_beta_0.1": {
+            "roll_abs_difference_all": {
+              "n": 23183,
+              "mean": 0.11973424414795686,
+              "median": 0.07746851217669448,
+              "p95": 0.338460793979951,
+              "max": 2.397128631138919,
+              "min": 2.052355604975631e-05
+            },
+            "roll_abs_difference_static": {
+              "n": 9243,
+              "mean": 0.13985794163684157,
+              "median": 0.07652312020877972,
+              "p95": 0.501244778834038,
+              "max": 2.397128631138919,
+              "min": 2.052355604975631e-05
+            },
+            "pitch_abs_difference_static": {
+              "n": 9243,
+              "mean": 0.13760479674338905,
+              "median": 0.07315807342088032,
+              "p95": 0.42033680400163476,
+              "max": 3.8503606328739837,
+              "min": 1.3956713191820569e-06
+            },
+            "roll_abs_difference_post_motion_static": {
+              "n": 0
+            },
+            "roll_abs_difference_reported_post_motion": {
+              "n": 9243,
+              "mean": 0.13985794163684157,
+              "median": 0.07652312020877972,
+              "p95": 0.501244778834038,
+              "max": 2.397128631138919,
+              "min": 2.052355604975631e-05
+            },
+            "post_motion_fallback_to_all_static": true,
+            "finite": true
+          },
+          "adaptive_beta_0.1_tol_0.08": {
+            "roll_abs_difference_all": {
+              "n": 23183,
+              "mean": 0.11980232984877087,
+              "median": 0.07760639094984612,
+              "p95": 0.33855881198782245,
+              "max": 2.3977061175480605,
+              "min": 5.468650545736864e-07
+            },
+            "roll_abs_difference_static": {
+              "n": 9243,
+              "mean": 0.1399532476674582,
+              "median": 0.07663370098481193,
+              "p95": 0.5010108725217397,
+              "max": 2.3977061175480605,
+              "min": 4.966790525884335e-05
+            },
+            "pitch_abs_difference_static": {
+              "n": 9243,
+              "mean": 0.13760165805497324,
+              "median": 0.07338956216384451,
+              "p95": 0.42076940962707315,
+              "max": 3.8480514255579865,
+              "min": 2.9584316751929407e-07
+            },
+            "roll_abs_difference_post_motion_static": {
+              "n": 0
+            },
+            "roll_abs_difference_reported_post_motion": {
+              "n": 9243,
+              "mean": 0.1399532476674582,
+              "median": 0.07663370098481193,
+              "p95": 0.5010108725217397,
+              "max": 2.3977061175480605,
+              "min": 4.966790525884335e-05
+            },
+            "post_motion_fallback_to_all_static": true,
+            "finite": true
+          }
+        },
+        "timestamp_zero_deltas": 5645,
+        "timestamp_negative_deltas": 0,
+        "effective_filter_dt_sum_s": 72.94250000000002,
+        "max_bias_corrected_gyro_magnitude_rad_s": 0.3156945128335461,
+        "reported_static_mean_rounds_to_deg": 0.14
+      },
+      "Outdoor-1": {
+        "source": "E:\\D_Folder\\download\\test\\captures6\\imu\\imu_data.csv",
+        "rows": 23444,
+        "timestamp_first_ms": 1170.0,
+        "timestamp_last_ms": 59998.0,
+        "timestamp_duration_s": 58.828,
+        "median_dt_ms": 2.0,
+        "median_implied_hz": 500.0,
+        "row_rate_hz": 398.50071394574013,
+        "dt_nonpositive": 5909,
+        "dt_ge100ms": 0,
+        "dt_ms": {
+          "n": 23443,
+          "mean": 2.5094057927739626,
+          "median": 2.0,
+          "p95": 6.0,
+          "max": 39.0,
+          "min": 0.0
+        },
+        "static_samples": 3542,
+        "post_motion_static_samples": 0,
+        "accel_magnitude_median": 9.249520857707873,
+        "accel_relative_deviation": {
+          "n": 23444,
+          "mean": 0.004113083748016938,
+          "median": 0.0030825800147369353,
+          "p95": 0.01099999737323798,
+          "max": 0.04409742293298846,
+          "min": 0.0
+        },
+        "adaptive_gate": {
+          "n": 23444,
+          "mean": 0.9950463378256259,
+          "median": 0.9985163673684205,
+          "p95": 0.9999873821819237,
+          "max": 1.0,
+          "min": 0.7379781599871218
+        },
+        "filters": {
+          "fixed_beta_0.1": {
+            "roll_abs_difference_all": {
+              "n": 23444,
+              "mean": 0.18427255838346857,
+              "median": 0.11294990166570984,
+              "p95": 0.5781742337149416,
+              "max": 4.173977808096995,
+              "min": 7.954195408998999e-06
+            },
+            "roll_abs_difference_static": {
+              "n": 3542,
+              "mean": 0.3094779690859098,
+              "median": 0.16447293628756654,
+              "p95": 1.0746488047005582,
+              "max": 3.067014996795416,
+              "min": 6.549022665414128e-05
+            },
+            "pitch_abs_difference_static": {
+              "n": 3542,
+              "mean": 0.2653674244249276,
+              "median": 0.14670069001915192,
+              "p95": 0.995567096474497,
+              "max": 2.922903001720916,
+              "min": 6.177478027746819e-05
+            },
+            "roll_abs_difference_post_motion_static": {
+              "n": 0
+            },
+            "roll_abs_difference_reported_post_motion": {
+              "n": 3542,
+              "mean": 0.3094779690859098,
+              "median": 0.16447293628756654,
+              "p95": 1.0746488047005582,
+              "max": 3.067014996795416,
+              "min": 6.549022665414128e-05
+            },
+            "post_motion_fallback_to_all_static": true,
+            "finite": true
+          },
+          "adaptive_beta_0.1_tol_0.08": {
+            "roll_abs_difference_all": {
+              "n": 23444,
+              "mean": 0.18499421557248846,
+              "median": 0.11342320013647111,
+              "p95": 0.5818176827187014,
+              "max": 4.174573849042694,
+              "min": 1.924514781581621e-05
+            },
+            "roll_abs_difference_static": {
+              "n": 3542,
+              "mean": 0.3110378948534533,
+              "median": 0.1655054620826979,
+              "p95": 1.081332153317018,
+              "max": 3.0713939588181978,
+              "min": 6.635287906325837e-05
+            },
+            "pitch_abs_difference_static": {
+              "n": 3542,
+              "mean": 0.26737760078690126,
+              "median": 0.14655646873170342,
+              "p95": 0.9988159803362847,
+              "max": 2.8917776987672164,
+              "min": 4.517947262971944e-06
+            },
+            "roll_abs_difference_post_motion_static": {
+              "n": 0
+            },
+            "roll_abs_difference_reported_post_motion": {
+              "n": 3542,
+              "mean": 0.3110378948534533,
+              "median": 0.1655054620826979,
+              "p95": 1.081332153317018,
+              "max": 3.0713939588181978,
+              "min": 6.635287906325837e-05
+            },
+            "post_motion_fallback_to_all_static": true,
+            "finite": true
+          }
+        },
+        "timestamp_zero_deltas": 5909,
+        "timestamp_negative_deltas": 0,
+        "effective_filter_dt_sum_s": 73.60050000000001,
+        "max_bias_corrected_gyro_magnitude_rad_s": 0.41615239992023223,
+        "reported_static_mean_rounds_to_deg": 0.31
+      },
+      "Outdoor-2": {
+        "source": "E:\\D_Folder\\download\\test\\captures5\\imu\\imu_data.csv",
+        "rows": 23941,
+        "timestamp_first_ms": 1174.0,
+        "timestamp_last_ms": 59997.0,
+        "timestamp_duration_s": 58.823,
+        "median_dt_ms": 2.0,
+        "median_implied_hz": 500.0,
+        "row_rate_hz": 406.98366285296567,
+        "dt_nonpositive": 5955,
+        "dt_ge100ms": 0,
+        "dt_ms": {
+          "n": 23940,
+          "mean": 2.4571010860484543,
+          "median": 2.0,
+          "p95": 6.0,
+          "max": 16.0,
+          "min": 0.0
+        },
+        "static_samples": 3424,
+        "post_motion_static_samples": 0,
+        "accel_magnitude_median": 9.243490281544586,
+        "accel_relative_deviation": {
+          "n": 23941,
+          "mean": 0.0028587099575796394,
+          "median": 0.002312889369861515,
+          "p95": 0.0072636668645096325,
+          "max": 0.028527626872240974,
+          "min": 0.0
+        },
+        "adaptive_gate": {
+          "n": 23941,
+          "mean": 0.9978761963817357,
+          "median": 0.9991644965342393,
+          "p95": 0.9999897730411765,
+          "max": 1.0,
+          "min": 0.8805925607866439
+        },
+        "filters": {
+          "fixed_beta_0.1": {
+            "roll_abs_difference_all": {
+              "n": 23941,
+              "mean": 0.161205402872023,
+              "median": 0.11520052399271563,
+              "p95": 0.4533986249003804,
+              "max": 2.9586157294918785,
+              "min": 1.0370968065345765e-05
+            },
+            "roll_abs_difference_static": {
+              "n": 3424,
+              "mean": 0.19794722817129323,
+              "median": 0.13405596681854748,
+              "p95": 0.6056491743422113,
+              "max": 1.8221156313130469,
+              "min": 6.541991327946306e-05
+            },
+            "pitch_abs_difference_static": {
+              "n": 3424,
+              "mean": 0.1993926773417392,
+              "median": 0.13482299110663054,
+              "p95": 0.6239665380410049,
+              "max": 2.7548925113901492,
+              "min": 7.683759678844826e-05
+            },
+            "roll_abs_difference_post_motion_static": {
+              "n": 0
+            },
+            "roll_abs_difference_reported_post_motion": {
+              "n": 3424,
+              "mean": 0.19794722817129323,
+              "median": 0.13405596681854748,
+              "p95": 0.6056491743422113,
+              "max": 1.8221156313130469,
+              "min": 6.541991327946306e-05
+            },
+            "post_motion_fallback_to_all_static": true,
+            "finite": true
+          },
+          "adaptive_beta_0.1_tol_0.08": {
+            "roll_abs_difference_all": {
+              "n": 23941,
+              "mean": 0.1613926792636993,
+              "median": 0.11540538607667195,
+              "p95": 0.45444383507152075,
+              "max": 2.9623500342132765,
+              "min": 2.118484062308551e-05
+            },
+            "roll_abs_difference_static": {
+              "n": 3424,
+              "mean": 0.1980747299972627,
+              "median": 0.13412660491472206,
+              "p95": 0.6061197693082013,
+              "max": 1.819284191247597,
+              "min": 8.667315175614476e-05
+            },
+            "pitch_abs_difference_static": {
+              "n": 3424,
+              "mean": 0.1995886975174046,
+              "median": 0.13503568645957614,
+              "p95": 0.6241105985868562,
+              "max": 2.753096266465995,
+              "min": 8.35866617221459e-05
+            },
+            "roll_abs_difference_post_motion_static": {
+              "n": 0
+            },
+            "roll_abs_difference_reported_post_motion": {
+              "n": 3424,
+              "mean": 0.1980747299972627,
+              "median": 0.13412660491472206,
+              "p95": 0.6061197693082013,
+              "max": 1.819284191247597,
+              "min": 8.667315175614476e-05
+            },
+            "post_motion_fallback_to_all_static": true,
+            "finite": true
+          }
+        },
+        "timestamp_zero_deltas": 5955,
+        "timestamp_negative_deltas": 0,
+        "effective_filter_dt_sum_s": 73.71050000000001,
+        "max_bias_corrected_gyro_magnitude_rad_s": 0.3058184380330918,
+        "reported_static_mean_rounds_to_deg": 0.2
+      }
+    },
+    "sources": {
+      "E:\\D_Folder\\download\\test\\captures\\imu\\imu_data.csv": {
+        "bytes": 1724207,
+        "sha256": "e9458471213fb158a439e2bb43dd206a52c4214f0883d1c004acca6ad65a3079"
+      },
+      "E:\\D_Folder\\download\\test\\captures6\\imu\\imu_data.csv": {
+        "bytes": 1783278,
+        "sha256": "309e986a5f34f86ff05091e33f03f4c3bb6256f7a86d8903e079e126bb90a4ed"
+      },
+      "E:\\D_Folder\\download\\test\\captures5\\imu\\imu_data.csv": {
+        "bytes": 1814521,
+        "sha256": "35e86040f7d5a961cc33bb42b61b8afddcba34bbde3b790cbeaeb7e3009e5557"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\filters.py": {
+        "bytes": 10177,
+        "sha256": "d32fce1773a7e7b50f452ecea8ffdeb7ed70f21a2de9e261d4c8f5f7f6ca04ca"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\gen_imu_filter_fig.py": {
+        "bytes": 5066,
+        "sha256": "e57fb28bb5122f59c439feb66e7e822d0268459015276c1e82f79ff21d7915fc"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\grav_eval.py": {
+        "bytes": 2687,
+        "sha256": "5d8295c104625dcdc46b37687db2a41d8491119715afd3440bf77640443c5d7d"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\diag_sync.py": {
+        "bytes": 3868,
+        "sha256": "09a2f1f43cc25845f30e6f269b9a2e5d094471aded88dbb10455f5b0abc5a5ed"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\diag_axis.py": {
+        "bytes": 3050,
+        "sha256": "5891777497341ca906c58e2ea095b2f205ff88a0c593966e1d94c115feb3e613"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\calib_axis.py": {
+        "bytes": 4182,
+        "sha256": "7573c68436502d42d7247ab4cbd8747070e5d4e9775081de16d1225c00129056"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\verify_madgwick.py": {
+        "bytes": 2722,
+        "sha256": "fd86ca942fbfc4ba5f629cb70385d7b7134ba436b2d20bac11ff5a0b4ebf15ee"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\verify_axis.py": {
+        "bytes": 3946,
+        "sha256": "8d789b2ccc5a40e4acc6337550949c165e7a4edd65f311f469b5a7e5119ceab9"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\compile_stab_excel.py": {
+        "bytes": 15537,
+        "sha256": "948a5c68740a019bbcafeceda13d070a9b6910e2a4794ac0b96347c71a368859"
+      },
+      "E:\\D_Folder\\download\\test\\stab_compare\\gen_our_videos.py": {
+        "bytes": 12100,
+        "sha256": "f7a1841ceb4c92d02665b6e9d1917976fad0fb244fcf95bc72368ed6fe5de2fb"
+      },
+      "E:\\D_Folder\\download\\test\\captures6\\logs\\capture_log.txt": {
+        "bytes": 78072538,
+        "sha256": "f3835c8675347ba130fddebb948253bf6215064c7f56d6dfd2827da7b5cddd78"
+      },
+      "E:\\D_Folder\\download\\test\\captures5\\logs\\capture_log.txt": {
+        "bytes": 76153205,
+        "sha256": "31253493a36ab83c908c8432bd710854c9dfe4dd42d1ee19ac8c9d7ddf06995f"
+      }
+    },
+    "legacy_figure_reproduction": {
+      "filter_source": "madgwick_rp beta=0.05,smooth_win=5; comp_fix_rp alpha=0.98",
+      "fs_from_median_timestamp_hz": 499.99999999938893,
+      "transient_peak_index": 2986,
+      "transient_peak_elapsed_s": 7.461,
+      "transient_window_s": [
+        6.6610000000000005,
+        8.261000000000001
+      ],
+      "transient_samples": 629,
+      "lag_search_positive_samples": [
+        0,
+        38
+      ],
+      "results": {
+        "native_axis_madgwick_beta0.05_centered5": {
+          "original_positive_dot_lag_samples": 11,
+          "original_positive_dot_lag_ms": 22.000000000026887,
+          "original_positive_dot_score": 323.01482225435103,
+          "signed_pearson_peak_samples": 16,
+          "signed_pearson_peak_ms": 32.00000000003911,
+          "signed_pearson_peak": 0.6554166775523956,
+          "timestamp_separation_for_same_index_shift_ms": {
+            "min": 19.999999999999574,
+            "median": 26.999999999999247,
+            "mean": 28.07281553398058,
+            "p95": 41.999999999999815,
+            "max": 60.0000000000005
+          }
+        },
+        "corrected_complementary_alpha0.98": {
+          "original_positive_dot_lag_samples": 21,
+          "original_positive_dot_lag_ms": 42.00000000005133,
+          "original_positive_dot_score": 419.1526244273815,
+          "signed_pearson_peak_samples": 23,
+          "signed_pearson_peak_ms": 46.00000000005622,
+          "signed_pearson_peak": 0.7114773736229811,
+          "timestamp_separation_for_same_index_shift_ms": {
+            "min": 41.99999999999893,
+            "median": 50.00000000000071,
+            "mean": 53.53782894736842,
+            "p95": 75.00000000000017,
+            "max": 92.99999999999997
+          }
+        }
+      },
+      "gyro_final_difference_deg": 7.0969559855453355,
+      "gyro_difference_over_duration_deg_s": 0.12063908318394873
+    },
+    "reproduction_script": {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\reproduce_filter_checks.py",
+      "sha256": "68f70aac60a9a143f57f0a399e079aeb6ab8431c1b59d253fb3c52dd2b0f1a86"
+    }
+  },
+  "axis_sync": {
+    "software": {
+      "python": "3.9.6",
+      "opencv": "4.8.0",
+      "numpy": "1.25.2",
+      "pandas": "1.3.1"
+    },
+    "source": "E:\\D_Folder\\download\\test\\stab_compare\\calib_axis.py",
+    "source_sha256": "7573c68436502d42d7247ab4cbd8747070e5d4e9775081de16d1225c00129056",
+    "script_sha256": "e35e9d20696d4840f7858427e98395fe663d42bb49ebc072020a26de9377f4ea",
+    "results": [
+      {
+        "label": "Outdoor-1-default",
+        "video": "E:\\D_Folder\\download\\test\\stab_compare\\unstab.mp4",
+        "video_sha256": "f89f1646605a309be556c2223b32c071f2566470c946fe200cfc7bff483b351e",
+        "video_metadata": {
+          "width": 2534,
+          "height": 540,
+          "fps": 30.0,
+          "frames": 1800
+        },
+        "imu": "E:\\D_Folder\\download\\test\\captures6\\imu\\imu_data.csv",
+        "imu_sha256": "309e986a5f34f86ff05091e33f03f4c3bb6256f7a86d8903e079e126bb90a4ed",
+        "tracked_pairs": 899,
+        "best": {
+          "offset_frames": 48,
+          "total_r_squared": 2.982278156298413,
+          "axes": {
+            "roll_da": {
+              "coefficients_gyro_xyz": [
+                -0.0019302082258094047,
+                -0.9900056120534138,
+                0.00020517710819789592
+              ],
+              "r_squared": 0.9943661973633129
+            },
+            "pitch_dy_over_19.6": {
+              "coefficients_gyro_xyz": [
+                -0.544341097365945,
+                0.22839319603204628,
+                -0.0019247061126184961
+              ],
+              "r_squared": 0.9980394375477121
+            },
+            "yaw_dx_over_19.6": {
+              "coefficients_gyro_xyz": [
+                -0.012941409127006668,
+                -0.22676753324083063,
+                -0.5637592113103564
+              ],
+              "r_squared": 0.9898725213873879
+            }
+          }
+        },
+        "scope": "Re-executes unchanged track() with F0=1,F1=900,NSTRIP=4,MARGIN=.12. Fits and selects offset on same frames; no held-out validation."
+      },
+      {
+        "label": "Indoor",
+        "video": "E:\\D_Folder\\download\\test\\stab_compare\\cam3_in\\unstab.mp4",
+        "video_sha256": "57cecb6cd06db4514df7fad0c50d55735c8f407a30e08af8679eafbdce2494f7",
+        "video_metadata": {
+          "width": 1900,
+          "height": 540,
+          "fps": 30.0,
+          "frames": 1800
+        },
+        "imu": "E:\\D_Folder\\download\\test\\captures\\imu\\imu_data.csv",
+        "imu_sha256": "e9458471213fb158a439e2bb43dd206a52c4214f0883d1c004acca6ad65a3079",
+        "tracked_pairs": 899,
+        "best": {
+          "offset_frames": 47,
+          "total_r_squared": 2.8702129196800157,
+          "axes": {
+            "roll_da": {
+              "coefficients_gyro_xyz": [
+                -0.06039387501339006,
+                -0.9735225230513401,
+                -0.040521209973186256
+              ],
+              "r_squared": 0.9707775382693371
+            },
+            "pitch_dy_over_19.6": {
+              "coefficients_gyro_xyz": [
+                -0.5646671979445761,
+                0.24458125054843868,
+                0.015297536391498376
+              ],
+              "r_squared": 0.9933676602551181
+            },
+            "yaw_dx_over_19.6": {
+              "coefficients_gyro_xyz": [
+                -0.032057671013916544,
+                -0.22511578724187997,
+                -0.5991792831353779
+              ],
+              "r_squared": 0.9060677211555602
+            }
+          }
+        },
+        "scope": "Re-executes unchanged track() with F0=1,F1=900,NSTRIP=4,MARGIN=.12. Fits and selects offset on same frames; no held-out validation."
+      },
+      {
+        "label": "Outdoor-2",
+        "video": "E:\\D_Folder\\download\\test\\stab_compare\\cam3_c5\\unstab.mp4",
+        "video_sha256": "59bc1f3be3832a0c4ed07653fc9fcc69cba336eee529e62438a54a2d44890367",
+        "video_metadata": {
+          "width": 1900,
+          "height": 540,
+          "fps": 30.0,
+          "frames": 1800
+        },
+        "imu": "E:\\D_Folder\\download\\test\\captures5\\imu\\imu_data.csv",
+        "imu_sha256": "35e86040f7d5a961cc33bb42b61b8afddcba34bbde3b790cbeaeb7e3009e5557",
+        "tracked_pairs": 899,
+        "best": {
+          "offset_frames": 48,
+          "total_r_squared": 2.97442119443481,
+          "axes": {
+            "roll_da": {
+              "coefficients_gyro_xyz": [
+                -0.12731904648843836,
+                -0.976618877639952,
+                -0.0053272196445117714
+              ],
+              "r_squared": 0.9946269507778788
+            },
+            "pitch_dy_over_19.6": {
+              "coefficients_gyro_xyz": [
+                -0.526653826899616,
+                0.2352195334325745,
+                0.02414273276654305
+              ],
+              "r_squared": 0.995915463383719
+            },
+            "yaw_dx_over_19.6": {
+              "coefficients_gyro_xyz": [
+                -0.04432240719852564,
+                -0.22138696537782043,
+                -0.533378961780427
+              ],
+              "r_squared": 0.9838787802732124
+            }
+          }
+        },
+        "scope": "Re-executes unchanged track() with F0=1,F1=900,NSTRIP=4,MARGIN=.12. Fits and selects offset on same frames; no held-out validation."
+      }
+    ]
+  },
+  "acquisition_lineage": {
+    "Indoor": {
+      "log_present": false,
+      "candidate_shared_log": {
+        "path": "E:\\D_Folder\\download\\test\\captures6\\logs\\capture_log.txt",
+        "row_count_matches": [
+          {
+            "writing_line": 834067,
+            "writing_event": "[Sun Jun 15 07:50:35 2025.77] CaptureIMUData - Writing 23183 samples to CSV",
+            "session_start": {
+              "line": 815754,
+              "text": "[Sun Jun 15 07:49:35 2025.45] Program started at 1607429674 ms"
+            },
+            "stream_configuration": {
+              "line": 815821,
+              "text": "[Sun Jun 15 07:49:35 2025.762] CaptureIMUData - Streams configured: ACCEL (250 Hz), GYRO (400 Hz)"
+            }
+          }
+        ],
+        "finish_matches": [
+          {
+            "line": 835001,
+            "text": "[Sun Jun 15 07:50:38 2025.238] CaptureIMUData - Finished capturing IMU data: 23183 samples over 63 seconds, Actual Frequency: 367.98 Hz"
+          }
+        ]
+      },
+      "association_limit": "Matching unique sample count in appended capture log; no contemporaneous CSV hash or per-frame exposure timestamps establish immutable acquisition linkage."
+    },
+    "Outdoor-1": {
+      "log_present": true,
+      "path": "E:\\D_Folder\\download\\test\\captures6\\logs\\capture_log.txt",
+      "bytes": 78072538,
+      "sha256": "f3835c8675347ba130fddebb948253bf6215064c7f56d6dfd2827da7b5cddd78",
+      "row_count_matches": [
+        {
+          "writing_line": 877976,
+          "writing_event": "[Sun Jun 15 19:27:03 2025.666] CaptureIMUData - Writing 23444 samples to CSV",
+          "session_start": {
+            "line": 859226,
+            "text": "[Sun Jun 15 19:26:03 2025.634] Program started at 1376659 ms"
+          },
+          "stream_configuration": {
+            "line": 859293,
+            "text": "[Sun Jun 15 19:26:04 2025.369] CaptureIMUData - Streams configured: ACCEL (250 Hz), GYRO (400 Hz)"
+          }
+        }
+      ],
+      "finish_matches": [
+        {
+          "line": 878898,
+          "text": "[Sun Jun 15 19:27:06 2025.683] CaptureIMUData - Finished capturing IMU data: 23444 samples over 63 seconds, Actual Frequency: 372.13 Hz"
+        }
+      ],
+      "association_limit": "Matching unique sample count in appended capture log; no contemporaneous CSV hash or per-frame exposure timestamps establish immutable acquisition linkage."
+    },
+    "Outdoor-2": {
+      "log_present": true,
+      "path": "E:\\D_Folder\\download\\test\\captures5\\logs\\capture_log.txt",
+      "bytes": 76153205,
+      "sha256": "31253493a36ab83c908c8432bd710854c9dfe4dd42d1ee19ac8c9d7ddf06995f",
+      "row_count_matches": [
+        {
+          "writing_line": 857242,
+          "writing_event": "[Sun Jun 15 19:19:27 2025.389] CaptureIMUData - Writing 23941 samples to CSV",
+          "session_start": {
+            "line": 837491,
+            "text": "[Sun Jun 15 19:18:27 2025.357] Program started at 920381 ms"
+          },
+          "stream_configuration": {
+            "line": 837558,
+            "text": "[Sun Jun 15 19:18:28 2025.88] CaptureIMUData - Streams configured: ACCEL (250 Hz), GYRO (400 Hz)"
+          }
+        }
+      ],
+      "finish_matches": [
+        {
+          "line": 858294,
+          "text": "[Sun Jun 15 19:19:30 2025.750] CaptureIMUData - Finished capturing IMU data: 23941 samples over 63 seconds, Actual Frequency: 380.02 Hz"
+        }
+      ],
+      "association_limit": "Matching unique sample count in appended capture log; no contemporaneous CSV hash or per-frame exposure timestamps establish immutable acquisition linkage."
+    }
+  },
+  "additional_source_findings": [
+    "diag_sync.py searches only+-20frames and therefore cannot itself establish a48frame optimum.",
+    "verify_madgwick.py imports madgwick_rpy, absent from current filters.py; this script is not executable against the current archive without a change.",
+    "compile_stab_excel.py FILTER table contains hardcoded rounded values, not live calculations; reproduced computations are now recorded separately.",
+    "No post-motion-static samples exist under the specified thresholds in any of the three records; grav_eval reports all-static values in that column as a fallback.",
+    "Adaptive gate averages round to1.00 but minima are below1; no literal never-fires claim is supported.",
+    "No transfer of these RealSense D435i-derived results to current IIM46234 firmware or gravity FPGA latency is justified."
+  ],
+  "artifacts": [
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\axis_sync_results.json",
+      "bytes": 5160,
+      "sha256": "8707f88aaa20e9ff1e01c339fac4d3adf1adb3e47ae39854231c090d67f1fef8",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\capture_lineage.json",
+      "bytes": 2050,
+      "sha256": "50e0d06fb9f2a4ff97fd94c2e306ca5f1fa2181193aa7f93ce8824b491efd1cc",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures5_axis_sync_scan.csv",
+      "bytes": 4554,
+      "sha256": "2566416709359d7d09c7ec6135ea63a0f1a993f0918c00f5f6d693085dfd4d59",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures5_axis_track.csv",
+      "bytes": 59664,
+      "sha256": "aa3a78c503b2714c8ee3d704b803b5ed233c5da8c3928e7beb9577adc39b8feb",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures5_filter_traces.csv",
+      "bytes": 4303015,
+      "sha256": "335e387e218d0ea1d0c2ddf01bf0c38fc1519a32bd161198583252384942dfb0",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures6_axis_sync_scan.csv",
+      "bytes": 4503,
+      "sha256": "a06e0ab9dcf1be30bf9f9d4c478c631866ec0c923f6bf0c7dd2b4d0ab1ed1839",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures6_axis_track.csv",
+      "bytes": 59858,
+      "sha256": "a3229ce94f1a795f1740a0e2ee8ad30bfe999f32928667301a9ad3f5dd608bbb",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures6_filter_traces.csv",
+      "bytes": 4220206,
+      "sha256": "7b7dd192d97bd960f6a2543cea8496a5f212454acccab6fb88789c6e877d0ec1",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures_axis_sync_scan.csv",
+      "bytes": 4541,
+      "sha256": "c2e1c80a202c4e46371fe4f1792aa8e198be9f24c97d1b56fc9959a7a5af5dfa",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures_axis_track.csv",
+      "bytes": 60941,
+      "sha256": "0f99eae57bbf8ce82cfe565108304f5d47fe42886942d34eec54a08d2ad476d9",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\captures_filter_traces.csv",
+      "bytes": 4161117,
+      "sha256": "c9cc52a78f61a508d7664066f694578c46b0af51693edd08228770b0d973fa5c",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\filter_lag_signed_curve.csv",
+      "bytes": 15938,
+      "sha256": "d4137a4e3346dd48a602bbc1a24634e81e76328c0525798aeaafe899446226a2",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\filter_numeric_results.json",
+      "bytes": 16057,
+      "sha256": "778203d2eee869edb13d44e98860fe19a9cd80ca221f807a87895007b5a0fcb1",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\legacy_filter_figure_traces.csv",
+      "bytes": 2183591,
+      "sha256": "9ce7ce2e6f7b185847b185f54c5c7f13b8be5221368c258ceade3730a45b4477",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\reproduce_axis_sync.py",
+      "bytes": 3172,
+      "sha256": "e35e9d20696d4840f7858427e98395fe663d42bb49ebc072020a26de9377f4ea",
+      "published": false
+    },
+    {
+      "path": "C:\\SVNProjects\\IMU_Stabilize_v40\\Paper_Latex\\Panorama_Stabilization_Article (1)\\output\\video_audit_20261026\\reproduce_filter_checks.py",
+      "bytes": 6965,
+      "sha256": "68f70aac60a9a143f57f0a399e079aeb6ab8431c1b59d253fb3c52dd2b0f1a86",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/captures5_filter_traces.csv",
+      "bytes": 4303015,
+      "sha256": "335e387e218d0ea1d0c2ddf01bf0c38fc1519a32bd161198583252384942dfb0",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/captures6_filter_traces.csv",
+      "bytes": 4220206,
+      "sha256": "7b7dd192d97bd960f6a2543cea8496a5f212454acccab6fb88789c6e877d0ec1",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/captures_filter_traces.csv",
+      "bytes": 4161117,
+      "sha256": "c9cc52a78f61a508d7664066f694578c46b0af51693edd08228770b0d973fa5c",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/filter_lag_signed_curve.csv",
+      "bytes": 15938,
+      "sha256": "d4137a4e3346dd48a602bbc1a24634e81e76328c0525798aeaafe899446226a2",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/filter_numeric_results.json",
+      "bytes": 17381,
+      "sha256": "05b77c12aec07024b851ae049364a8e2c85bc8ef6f7fb6acc1382ac086a93760",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/legacy_filter_figure_traces.csv",
+      "bytes": 2183591,
+      "sha256": "9ce7ce2e6f7b185847b185f54c5c7f13b8be5221368c258ceade3730a45b4477",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_filter_reproduction/selected_filter_transient.csv",
+      "bytes": 62020,
+      "sha256": "509fabe595be087dac52700310bfde28c3e53245ac109f0a023c378f10e1b1b2",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/axis_sync_results.json",
+      "bytes": 5160,
+      "sha256": "408bc383fbb234722fc853f5ca903364cd5da76cb37cf58c5947bb8fd248a42d",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/captures5_axis_sync_scan.csv",
+      "bytes": 4554,
+      "sha256": "2566416709359d7d09c7ec6135ea63a0f1a993f0918c00f5f6d693085dfd4d59",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/captures5_axis_track.csv",
+      "bytes": 59664,
+      "sha256": "aa3a78c503b2714c8ee3d704b803b5ed233c5da8c3928e7beb9577adc39b8feb",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/captures6_axis_sync_scan.csv",
+      "bytes": 4503,
+      "sha256": "a06e0ab9dcf1be30bf9f9d4c478c631866ec0c923f6bf0c7dd2b4d0ab1ed1839",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/captures6_axis_track.csv",
+      "bytes": 59858,
+      "sha256": "a3229ce94f1a795f1740a0e2ee8ad30bfe999f32928667301a9ad3f5dd608bbb",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/captures_axis_sync_scan.csv",
+      "bytes": 4541,
+      "sha256": "c2e1c80a202c4e46371fe4f1792aa8e198be9f24c97d1b56fc9959a7a5af5dfa",
+      "published": false
+    },
+    {
+      "path": "output/video_audit_20261026/public_axis_reproduction/captures_axis_track.csv",
+      "bytes": 60941,
+      "sha256": "0f99eae57bbf8ce82cfe565108304f5d47fe42886942d34eec54a08d2ad476d9",
+      "published": false
+    }
+  ],
+  "reproduction": {
+    "public_scripts": [
+      {
+        "path": "evidence/video_audit_20261026/reproduce_filter_checks.py",
+        "bytes": 10616,
+        "sha256": "58154d06d52d2ed528f81903273819ad879881639194a32bb73765e009f01406",
+        "published": true
+      },
+      {
+        "path": "evidence/video_audit_20261026/reproduce_axis_sync.py",
+        "bytes": 5593,
+        "sha256": "b7d9c43b30fee72af8828f36da769c2a0b99c3ad7143eb7caab6f663ae62016c",
+        "published": true
+      }
+    ],
+    "arguments": "--source <archive test directory> --output <new empty directory outside source>",
+    "safety": "Resolves paths; rejects output inside source or nonempty output; verifies SHA-256 of all executed source and numeric/video inputs before evaluation; disables bytecode. Only reviewed filters.py definitions and AST-selected calib_axis.track() are executed; original top-level generators are not run.",
+    "verification": "Both public CLI runners reproduced all original dataset statistics, selected correlation results and axis/offset fits exactly; actual timestamp-separation diagnostics agree within 1e-9 ms on the recorded runtime. Attempted output under source was rejected before creation.",
+    "raw_archive_availability": "Original CSVs/videos/logs are local source inputs identified by hashes; they are not bundled or claimed publicly released.",
+    "published_derived_data": [
+      {
+        "path": "evidence/video_audit_20261026/selected_filter_transient.csv",
+        "bytes": 62020,
+        "sha256": "509fabe595be087dac52700310bfde28c3e53245ac109f0a023c378f10e1b1b2",
+        "published": true
+      },
+      {
+        "path": "evidence/video_audit_20261026/filter_lag_signed_curve.csv",
+        "bytes": 15938,
+        "sha256": "d4137a4e3346dd48a602bbc1a24634e81e76328c0525798aeaafe899446226a2",
+        "published": true
+      }
+    ],
+    "derived_data_scope": "629 selected transient rows preserve original IMU row index, recorded milliseconds, relative seconds and four same-sensor angle estimates. Signed curve contains both nominal index-based lag_ms and index shifts; nominal lag_ms is not measured physical latency.",
+    "sample_dt_sum_scope": "effective_filter_dt_sum_s excludes the initial Madgwick 1/400-second step and sums modified inter-row intervals."
+  }
+}

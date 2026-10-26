@@ -1,0 +1,100 @@
+{
+  "audit_date": "2026-10-26",
+  "source_directory": "E:/D_Folder/download/test/stab_compare",
+  "source_is_git_repository": false,
+  "source_modified": false,
+  "files": {
+    "gen_our_videos.py": {
+      "bytes": 12100,
+      "sha256": "f7a1841ceb4c92d02665b6e9d1917976fad0fb244fcf95bc72368ed6fe5de2fb"
+    },
+    "of_stabilize.py": {
+      "bytes": 3980,
+      "sha256": "96e7a23835cdbc33a0cad9b1314fcbacde96f4ad166159e3f2552803a36db5ce"
+    },
+    "compile_stab_excel.py": {
+      "bytes": 15537,
+      "sha256": "948a5c68740a019bbcafeceda13d070a9b6910e2a4794ac0b96347c71a368859"
+    },
+    "gen_log.txt": {
+      "bytes": 374,
+      "sha256": "c6053687a901c19fd925ae01feee3230a98f7aacd8e0ff42d2b1b4984577bc64"
+    },
+    "of_log.txt": {
+      "bytes": 160,
+      "sha256": "fa70013a22e7a78086a3de96907166d58f90279d171c08e1a94bc8b44199dbb2"
+    },
+    "find_segment.py": {
+      "bytes": 2421,
+      "sha256": "ccfe97c9d4b95064c71ae19da4053ff89f4c9dfc973a2bc267706d730b3d44ce"
+    },
+    "gen_beforeafter_fig.py": {
+      "bytes": 2485,
+      "sha256": "d8a45c27aabfb1575b434b026e0cbceaafecf3c85dee01c0f6e7ba50b8696991"
+    },
+    "gen_outdoor_ripple_fig.py": {
+      "bytes": 2400,
+      "sha256": "f74ad8c5c05a68e6c3f55c0b50f96f8b2f2ce8b8b860eac1d7e480d7be82feee"
+    },
+    "metrics_stab.py": {
+      "bytes": 6254,
+      "sha256": "988aed9dc49a292a6c56590c527ce27bf2944e4861b6056b1bdd857deffe7611"
+    },
+    "measure_segment.py": {
+      "bytes": 4201,
+      "sha256": "bd4a457a48d15dd7452c576fa2ff713768c5bc0fd50cd85f60ade1e638455f88"
+    }
+  },
+  "generator_source_contract": {
+    "input_source_pixels": [
+      1920,
+      1080
+    ],
+    "horizontal_vertical_map_fov_degrees": [
+      77,
+      51
+    ],
+    "strip_crop_width_scale_default": 0.66,
+    "output_scale_default": 0.5,
+    "output_fps": 30,
+    "pitch_factor_full_source_pixels_per_degree": -19.6,
+    "rig_angle_quantization_degrees": 0.25,
+    "yaw_degrees": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300
+    ],
+    "geometric_operations": [
+      "OpenCV linear undistortion/cylindrical remap",
+      "integer pitch shift using warpAffine",
+      "roll rotation about cylinder image center using warpAffine",
+      "center width crop per camera",
+      "horizontal concatenation without seam blending",
+      "area resize to even-sized output"
+    ],
+    "pose_sampling": "searchsorted first IMU timestamp at or after (frame_index + configured offset)*1000/30; clipped at ends",
+    "settings_are_source_contract_not_verified_command_line": true
+  },
+  "optical_flow_source_contract": {
+    "features": "Shi-Tomasi maxCorners400 quality0.01 minDistance30 blockSize3",
+    "flow": "Lucas-Kanade",
+    "fit": "estimateAffinePartial2D; discard fitted scale",
+    "missing_fit": "zero dx,dy,angle",
+    "path": "cumulative sum of per-frame translation and angle",
+    "smoothing": "centered 61-tap Gaussian radius30, sigma15 frames; edge padding",
+    "application": "two-pass offline processing, warp stored panorama, output MP4V at30fps",
+    "latency_scope": "uses future frames; not an online latency benchmark",
+    "scope": "specific archived global-rigid comparator, not all optical-flow/global stabilization methods"
+  },
+  "provenance_limits": [
+    "gen_log.txt and of_log.txt describe2534x540 four-camera outputs, not the1900x540 three-view clips evaluated in cam3_* subdirectories.",
+    "Exact generation command transcripts and frozen generator versions for the selected three-view clips were not located.",
+    "The generator source uses floating-point geometry, quarter-degree pose quantization, sequential warpAffine and horizontal strip concatenation; this differs from the current FPGA fixed-point maps, interpolation and seam blending.",
+    "Video/frame metric recomputation establishes values on the hashed saved outputs; it does not establish exact regeneration from raw sensor recordings or FPGA execution.",
+    "find_segment.py explicitly searches windows based on motion and image/IMU correlation; archived windows cannot be presented as preregistered or randomly sampled.",
+    "compile_stab_excel.py embeds rounded result constants and interpretive prose. Recomputations must use the underlying clips/IMU, not treat those constants as independent logs."
+  ]
+}

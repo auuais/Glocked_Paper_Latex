@@ -1,5 +1,18 @@
 # Scientific evidence review
 
+**26 October recovery update:** The user supplied a further archive at
+`E:/D_Folder/download/test`. Its videos, IMU CSVs, scripts, and logs recover the
+source of the previously unlocated numerical claims. The audit in
+[`video_audit_20261026`](video_audit_20261026/README.md) supersedes the earlier
+"not located" status below. The revised paper now includes paired physical-marker
+orientation measurements from the saved software videos. The synthetic-horizon
+and filter numbers reproduce, but their accuracy/latency interpretations do
+not: red scene objects contaminate the horizon extractor, the painted reference
+shares the correction's inertial model, and nominal correlation lags do not
+represent uniformly sampled or causal system delay. Detailed results and safe
+reproduction scripts accompany the new audit. The October 22/23 findings below
+remain a dated review of the original manuscript and its then-available sources.
+
 Reviewed 2026-10-22/23. This report concerns the **original manuscript at commit
 `4d2b5a7`**, not the replacement manuscript being edited concurrently. Its TeX
 blob SHA-256 is `90d620d0bdf86fb60970cae85c8e4f2094d7b3c573f9954a503e3c21d47d06a2`;
@@ -8,7 +21,7 @@ its bibliography blob SHA-256 is
 Original manuscript line numbers below refer to that committed TeX. This is a
 scientific and provenance audit, not a certification of the physical system.
 
-## Recommendation
+## Recommendation at the October 22/23 review
 
 Retain the calibrated rig motivation, the exact fixed-point implementation and
 its independently documented regression/build evidence, and a narrowly scoped

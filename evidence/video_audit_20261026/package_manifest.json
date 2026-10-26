@@ -1,0 +1,78 @@
+{
+  "audit_date": "2026-10-26",
+  "source_archive_read_only": "E:/D_Folder/download/test",
+  "source_archive_is_git_repo": false,
+  "byte_hash_convention": "SHA-256 of file bytes; evidence/** uses Git -text to preserve bytes",
+  "derived_csv_rows": {
+    "filter_lag_signed_curve.csv": 156,
+    "horizon_per_frame.csv": 4050,
+    "marker_detections.csv": 2700,
+    "selected_filter_transient.csv": 629
+  },
+  "files": {
+    "filter_audit.json": {
+      "bytes": 40914,
+      "sha256": "545cfa58d270f012524fda817ca89cfa8242c779d68a3ab45dfe67cacdbe53cc"
+    },
+    "filter_audit.md": {
+      "bytes": 14476,
+      "sha256": "2b1f1c1498eba229410e2548939413a431d681c5ae9c76dcec61555ed49e3545"
+    },
+    "filter_lag_signed_curve.csv": {
+      "bytes": 15938,
+      "sha256": "d4137a4e3346dd48a602bbc1a24634e81e76328c0525798aeaafe899446226a2"
+    },
+    "horizon_audit.json": {
+      "bytes": 50605,
+      "sha256": "e62d4a89ba116e58d1b94dc7ccccada71bdfc3e1c95082e3f83179552e1ca9de"
+    },
+    "horizon_audit.md": {
+      "bytes": 16768,
+      "sha256": "4675ffff35a8250a9af3ba95efad98935accf829bcb485bbd8b8d38fc4c2c8c8"
+    },
+    "horizon_per_frame.csv": {
+      "bytes": 741328,
+      "sha256": "5d6d1420cc76c774e76dd6e66a1d6ddbeea8c5e68770c34e989cee33d76b731d"
+    },
+    "marker_audit.json": {
+      "bytes": 62899,
+      "sha256": "1c77aa2c8ed84919d0b476e47c32dd6dc0961846d14cbd4797bf45a481be8883"
+    },
+    "marker_audit.md": {
+      "bytes": 10613,
+      "sha256": "cd5217aa0496ea2fde2cb7e9021d3f918b5a88dcc7e87af5fbc81d643300e84b"
+    },
+    "marker_detections.csv": {
+      "bytes": 622378,
+      "sha256": "11e09f64a46f4a531f43c3f41d24fbfed7ec2794c5ed7bc08132d6eef210fae1"
+    },
+    "protocol_audit.json": {
+      "bytes": 4284,
+      "sha256": "c47e09937c67b53f27c02405c891c2dcca28cca9f43d27a75ea4fa621e148d43"
+    },
+    "README.md": {
+      "bytes": 6083,
+      "sha256": "0bf17422274ca40732093a9d50eab13c149508e2af20d4b745a329a9765e277e"
+    },
+    "reproduce_axis_sync.py": {
+      "bytes": 5593,
+      "sha256": "b7d9c43b30fee72af8828f36da769c2a0b99c3ad7143eb7caab6f663ae62016c"
+    },
+    "reproduce_filter_checks.py": {
+      "bytes": 10616,
+      "sha256": "58154d06d52d2ed528f81903273819ad879881639194a32bb73765e009f01406"
+    },
+    "reproduce_horizon.py": {
+      "bytes": 16973,
+      "sha256": "37da72cb4a01653b612e645ee9ca89ae1a12c917c8bccc96e8f1864b4d2b735d"
+    },
+    "reproduce_marker_audit.py": {
+      "bytes": 7177,
+      "sha256": "f3c957087505b0d808fc0146c473ce6b5d0d6d6844a32019060404ec24cb9060"
+    },
+    "selected_filter_transient.csv": {
+      "bytes": 62020,
+      "sha256": "509fabe595be087dac52700310bfde28c3e53245ac109f0a023c378f10e1b1b2"
+    }
+  }
+}

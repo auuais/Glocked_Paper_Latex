@@ -1,0 +1,1399 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-26T09:26:55.337729+00:00",
+  "audit_scope": "Existing encoded synthetic-reference videos; no renderer, stabilizer or original archive-writing main executed.",
+  "script": {
+    "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/reproduce_horizon.py",
+    "bytes": 10222,
+    "sha256": "732b355daaf6d8e8db3a7162160042a493a7d17e4d0f595417918cc7abc497b3",
+    "stable_during_hash": true
+  },
+  "software": {
+    "python": "3.9.6",
+    "numpy": "1.25.2",
+    "opencv": "4.8.0"
+  },
+  "protocol": {
+    "first_frame": 900,
+    "last_frame_exclusive": 1350,
+    "stride": 1,
+    "nominal_video_interval_s": [
+      30,
+      45
+    ],
+    "color_threshold_bgr": "R>150, G<95, B<95; at least 2 red pixels per column",
+    "valid_support": "All qualifying red pixels; no component isolation or independent horizon annotation",
+    "ripple_minimum_fraction": 0.3,
+    "detrended_minimum_fraction": 0.4,
+    "aggregation": "Arithmetic mean of per-frame spatial RMS, not RMS across all spatiotemporal samples",
+    "degree_conversion_legacy_only": "RMSpx/(540/51); not an independently validated angular calibration"
+  },
+  "results": [
+    {
+      "case": "Outdoor-1",
+      "method": "Raw",
+      "directory": "cam3_out_h",
+      "capture_directory_label": "captures6",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.9994736842105263,
+      "valid_fraction_mean": 0.9999894736842107,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 8.792813894658057,
+      "original_linear_degree_value": 0.8304324233843721,
+      "mean_subtracted_mean_rms_px": 27.337655992357536,
+      "percentile_97_minus_3_mean_px": 82.75998518518519,
+      "temporal_std_of_spatial_rms_px": 12.750229539120577,
+      "mean_affine_explained_fraction": 0.7480880040276353,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/unstab.mp4",
+        "bytes": 247674804,
+        "sha256": "91f87e81a579b195823341a51ce68953816f5a9a17e15a903cadccebf764b1f3",
+        "stable_during_hash": true
+      },
+      "raw_residual_spectrum": {
+        "mean_power": [
+          4.020665823474395e-27,
+          2717432.378853196,
+          300946.3369015657,
+          23045.875594143792,
+          13562.661853668935,
+          15651.29284646367,
+          5736.278142505924,
+          2928.0349751940357,
+          4299.345453044583,
+          2565.5515826339847,
+          1366.0631020930377,
+          1968.4166985497075,
+          1477.1176399189396,
+          812.8665312907831,
+          1126.5983099010894,
+          935.9373759817981,
+          548.2706715632552,
+          730.4195992619777,
+          673.3191444050403,
+          403.3665794007303,
+          524.3001904294625,
+          509.96515186183143,
+          321.08835865691805,
+          398.16389154332524,
+          385.59896626837883,
+          249.75347032946073,
+          321.60882354924905,
+          337.456753933156,
+          219.92654900553572,
+          259.6669873001497,
+          262.1556380918708,
+          182.66625644097388,
+          217.35504770308614,
+          223.28829306036212,
+          158.9435188710324,
+          180.52474097344853,
+          201.6399611959935,
+          141.92273788983363,
+          163.66764672165837,
+          178.52721862137886,
+          137.10634820706912,
+          146.95666068553643,
+          161.7338613468095,
+          118.25031585223789,
+          138.1040310573581,
+          146.90117436571208,
+          116.07870660711433,
+          129.1056510604986,
+          129.5719319996297,
+          110.50027390845904,
+          124.88457702426963,
+          121.67918519024472,
+          100.69908021733568,
+          105.90059871641604,
+          114.63168049922714,
+          94.56683504354487,
+          103.37093482873819,
+          108.66990371990677,
+          84.80976344254869,
+          97.38195133561103,
+          100.6757921326256,
+          85.385339076525,
+          92.82568988752391,
+          94.8346483177646,
+          67.64977934737837,
+          83.96267342832851,
+          79.09473082512037,
+          72.01248308501734,
+          71.79339063898514,
+          88.66063105825677,
+          55.97255923521341,
+          96.4653526470884,
+          74.87687826679198,
+          70.14278180490204,
+          72.60244273028346,
+          74.56875643950987,
+          63.68868191061594,
+          68.82174220815938,
+          64.79763658120585,
+          63.585578653323616,
+          67.53423811391424,
+          68.34152063776928,
+          59.23665860485136,
+          66.48971465438306,
+          70.18768502861758,
+          59.66569133749455,
+          67.70833425647788,
+          61.41389222281209,
+          52.52775814075227,
+          59.5084055871629,
+          54.69077029686544,
+          55.3779157878757,
+          56.98662010514942,
+          55.78308057340853,
+          49.17950039475955,
+          52.14804455706891,
+          50.41535343435718,
+          44.67159756180888,
+          48.16878893100466,
+          53.022968820617265,
+          44.971732021707346,
+          51.46313822038694,
+          42.655368352020666,
+          49.97989245992121,
+          48.57949327437783,
+          51.07838271583515,
+          38.412217393712105,
+          43.85952267304078,
+          40.952973617357735,
+          38.66703063207158,
+          44.95500130844974,
+          39.747291140150516,
+          41.246385617933306,
+          46.479552443083044,
+          43.02624772051346,
+          46.62035599980887,
+          44.061965335100126,
+          46.453724896438246,
+          44.20873699536527,
+          44.73935657626324,
+          39.29264192659045,
+          35.66062003827099,
+          37.50551391976226,
+          36.108354820138715,
+          33.21391596778272,
+          40.43525915237289,
+          35.34163213460789,
+          38.431546586666705,
+          37.33280134845336
+        ],
+        "modes_1_to_3_fraction": 0.9785918684952768,
+        "grid_points": 256,
+        "interpolation": "linear, per-frame first-to-last valid column",
+        "note": "FFT modes over the resampled partial-panorama support, not physical full-360 azimuth harmonics."
+      }
+    },
+    {
+      "case": "Outdoor-1",
+      "method": "G-locked",
+      "directory": "cam3_out_h",
+      "capture_directory_label": "captures6",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.9994736842105263,
+      "valid_fraction_mean": 0.9999976608187134,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 0.827162802180152,
+      "original_linear_degree_value": 0.07812093131701436,
+      "mean_subtracted_mean_rms_px": 1.6502712658402547,
+      "percentile_97_minus_3_mean_px": 5.073903703703703,
+      "temporal_std_of_spatial_rms_px": 1.0301570135333262,
+      "mean_affine_explained_fraction": 0.5954682224604276,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/our_stab.mp4",
+        "bytes": 216373815,
+        "sha256": "f92e3372de04f7b158b7ab910295eb0330ce90b4b290673d17bffc1d7ba2c41a",
+        "stable_during_hash": true
+      }
+    },
+    {
+      "case": "Outdoor-1",
+      "method": "Optical flow",
+      "directory": "cam3_out_h",
+      "capture_directory_label": "captures6",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.9389473684210526,
+      "valid_fraction_mean": 0.9723380116959066,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 8.756264515661075,
+      "original_linear_degree_value": 0.8269805375902126,
+      "mean_subtracted_mean_rms_px": 23.331032592588706,
+      "percentile_97_minus_3_mean_px": 70.56464814814815,
+      "temporal_std_of_spatial_rms_px": 10.425065200520748,
+      "mean_affine_explained_fraction": 0.7174794880475823,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/of_stab.mp4",
+        "bytes": 165223228,
+        "sha256": "3896048f3d643284e647590d8626b0fd131d41e434d97cfb867bb12d078fc9b6",
+        "stable_during_hash": true
+      }
+    },
+    {
+      "case": "Outdoor-2",
+      "method": "Raw",
+      "directory": "cam3_c5_h",
+      "capture_directory_label": "captures5",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.9994736842105263,
+      "valid_fraction_mean": 0.999987134502924,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 7.557926924155009,
+      "original_linear_degree_value": 0.7138042095035286,
+      "mean_subtracted_mean_rms_px": 28.95704808564167,
+      "percentile_97_minus_3_mean_px": 86.84588148148148,
+      "temporal_std_of_spatial_rms_px": 15.683095967355348,
+      "mean_affine_explained_fraction": 0.7903465883700064,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/unstab.mp4",
+        "bytes": 263353109,
+        "sha256": "618433db12622071dc193414772d3cae5d5baca1f53ae2b56bed8649600a0adf",
+        "stable_during_hash": true
+      },
+      "raw_residual_spectrum": {
+        "mean_power": [
+          2.532455210826686e-27,
+          1895005.8808142624,
+          287960.913566556,
+          28438.368609665664,
+          10680.995450665254,
+          17422.142664825005,
+          7102.461841404827,
+          3000.0177701575058,
+          5114.279419507682,
+          3173.8964945864177,
+          1534.4253670905996,
+          2385.4285491871183,
+          1846.9488288924854,
+          950.9033316486948,
+          1397.0140619970593,
+          1171.5363473366262,
+          663.4624895872029,
+          909.863340873271,
+          817.2202935649101,
+          478.7271729953148,
+          624.5106194444301,
+          615.6954848770762,
+          383.27026672143336,
+          489.5743968471317,
+          461.0789278577276,
+          307.6249182985267,
+          382.4114740451317,
+          397.1613943891649,
+          252.6370170652836,
+          309.0111038927092,
+          322.400744651402,
+          220.83284997153928,
+          264.053754991259,
+          271.20627832117896,
+          186.05149974033506,
+          205.03743971040078,
+          240.4937301873681,
+          152.5505738177832,
+          191.43428854456394,
+          204.6254784866422,
+          148.32358438029274,
+          169.38649599934487,
+          182.12615836160387,
+          130.0148853733269,
+          156.93469232126753,
+          162.14088996339697,
+          119.19237875033579,
+          136.9235093699399,
+          155.68532690989875,
+          119.05026916118618,
+          138.3436948715505,
+          140.22705268343492,
+          108.8480934407163,
+          124.13716183912632,
+          128.30314637767282,
+          99.18980305116801,
+          110.03453037495434,
+          130.36785910946395,
+          99.63385138940984,
+          114.83429768111658,
+          115.51511721625768,
+          93.46458409730153,
+          108.52237235049815,
+          105.40484579643557,
+          84.53487801775447,
+          98.13959013427687,
+          101.12451521174513,
+          88.35240529832001,
+          86.89592427478017,
+          93.12754004506472,
+          66.83270206810205,
+          121.15651460525889,
+          85.91294470113324,
+          84.71740620630331,
+          81.00633331404198,
+          86.84045235440004,
+          72.55995751015007,
+          75.51886145705863,
+          80.94887350286194,
+          66.88479357837069,
+          74.42437256501641,
+          77.05487373362067,
+          73.76087894152863,
+          76.15772752476154,
+          75.51925592801135,
+          61.476210048862015,
+          66.77887535996533,
+          67.68505865964809,
+          56.77449356547434,
+          64.51617854795978,
+          64.58725030155205,
+          59.46154595136492,
+          64.23899099330907,
+          69.30714232135512,
+          54.797727172639505,
+          62.594330248977165,
+          64.89170363246825,
+          51.89010627781631,
+          60.62810571154646,
+          58.24664957065502,
+          51.13319926043792,
+          68.35344642754526,
+          55.740747775990464,
+          53.593741865785105,
+          55.60042977980283,
+          50.421230539606825,
+          50.33733051027852,
+          52.89164173132819,
+          49.10423634072065,
+          48.747588841044006,
+          51.663991931516236,
+          50.71860678743356,
+          47.020615102169025,
+          47.37730348242512,
+          48.52894741315562,
+          54.62298283068044,
+          52.79502508688597,
+          51.88673578809143,
+          48.131270091587034,
+          53.28205656942985,
+          50.19495168032615,
+          43.55192273047101,
+          49.862724967178615,
+          42.991422874065904,
+          46.10145951477296,
+          48.229508801814085,
+          45.022158938642654,
+          47.3042720388449,
+          44.10598519834928
+        ],
+        "modes_1_to_3_fraction": 0.9683128309037945,
+        "grid_points": 256,
+        "interpolation": "linear, per-frame first-to-last valid column",
+        "note": "FFT modes over the resampled partial-panorama support, not physical full-360 azimuth harmonics."
+      }
+    },
+    {
+      "case": "Outdoor-2",
+      "method": "G-locked",
+      "directory": "cam3_c5_h",
+      "capture_directory_label": "captures5",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 1.0,
+      "valid_fraction_mean": 1.0,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 0.7918764697807879,
+      "original_linear_degree_value": 0.07478833325707442,
+      "mean_subtracted_mean_rms_px": 1.821538234983659,
+      "percentile_97_minus_3_mean_px": 5.525822222222222,
+      "temporal_std_of_spatial_rms_px": 1.2167564854712336,
+      "mean_affine_explained_fraction": 0.6307184716905172,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/our_stab.mp4",
+        "bytes": 229664237,
+        "sha256": "d8796632c03bdee92a7624ba34a01e6e07abda6da0860c5c7773ece33f424ea3",
+        "stable_during_hash": true
+      }
+    },
+    {
+      "case": "Outdoor-2",
+      "method": "Optical flow",
+      "directory": "cam3_c5_h",
+      "capture_directory_label": "captures5",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.9368421052631579,
+      "valid_fraction_mean": 0.9764865497076024,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 7.542086975157956,
+      "original_linear_degree_value": 0.7123082143204736,
+      "mean_subtracted_mean_rms_px": 24.380563922071662,
+      "percentile_97_minus_3_mean_px": 73.0404748148148,
+      "temporal_std_of_spatial_rms_px": 12.98582052656918,
+      "mean_affine_explained_fraction": 0.7520752592779245,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/of_stab.mp4",
+        "bytes": 175789921,
+        "sha256": "1f7c54cdc923d1f499fb1ba7eedc7ef5574a08df8279c9313da6cf81560424cb",
+        "stable_during_hash": true
+      }
+    },
+    {
+      "case": "Indoor",
+      "method": "Raw",
+      "directory": "cam3_horizon",
+      "capture_directory_label": "captures",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.9873684210526316,
+      "valid_fraction_mean": 0.9986818713450293,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 19.496587433364212,
+      "original_linear_degree_value": 1.84134436870662,
+      "mean_subtracted_mean_rms_px": 41.79473233444836,
+      "percentile_97_minus_3_mean_px": 123.25980314814814,
+      "temporal_std_of_spatial_rms_px": 20.941063283177474,
+      "mean_affine_explained_fraction": 0.6509602006740584,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_horizon/unstab.mp4",
+        "bytes": 136154884,
+        "sha256": "5d3918b97ebb6dbff9eba2f52b0dbd4ae86dc73b9fe387414de73ae98c834610",
+        "stable_during_hash": true
+      },
+      "raw_residual_spectrum": {
+        "mean_power": [
+          1.147813127480108e-26,
+          7079570.817648471,
+          781368.7927841642,
+          104702.00730176056,
+          340709.1259803511,
+          249134.67770626058,
+          228835.9281396939,
+          26264.85364363643,
+          138798.1961143351,
+          210883.21904272854,
+          168200.59055160955,
+          101358.55197928745,
+          54650.30751050422,
+          68158.91454087957,
+          48103.06864075848,
+          71237.00956527374,
+          50240.39349904645,
+          103821.16941573881,
+          102195.47310538823,
+          41862.705734198054,
+          39522.44054203673,
+          43479.248924254185,
+          55446.07731804027,
+          87476.446416454,
+          36646.076168979205,
+          50353.721185347655,
+          32788.82675085539,
+          44017.63631728332,
+          53928.84550185519,
+          73130.9107941424,
+          60374.4147552054,
+          69415.26289575653,
+          32295.12589610844,
+          44525.99212219976,
+          28745.694926159886,
+          41278.54140974737,
+          36166.80604339184,
+          45362.17860831711,
+          35411.80268787383,
+          36970.00344061814,
+          26165.70182150524,
+          45985.61998443864,
+          50721.276949576066,
+          59973.79999425804,
+          47238.890454385306,
+          41517.58625822603,
+          27418.601241127082,
+          23711.556951050166,
+          23141.504183074278,
+          36976.61140485691,
+          39886.07886066218,
+          44438.152711231756,
+          32914.11255315552,
+          30983.859083326224,
+          35382.8058589481,
+          43765.679041360316,
+          41472.744481643305,
+          41280.27402808355,
+          27269.751047571914,
+          28441.80101700761,
+          21389.86969691011,
+          24829.820817810436,
+          26424.28963832462,
+          28130.80930079496,
+          24893.436274895448,
+          28764.06397721564,
+          22454.93080826441,
+          25483.85145394323,
+          26147.538801988652,
+          24990.173763681243,
+          29966.7549249911,
+          23880.646081827228,
+          19482.598652364544,
+          19738.344992083534,
+          18585.986627591985,
+          23204.405458334873,
+          27489.385641026263,
+          21453.596555598153,
+          23083.613609610667,
+          18053.4956633619,
+          16051.389903668462,
+          19731.81099228396,
+          16767.487074554687,
+          20914.874324123433,
+          18049.308015521103,
+          16152.007655370238,
+          16186.62739671719,
+          16587.245277093396,
+          16249.614301891725,
+          19264.90204278388,
+          17889.341444426125,
+          17448.48725114126,
+          16571.0556481103,
+          15964.51510458825,
+          18538.04266070425,
+          16271.821771082863,
+          17437.96400755266,
+          15064.87896125411,
+          15508.581707204765,
+          13159.83801637103,
+          15120.084842323382,
+          14583.941144430904,
+          17944.346284783012,
+          16508.865699319384,
+          17551.99612983568,
+          15110.251451282556,
+          15645.709089714774,
+          15287.486390035356,
+          14501.718756872828,
+          15218.095458037627,
+          13149.44590669369,
+          14324.877176021362,
+          14550.561723284694,
+          13644.688932909108,
+          15045.303959571098,
+          15218.649749009572,
+          15958.011531388313,
+          16652.737941246705,
+          16953.916112880608,
+          15408.897971536919,
+          14137.075665716446,
+          14068.42037509177,
+          14177.772143925811,
+          15330.83737234953,
+          13205.454638137122,
+          13758.791590061965,
+          15698.209744434245,
+          14111.096168086935,
+          19142.419335044706
+        ],
+        "modes_1_to_3_fraction": 0.6162311746446026,
+        "grid_points": 256,
+        "interpolation": "linear, per-frame first-to-last valid column",
+        "note": "FFT modes over the resampled partial-panorama support, not physical full-360 azimuth harmonics."
+      }
+    },
+    {
+      "case": "Indoor",
+      "method": "G-locked",
+      "directory": "cam3_horizon",
+      "capture_directory_label": "captures",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.99,
+      "valid_fraction_mean": 0.9996760233918128,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 11.890455837591167,
+      "original_linear_degree_value": 1.1229874957724992,
+      "mean_subtracted_mean_rms_px": 12.125626950369886,
+      "percentile_97_minus_3_mean_px": 30.920766507936506,
+      "temporal_std_of_spatial_rms_px": 3.2384910518279537,
+      "mean_affine_explained_fraction": 0.03698945672338313,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_horizon/our_stab.mp4",
+        "bytes": 133813228,
+        "sha256": "050bda97327b74a3ef2e08f661d007563afa8508fce69b75c4ec31372a2bd6c3",
+        "stable_during_hash": true
+      }
+    },
+    {
+      "case": "Indoor",
+      "method": "Optical flow",
+      "directory": "cam3_horizon",
+      "capture_directory_label": "captures",
+      "video": {
+        "width": 1900,
+        "height": 540,
+        "fps": 30.0,
+        "frame_count": 1800
+      },
+      "frames_requested": 450,
+      "frames_decoded": 450,
+      "frames_used_detrended": 450,
+      "frames_used_ripple": 450,
+      "valid_fraction_min": 0.95,
+      "valid_fraction_mean": 0.9848643274853801,
+      "original_profile_exact_checks": 7,
+      "affine_detrended_mean_rms_px": 17.6828224726893,
+      "original_linear_degree_value": 1.6700443446428783,
+      "mean_subtracted_mean_rms_px": 38.154267678684164,
+      "percentile_97_minus_3_mean_px": 111.69835089466088,
+      "temporal_std_of_spatial_rms_px": 19.75981305738022,
+      "mean_affine_explained_fraction": 0.6625040493896096,
+      "original_measure_function_executed": true,
+      "file": {
+        "path": "E:/D_Folder/download/test/stab_compare/cam3_horizon/of_stab.mp4",
+        "bytes": 121610097,
+        "sha256": "0b3e3a458c28e822f0e59aae601c33f2feab00d4ea93413114cfb493ef93ff07",
+        "stable_during_hash": true
+      }
+    }
+  ],
+  "matched_frames": {
+    "Outdoor-1": {
+      "common_frame_count": 450,
+      "note": "Frame indices are matched; valid column supports remain method-specific."
+    },
+    "Outdoor-2": {
+      "common_frame_count": 450,
+      "note": "Frame indices are matched; valid column supports remain method-specific."
+    },
+    "Indoor": {
+      "common_frame_count": 450,
+      "note": "Frame indices are matched; valid column supports remain method-specific."
+    }
+  },
+  "input_files": [
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/measure_ripple.py",
+      "bytes": 2516,
+      "sha256": "57e8699359d3da7f69c063fac3be2687ee6e6708e19c943b7e778b4ef78fa280",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/measure_ripple_spectral.py",
+      "bytes": 4491,
+      "sha256": "ccad2778ba0efb27d132ec7a27ac5d495c09ab25e77cd8257cb3c4fb1937e834",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/measure_horizon.py",
+      "bytes": 2556,
+      "sha256": "0955330dbf0e540a8bfdbaed57a1eba3de9964fc20c1abb922780d82d9c27d6f",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/gen_our_videos.py",
+      "bytes": 12100,
+      "sha256": "f7a1841ceb4c92d02665b6e9d1917976fad0fb244fcf95bc72368ed6fe5de2fb",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/of_stabilize.py",
+      "bytes": 3980,
+      "sha256": "96e7a23835cdbc33a0cad9b1314fcbacde96f4ad166159e3f2552803a36db5ce",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/filters.py",
+      "bytes": 10177,
+      "sha256": "d32fce1773a7e7b50f452ecea8ffdeb7ed70f21a2de9e261d4c8f5f7f6ca04ca",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/compile_stab_excel.py",
+      "bytes": 15537,
+      "sha256": "948a5c68740a019bbcafeceda13d070a9b6910e2a4794ac0b96347c71a368859",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/gen_outdoor_ripple_fig.py",
+      "bytes": 2400,
+      "sha256": "f74ad8c5c05a68e6c3f55c0b50f96f8b2f2ce8b8b860eac1d7e480d7be82feee",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/captures6/imu/imu_data.csv",
+      "bytes": 1783278,
+      "sha256": "309e986a5f34f86ff05091e33f03f4c3bb6256f7a86d8903e079e126bb90a4ed",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/captures5/imu/imu_data.csv",
+      "bytes": 1814521,
+      "sha256": "35e86040f7d5a961cc33bb42b61b8afddcba34bbde3b790cbeaeb7e3009e5557",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/captures/imu/imu_data.csv",
+      "bytes": 1724207,
+      "sha256": "e9458471213fb158a439e2bb43dd206a52c4214f0883d1c004acca6ad65a3079",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/cam3_c5/metrics_30_45s.json",
+      "bytes": 661,
+      "sha256": "e767a57246366036f76d0e04ec4c953222a5b43f02d053cd5e2560671d38bdb4",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/cam3_in/metrics_30_45s.json",
+      "bytes": 659,
+      "sha256": "ad436968729b72aa1694bac7ae542ba7e9bb8aa441a95070356864a856dc3339",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/cam3_out/metrics_30_45s.json",
+      "bytes": 891,
+      "sha256": "cd9ccf56652e9ff014a6c3c1dc9b6ccd2793e58a410067124bb7853abef43004",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/indoor/metrics_30_45s.json",
+      "bytes": 884,
+      "sha256": "df62fc6401636d7bd2c4d1db4f5ffb411af30f0b6b1bcfbcced25f691d85a1f1",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/metrics.json",
+      "bytes": 1073,
+      "sha256": "3367fd1b01ee7b3ce4cb1d9f5e39a17f9182c95965f46f3067de93a26388253c",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/metrics_30_45s.json",
+      "bytes": 886,
+      "sha256": "51031fc56575153dff24338887622894ea4e47dd2f5030b7d9f1ac6b19513060",
+      "stable_during_hash": true
+    },
+    {
+      "path": "E:/D_Folder/download/test/stab_compare/metrics_perstrip.json",
+      "bytes": 560,
+      "sha256": "a5c010048f70bd5044e8f1e97cb0280bae1fc2e6244cd34a22e7f1186eb7ac02",
+      "stable_during_hash": true
+    }
+  ],
+  "interpretive_verdict": {
+    "numerical_reproduction": "Nine saved-video statistics reproduce the archived rounded numbers; no new video generation performed.",
+    "physical_accuracy": "Not established: the line is synthesized from the same IMU and geometry used for correction.",
+    "indoor": "Original detector demonstrably contaminated by unrelated red objects; exclude as a horizon-error measurement.",
+    "outdoor": "Fixed sampled frames show no obvious object contamination. At most a qualified synthetic model-consistency diagnostic; method-specific support and no exact generation-command manifest remain.",
+    "manuscript_recommendation": "Retain numeric statistics in the audit and omit the synthetic horizon-error table from the manuscript. A short explanation of evidence limits is accurate.",
+    "unsupported_claims": [
+      "Independent physical gravity accuracy",
+      "Present FPGA leveling accuracy",
+      "Irreducibility under arbitrary global image warps",
+      "Universal superiority over optical-flow stabilization",
+      "Calibrated degrees from the nominal 540/51 scaling"
+    ]
+  },
+  "per_frame_csv": {
+    "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/evidence/video_audit_20261026/horizon_per_frame.csv",
+    "bytes": 741328,
+    "sha256": "5d6d1420cc76c774e76dd6e66a1d6ddbeea8c5e68770c34e989cee33d76b731d",
+    "stable_during_hash": true
+  },
+  "portable_reproduction_script": {
+    "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/evidence/video_audit_20261026/reproduce_horizon.py",
+    "bytes": 16973,
+    "sha256": "37da72cb4a01653b612e645ee9ca89ae1a12c917c8bccc96e8f1864b4d2b735d"
+  },
+  "portable_script_validation": {
+    "main_measurement_check": "All 27 rows for frames 900..902 across nine videos equal the corresponding original full-run CSV rows exactly.",
+    "matching_rows": 27,
+    "matching_video_sha256": 9,
+    "source_output_guard": "--output-root inside the source archive rejected with exit status 1, before any output creation.",
+    "sparse_inspection": "18 fixed outdoor frames plus one indoor diagnostic decoded successfully using the final script.",
+    "smoke_report": {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/portable_smoke/horizon_audit.json",
+      "bytes": 30039,
+      "sha256": "d5b5eedab24d8ce65df080c2002c6ba3eccbb32f64938166de4b7898fdfaf4a0"
+    }
+  },
+  "indoor_contamination_diagnostic": {
+    "case": "Indoor",
+    "method": "G-locked",
+    "frame_index": 1276,
+    "image": {
+      "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Indoor_G-locked_frame1276.png",
+      "bytes": 1134847,
+      "sha256": "4c37e7cd1d1f7ee51064c7aa732881c749cd65707ede54f727a93f5fea7638c4",
+      "stable_during_hash": true
+    },
+    "full_mask": {
+      "valid_columns": 1900,
+      "mean_subtracted_rms_px": 18.85985438099985,
+      "affine_detrended_rms_px": 18.63075545255978
+    },
+    "diagnostic_band": {
+      "valid_columns": 1900,
+      "mean_subtracted_rms_px": 1.5114328606979732,
+      "affine_detrended_rms_px": 0.3551000056940811
+    },
+    "diagnostic_band_rows_inclusive": [
+      250,
+      290
+    ],
+    "excluded_red_pixels": 426,
+    "excluded_columns": 170,
+    "excluded_row_min": 124,
+    "excluded_row_max": 525,
+    "interpretation": "Post-inspection band diagnostic only: demonstrates unrelated red scene pixels contaminate the original profile; not a corrected evaluation protocol."
+  },
+  "outdoor_sparse_inspection": {
+    "frames": [
+      900,
+      1125,
+      1349
+    ],
+    "method_case_frame_count": 18,
+    "visual_review": "All 18 images inspected at original size: no obvious unrelated red scene objects; one dominant painted-line component per image.",
+    "non_dominant_component_red_pixel_range": [
+      0,
+      29
+    ],
+    "limits": "Sparse spot checks support paint-profile validity for these samples, not purity over all 450 frames. No calibrated or independent physical horizon follows even if masks are pure.",
+    "records": [
+      {
+        "case": "Outdoor-1",
+        "method": "Raw",
+        "frame_index": 900,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/unstab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_Raw_frame900.png",
+          "bytes": 1625895,
+          "sha256": "4cf0892b629ee9c649466796a993f9aea8b0fe4f397095f5bedeb255e781ceea",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4714,
+        "affine_detrended_rms_px": 5.6030163289207255,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 212,
+            "width": 1900,
+            "height": 116,
+            "area_px": 4712
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "Raw",
+        "frame_index": 1125,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/unstab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_Raw_frame1125.png",
+          "bytes": 1727012,
+          "sha256": "18a7e627d99575e34716bc3f11d06c9ef4bdcfc811fa4df24c908fe4a6e03fc6",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4767,
+        "affine_detrended_rms_px": 5.533922743649117,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 248,
+            "width": 1900,
+            "height": 50,
+            "area_px": 4763
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "Raw",
+        "frame_index": 1349,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/unstab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_Raw_frame1349.png",
+          "bytes": 1806558,
+          "sha256": "82eb826c2dea38c4cc5a93ff59e64bc56367da8ee48bac2e2ef8214f07d315f6",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4692,
+        "affine_detrended_rms_px": 6.080534348491933,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 184,
+            "width": 1900,
+            "height": 172,
+            "area_px": 4688
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "G-locked",
+        "frame_index": 900,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/our_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_G-locked_frame900.png",
+          "bytes": 1518267,
+          "sha256": "9be517eacfc4e490df47c78697333dfa1e6cd56867627f928ed472b50ff3a90b",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4820,
+        "affine_detrended_rms_px": 0.5658694084509405,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 266,
+            "width": 1900,
+            "height": 8,
+            "area_px": 4820
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "G-locked",
+        "frame_index": 1125,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/our_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_G-locked_frame1125.png",
+          "bytes": 1657005,
+          "sha256": "04c2ec729262204735a3a8d1c1810d06ed97750d8d0b1ba8aa250214c184fb7f",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 5096,
+        "affine_detrended_rms_px": 0.33569588753454416,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 268,
+            "width": 1900,
+            "height": 4,
+            "area_px": 5092
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "G-locked",
+        "frame_index": 1349,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/our_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_G-locked_frame1349.png",
+          "bytes": 1610994,
+          "sha256": "5c007355a06ce28b0d4953c02be3a8d1c3e83b51bf4c72cde7fd012cd836f188",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4308,
+        "affine_detrended_rms_px": 1.090030496685761,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 265,
+            "width": 1900,
+            "height": 7,
+            "area_px": 4295
+          },
+          {
+            "x": 90,
+            "y": 266,
+            "width": 4,
+            "height": 1,
+            "area_px": 4
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "Optical flow",
+        "frame_index": 900,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/of_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_Optical_flow_frame900.png",
+          "bytes": 1461046,
+          "sha256": "3346e7074877feb72567a7987386b1baa0579646169b8983155e31b3ca47fefb",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1859,
+        "red_pixels": 4185,
+        "affine_detrended_rms_px": 5.59639271153371,
+        "red_components_area_at_least_4": [
+          {
+            "x": 12,
+            "y": 248,
+            "width": 1888,
+            "height": 80,
+            "area_px": 4178
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "Optical flow",
+        "frame_index": 1125,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/of_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_Optical_flow_frame1125.png",
+          "bytes": 1568877,
+          "sha256": "67d59b9eef952170ea3cfc589f86a8f08df1e901fa44350aa3516936b77448ec",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1865,
+        "red_pixels": 4185,
+        "affine_detrended_rms_px": 5.498432530869356,
+        "red_components_area_at_least_4": [
+          {
+            "x": 1,
+            "y": 246,
+            "width": 1899,
+            "height": 46,
+            "area_px": 4181
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-1",
+        "method": "Optical flow",
+        "frame_index": 1349,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_out_h/of_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-1_Optical_flow_frame1349.png",
+          "bytes": 1601081,
+          "sha256": "87f0d7134358cc2c92bbdf9cfdfc07d2d9ef097cb9827b70178f7bf598263034",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1834,
+        "red_pixels": 4289,
+        "affine_detrended_rms_px": 6.045876112764612,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 188,
+            "width": 1896,
+            "height": 140,
+            "area_px": 4280
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "Raw",
+        "frame_index": 900,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/unstab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_Raw_frame900.png",
+          "bytes": 1792025,
+          "sha256": "357c1f075f9098f65e2c82776e80a523c28b33601adacedba832d2a0edf2fe93",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4892,
+        "affine_detrended_rms_px": 4.946702123846683,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 224,
+            "width": 1900,
+            "height": 92,
+            "area_px": 4885
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "Raw",
+        "frame_index": 1125,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/unstab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_Raw_frame1125.png",
+          "bytes": 1733476,
+          "sha256": "ac8145043b0c86de5ec4b1853241ba2fbca06ccd9f9d2ba0c3b59c955a5a191e",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4807,
+        "affine_detrended_rms_px": 3.003032729964076,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 228,
+            "width": 1900,
+            "height": 84,
+            "area_px": 4802
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "Raw",
+        "frame_index": 1349,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/unstab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_Raw_frame1349.png",
+          "bytes": 1687081,
+          "sha256": "839140ae40c3bd89e5c733689d1b84a56fb40ad514dd020f3ba45a30917de35b",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4814,
+        "affine_detrended_rms_px": 6.047049473189546,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 223,
+            "width": 1900,
+            "height": 95,
+            "area_px": 4808
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "G-locked",
+        "frame_index": 900,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/our_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_G-locked_frame900.png",
+          "bytes": 1702067,
+          "sha256": "09dd706a5d3b3df6245e8a08e2f73a4248a6cd0f22fb7d93c61c0c2371143421",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4322,
+        "affine_detrended_rms_px": 0.8071241329186192,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 269,
+            "width": 1900,
+            "height": 5,
+            "area_px": 4308
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "G-locked",
+        "frame_index": 1125,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/our_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_G-locked_frame1125.png",
+          "bytes": 1653236,
+          "sha256": "8b666a6799f54cc5568e970e55cb36911fb7d2f323198c8b2e24fa0220d80a49",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 3999,
+        "affine_detrended_rms_px": 0.2392402939199074,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 268,
+            "width": 1900,
+            "height": 5,
+            "area_px": 3994
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "G-locked",
+        "frame_index": 1349,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/our_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_G-locked_frame1349.png",
+          "bytes": 1584607,
+          "sha256": "5b1c0b231287a6d2459a36fb35535104fc0281b6fd6e4122dd46450cd96757a6",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1900,
+        "red_pixels": 4587,
+        "affine_detrended_rms_px": 0.9973689901554934,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 266,
+            "width": 1900,
+            "height": 6,
+            "area_px": 4585
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "Optical flow",
+        "frame_index": 900,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/of_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_Optical_flow_frame900.png",
+          "bytes": 1648926,
+          "sha256": "9244864fe2e90e71c905a8545b332ec36fe2530370cf0fcc04e46afb9bfa29c3",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1893,
+        "red_pixels": 4735,
+        "affine_detrended_rms_px": 4.92790372578546,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 225,
+            "width": 1898,
+            "height": 93,
+            "area_px": 4727
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "Optical flow",
+        "frame_index": 1125,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/of_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_Optical_flow_frame1125.png",
+          "bytes": 1567315,
+          "sha256": "caccc0a261e0172c6f12f462818b9efb401aefb387d2c18b10521ec5442c112d",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1849,
+        "red_pixels": 4207,
+        "affine_detrended_rms_px": 2.993176483100759,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 252,
+            "width": 1900,
+            "height": 54,
+            "area_px": 4178
+          },
+          {
+            "x": 120,
+            "y": 252,
+            "width": 6,
+            "height": 1,
+            "area_px": 6
+          },
+          {
+            "x": 301,
+            "y": 259,
+            "width": 4,
+            "height": 1,
+            "area_px": 4
+          },
+          {
+            "x": 433,
+            "y": 261,
+            "width": 4,
+            "height": 1,
+            "area_px": 4
+          }
+        ]
+      },
+      {
+        "case": "Outdoor-2",
+        "method": "Optical flow",
+        "frame_index": 1349,
+        "video_path": "E:/D_Folder/download/test/stab_compare/cam3_c5_h/of_stab.mp4",
+        "image": {
+          "path": "C:/SVNProjects/IMU_Stabilize_v40/Paper_Latex/Panorama_Stabilization_Article (1)/output/video_audit_horizon/outdoor_sparse/Outdoor-2_Optical_flow_frame1349.png",
+          "bytes": 1517019,
+          "sha256": "868e473280204c700153dddb5a467020978023dc246e38debf5f43f86c721bec",
+          "stable_during_hash": true
+        },
+        "valid_columns": 1853,
+        "red_pixels": 4321,
+        "affine_detrended_rms_px": 5.794226475354347,
+        "red_components_area_at_least_4": [
+          {
+            "x": 0,
+            "y": 246,
+            "width": 1900,
+            "height": 70,
+            "area_px": 4307
+          }
+        ]
+      }
+    ]
+  }
+}
